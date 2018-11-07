@@ -14,17 +14,9 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>PresentationSlide</Name>
-        <Access>Public</Access>
-        <Location left="864" top="260" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
         <Name>Slide</Name>
         <Access>Public</Access>
-        <Location left="1142" top="260" />
+        <Location left="1058" top="536" />
         <Size width="192" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public SlideItem getSlideItem(int nr)</Member>
@@ -33,7 +25,7 @@
       <Entity type="Class">
         <Name>SlideItem</Name>
         <Access>Public</Access>
-        <Location left="1142" top="598" />
+        <Location left="1370" top="536" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -53,12 +45,12 @@
         <Size width="188" height="142" />
         <Collapsed>False</Collapsed>
         <Member type="Method">boolean hasNext()</Member>
-        <Member type="Method">PresentationSlide next()</Member>
+        <Member type="Method">Drawable next()</Member>
         <Member type="Method">boolean hasPrevious()</Member>
-        <Member type="Method">PresentationSlide getPrevious()</Member>
+        <Member type="Method">Drawable getPrevious()</Member>
       </Entity>
       <Entity type="Interface">
-        <Name>Collection</Name>
+        <Name>Iterable</Name>
         <Access>Public</Access>
         <Location left="604" top="88" />
         <Size width="162" height="104" />
@@ -87,68 +79,119 @@
         <Location left="318" top="555" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">public Collection getPresentation()</Member>
+        <Member type="Method">public Iterable getPresentation()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>SlidePool</Name>
         <Access>Public</Access>
-        <Location left="981" top="28" />
+        <Location left="1133" top="142" />
         <Size width="162" height="104" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
       </Entity>
+      <Entity type="Interface">
+        <Name>Drawable</Name>
+        <Access>Public</Access>
+        <Location left="923" top="280" />
+        <Size width="162" height="104" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void Draw()</Member>
+      </Entity>
+      <Entity type="Comment">
+        <Text>Nog een presentation id meegeven?</Text>
+        <Location left="98" top="597" />
+        <Size width="160" height="75" />
+      </Entity>
     </Entities>
     <Relationships>
-      <Relationship type="Association" first="2" second="3">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
       <Relationship type="Association" first="1" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1275</X>
+          <Y>654</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1345</X>
+          <Y>654</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="0" second="1">
-        <Label>
-        </Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Realization" first="4" second="5">
+      <Relationship type="Realization" first="3" second="4">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
-      <Relationship type="Association" first="0" second="4">
-        <Label>
-        </Label>
+      <Relationship type="Association" first="0" second="3">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Realization" first="0" second="6">
+      <Relationship type="Realization" first="0" second="5">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="6" second="5">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>574</X>
+          <Y>132</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="7" second="6">
-        <Label>
-        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="6" second="8">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="8" second="7">
+      <Relationship type="Dependency" first="8" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>442</X>
+          <Y>530</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>624</X>
+          <Y>501</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Dependency" first="9" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="1" second="10">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="0" second="9">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>748</X>
+          <Y>230</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1108</X>
+          <Y>230</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="10">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
@@ -156,33 +199,9 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="7" second="9">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Dependency" first="9" second="0">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="1" second="10">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Dependency" first="10" second="2">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
+      <Relationship type="Comment" first="11" second="8">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
     </Relationships>
   </ProjectItem>
