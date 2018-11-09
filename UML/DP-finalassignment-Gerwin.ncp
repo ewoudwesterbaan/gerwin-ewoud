@@ -1,0 +1,436 @@
+<Project>
+  <Name>DP-finalassignment</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>final assignment</Name>
+    <Language>Java</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Presentation</Name>
+        <Access>Public</Access>
+        <Location left="682" top="550" />
+        <Size width="166" height="179" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String title</Member>
+        <Member type="Method">public String getTitle()</Member>
+        <Member type="Method">public void setTitle(String title)</Member>
+        <Member type="Method">public Slide getSlide(int number)</Member>
+        <Member type="Method">public void append(Slide slide)</Member>
+        <Member type="Method">public void clear()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Slide</Name>
+        <Access>Public</Access>
+        <Location left="682" top="135" />
+        <Size width="178" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String title</Member>
+        <Member type="Field">private int height</Member>
+        <Member type="Field">private int width</Member>
+        <Member type="Method">public String getTitle()</Member>
+        <Member type="Method">public void setTitle(String title)</Member>
+        <Member type="Method">public void append(SlideItem item)</Member>
+        <Member type="Method">public void clear()</Member>
+        <Member type="Method">public void draw()</Member>
+        <Member type="Constructor">public Slide(int width, int height)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SlideItem</Name>
+        <Access>Public</Access>
+        <Location left="1016" top="124" />
+        <Size width="174" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int level</Member>
+        <Member type="Method">public abstract void draw()</Member>
+        <Member type="Method">public abstract Rectangle getBoundingBox()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>TextItem</Name>
+        <Access>Public</Access>
+        <Location left="910" top="347" />
+        <Size width="174" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void draw()</Member>
+        <Member type="Method">public Rectangle getBoundingBox()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>BitmapItem</Name>
+        <Access>Public</Access>
+        <Location left="1126" top="347" />
+        <Size width="174" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void draw()</Member>
+        <Member type="Method">public Rectangle getBoundingBox()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Style</Name>
+        <Access>Public</Access>
+        <Location left="1473" top="124" />
+        <Size width="163" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int indent</Member>
+        <Member type="Field">private int leading</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>XMLPresentationLoader</Name>
+        <Access>Public</Access>
+        <Location left="806" top="1023" />
+        <Size width="174" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public Presentation load(String fn)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>PresentationLoader</Name>
+        <Access>Public</Access>
+        <Location left="806" top="870" />
+        <Size width="174" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">Presentation load(String fn)</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>MenuController</Name>
+        <Access>Public</Access>
+        <Location left="82" top="482" />
+        <Size width="163" height="77" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>KeyController</Name>
+        <Access>Public</Access>
+        <Location left="82" top="392" />
+        <Size width="163" height="77" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SlideViewerComponent</Name>
+        <Access>Public</Access>
+        <Location left="123" top="203" />
+        <Size width="163" height="77" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SlideViewerFrame</Name>
+        <Access>Public</Access>
+        <Location left="123" top="28" />
+        <Size width="163" height="77" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>create</Text>
+        <Location left="123" top="120" />
+        <Size width="57" height="50" />
+      </Entity>
+      <Entity type="Class">
+        <Name>SlideItemFactory</Name>
+        <Access>Public</Access>
+        <Location left="1065" top="814" />
+        <Size width="163" height="77" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PresentationManager</Name>
+        <Access>Public</Access>
+        <Location left="379" top="814" />
+        <Size width="227" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int numberOfThreads</Member>
+        <Member type="Field">private Thread currentThread</Member>
+        <Member type="Method">public SlideIterator selectThread(int number)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>TextItemStyle</Name>
+        <Access>Public</Access>
+        <Location left="1379" top="347" />
+        <Size width="163" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Font font</Member>
+        <Member type="Field">private Color color</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>BitmapStyle</Name>
+        <Access>Public</Access>
+        <Location left="1568" top="347" />
+        <Size width="163" height="77" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>select other thread</Text>
+        <Location left="82" top="579" />
+        <Size width="114" height="50" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>misschien is deze Style-hierarchy niet nodig...</Text>
+        <Location left="1568" top="477" />
+        <Size width="151" height="50" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>view namespace</Text>
+        <Location left="308" top="28" />
+        <Size width="101" height="50" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>controller
+namespace</Text>
+        <Location left="82" top="325" />
+        <Size width="101" height="50" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>Observer pattern
+(voor eventuele meerdere views/listeners)</Text>
+        <Location left="376" top="231" />
+        <Size width="228" height="50" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>model namespace</Text>
+        <Location left="682" top="28" />
+        <Size width="101" height="50" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>ThreadManager wordt vanuit de main/hoofdobject aangemaakt
+(Singleton?)</Text>
+        <Location left="418" top="962" />
+        <Size width="188" height="64" />
+      </Entity>
+      <Entity type="Interface">
+        <Name>SlideIterator</Name>
+        <Access>Public</Access>
+        <Location left="393" top="336" />
+        <Size width="178" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">bool hasNext()</Member>
+        <Member type="Method">bool hasPrevious()</Member>
+        <Member type="Method">Slide next()</Member>
+        <Member type="Method">Slide previous()</Member>
+        <Member type="Method">Slide selectSlide(int number)</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>Thread</Name>
+        <Access>Public</Access>
+        <Location left="393" top="550" />
+        <Size width="178" height="213" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private List&lt;int&gt; slideIndices</Member>
+        <Member type="Field">private int currentSlideIndex</Member>
+        <Member type="Field">private Slide currentSlide</Member>
+        <Member type="Method">public bool hasNext()</Member>
+        <Member type="Method">public bool hasPrevious()</Member>
+        <Member type="Method">public Slide next()</Member>
+        <Member type="Method">public Slide previous()</Member>
+        <Member type="Method">public Slide gotoSlide(int number)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="1" second="2">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>894</X>
+          <Y>163</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>0..*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Dependency" first="2" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1217</X>
+          <Y>146</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="3" second="2">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="4" second="2">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="6" second="7">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="1" second="10">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>643</X>
+          <Y>222</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="10" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>227</X>
+          <Y>130</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Dependency" first="11" second="10">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>195</X>
+          <Y>130</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="15" second="5">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="16" second="5">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="8" second="14">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>209</X>
+          <Y>590</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>340</X>
+          <Y>872</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="9" second="24">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="8" second="24">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>278</X>
+          <Y>503</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>364</X>
+          <Y>458</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="14" second="7">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>631</X>
+          <Y>899</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="7" second="13">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>778</X>
+          <Y>525</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>778</X>
+          <Y>394</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>0..*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="14" second="0">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>631</X>
+          <Y>844</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>757</X>
+          <Y>754</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Realization" first="25" second="24">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="25" second="0">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>596</X>
+          <Y>579</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>657</X>
+          <Y>579</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="14" second="25">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>0..*</EndMultiplicity>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
