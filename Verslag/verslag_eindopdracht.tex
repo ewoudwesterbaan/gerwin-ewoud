@@ -15,7 +15,7 @@
 \section*{Studentgegevens}
 \begin{description}
 	\item [Cursuscode] IM0102
-	\item \todo{Titel van het scenario}
+	\item Scenario 6: Meerdere slidesets
 	\item [Naam] \todo{invullen}
 	\item [Studentnummer] \todo{invullen}
 	\item [Naam] \todo{invullen}
@@ -32,13 +32,11 @@ Deze uitgebreid met de concepten uit de scenario beschrijving
 \section{Probleemanalyse}
 \subsection{Dingen}
 \begin{description}
-\item[Slide verzameling] is een verzameling van slides (een ‘bak’ van slides).
-\item[Presentatie] is de weergave van slides in een bepaalde volgorde. De presentatie haalt de slides die nodig zijn uit de slides verzameling.
-\item[Slide] is de weergave van een pagina op het scherm.
-Een slide heeft een titel, een nummer en slideitems.
-\item[Slide item] is een element op een slide. Slideitems worden onder elkaar getoond en is van een bepaalde type.
-Een slideItem heeft een nesting level. Deze wordt gebruikt om het item in een stijl te presenteren. (Een slideitem heeft een nummer.)
-\item[Stijl] is een vorm van weergave van een slideitem in termen van horizontale uitlijning, lettertype, kleur, en lettertypegrootte.
+\item[Presentatie] is de weergave van gespecificeerde slides in een vaste volgorde. Slides kunnen meerdere keren voorkomen. Een presentatie bevat een titel. Deze is altijd zichtbaar tijdens de weergave van de presentatie. In het programma kunnen meerdere presentaties beschikbaar zijn.
+\item[Slide] is de weergave van een pagina op het scherm. Een slide heeft een titel, een nummer, slide items en heeft een bepaalde oppervlakte.
+\item[Slide item] is een element op een slide. Slide items worden onder elkaar getoond en is van een bepaalde type.
+Een slide item wordt in een stijl te gepresenteerd.
+\item[Stijl] is een vorm van weergave van een slide item in termen van horizontale uitlijning, lettertype, kleur, en lettertypegrootte.
 \end{description}
 
 \subsection{Regels}
@@ -46,26 +44,49 @@ Een slideItem heeft een nesting level. Deze wordt gebruikt om het item in een st
 \item[Presentatie] bepaalt de volgorde van de slides
 (Een presentatie bepaalt wat van de slides weergegeven moet worden.)
 \item[Slide item] bepaalt de stijl van de weergave.
-\item[Stijl] bepaalt doe een slideitem wordt weergegeven. 
+\item[Stijl] bepaalt doe een slide item wordt weergegeven. 
 \end{description}
 
 \subsection{Verantwoordelijkheden}
 \begin{description}
-\item[Slide verzameling] is verantwoordelijk voor het beheren van de slides en het teruggeven van een slide.
-\item[Presentatie] is verantwoordelijk voor de volgorde van de slides en deze aanbieden.
+\item[Presentatie] is verantwoordelijk voor de correcte volgorde van de slides en het beschikbaar stellen hiervan. 
+\item[Slide] kan zijn titel tonen en de slide items schalen en onder elkaar laten tekenen.
+\item[Slide item] kan zichzelf tekenen.
 \item[Inlezen] Slides verzameling opbouwen en presentaties opbouwen (delegeren).
 \item[View] Het laten zien van een slide aan de gebruiker.
 \item[Applicatie] Inlezen van slide verzameling en presentaties hiervan.
 \end{description}
 
+\subsection{Aannames}
+Bestaande presentaties moeten ook ingelezen kunnen worden. Indien er geen presentaties zijn, kunnen alle slides weergegeven worden.
 
 \section{Ontwerp}
-
+\begin{description}
+\item[PresentationSelector] is verantwoordelijk voor de omgang van meerdere presentaties. Het biedt afnemers de mogelijkheid om een presentatie te kiezen.
+\item[Presentation] is verantwoordelijk voor de correcte volgorde van de slides, het beschikbaar stellen hiervan en afnemers laten weten dat de slide beschikbaar is. Het biedt mogelijkheden om door slides te navigeren.
+\item[Slide] is verantwoordelijk voor het tekenen van zichzelf.
+\item[SlideItem] Zorg dragen voor het tekenen van items.
+\item[PresentationObserver] verantwoordelijk voor reageren op het wijzigen van de aangeboden slide (dat er een andere slide ter beschikking wordt gesteld).
+\item[Loader] Laden van presentaties vanaf een persistente opslag.
+\end{description}
 
 \section{Keuzen}
 \begin{description}
 \item[Graphische gebruikers interface] Model-View-Controller?
-\item[Itereren door slides] Iterator?
+\item[Iterator] Voor het aanbieden van slides aan de afnemer hebben we gekozen voor een iterator patroon. De afnemer (MenuController) \todo{lijkt me niet helemaal juist} moet namelijk beschikking hebben over de objecten (Slides).
+\begin{itemize}
+\item Aggregator: PresentationSelector
+\item Iterator: Presentation
+\item ConcreteAggregator: PresentationManager
+\item ConcreteIterator: SlideSequence en SlideDeck
+\end{itemize}
+ \todo{Waarom hebben we niet gekozen voor iterator bij slide.}
+ \item[Observer] Voor het kenbaar maken dat een andere slide getoond moet worden, hebben we gekozen voor het observable pattern. De reden is dat in de tokomst mogelijk andere observers ook acties moeten uitvoeren op het moment dat een andere slide getoond wordt. Te denken is aan een presentatorscherm waar opmerkingen op getoond worden.
+ \begin{itemize}
+\item Subject: Presentation
+\item Observer: PresentationObserver
+\end{itemize}
+ 
 \item[SlideItem] Strategy?
 \item[Slide verzameling] PoolFactory?
 \item[Stijl] Decorator?
