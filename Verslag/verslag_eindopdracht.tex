@@ -62,36 +62,49 @@ Bestaande presentaties moeten ook ingelezen kunnen worden. Indien er geen presen
 
 \section{Ontwerp}
 \begin{description}
-\item[PresentationSelector] is verantwoordelijk voor de omgang van meerdere presentaties. Het biedt afnemers de mogelijkheid om een presentatie te kiezen.
+\item[Presenter] is verantwoordelijk voor de omgang van meerdere presentaties. Het biedt afnemers de mogelijkheid om een presentatie te kiezen.
 \item[Presentation] is verantwoordelijk voor de correcte volgorde van de slides, het beschikbaar stellen hiervan en afnemers laten weten dat de slide beschikbaar is. Het biedt mogelijkheden om door slides te navigeren.
 \item[Slide] is verantwoordelijk voor het tekenen van zichzelf.
 \item[SlideItem] Zorg dragen voor het tekenen van items.
+\item[Item] is verantwoordelijk voor het tekenen van een TextItemof BitmapItem.
+\item[PresenterObserver] verantwoordelijk voor het reageren op wijziging van de presentatie. Bijvoorbeeld het veranderen van een presentatie.
 \item[PresentationObserver] verantwoordelijk voor reageren op het wijzigen van de aangeboden slide (dat er een andere slide ter beschikking wordt gesteld).
 \item[Loader] Laden van presentaties vanaf een persistente opslag.
 \end{description}
 
 \section{Keuzen}
 \begin{description}
-\item[Graphische gebruikers interface] Model-View-Controller?
-\item[Iterator] Voor het aanbieden van slides aan de afnemer hebben we gekozen voor een iterator patroon. De afnemer (MenuController) \todo{lijkt me niet helemaal juist} moet namelijk beschikking hebben over de objecten (Slides).
+\item[Model-View-Controller] als architectuur ontwerp. Het model is verantwoordelijk voor het kenbaar maken van wijzigingen. Dit wordt gedaan door het Observer patroon twee keer toe te passen.
+\item[Observer] Voor het kenbaar maken dat een andere slide getoond moet worden, hebben we gekozen voor het observer pattern. De reden is dat in de toekomst mogelijk andere observers ook acties moeten uitvoeren op het moment dat een andere slide getoond wordt. Te denken is aan een presentatorscherm waar opmerkingen op getoond worden. Tevens hebben we gekozen voor dit patroon bij het kenbaar maken dat de presentation gewijzigd is. In dit geval is het de Presenter die PresenterObservers inlichten.
 \begin{itemize}
-\item Aggregator: PresentationSelector
+\item Subject: Presentation / Presenter
+\item Observer: PresentationObserver / PresenterObserver
+\end{itemize}
+\item[Iterator] Voor het aanbieden van slides aan de afnemer hebben we gekozen voor een iterator patroon. De afnemers, alle PresentationObservers moet beschikking hebben over de objecten (Slides).
+\begin{itemize}
+\item Aggregator: Presenter
 \item Iterator: Presentation
 \item ConcreteAggregator: PresentationManager
 \item ConcreteIterator: SlideSequence en SlideDeck
 \end{itemize}
- \todo{Waarom hebben we niet gekozen voor iterator bij slide.}
- \item[Observer] Voor het kenbaar maken dat een andere slide getoond moet worden, hebben we gekozen voor het observable pattern. De reden is dat in de tokomst mogelijk andere observers ook acties moeten uitvoeren op het moment dat een andere slide getoond wordt. Te denken is aan een presentatorscherm waar opmerkingen op getoond worden.
- \begin{itemize}
-\item Subject: Presentation
-\item Observer: PresentationObserver
+We hebben dit patroon niet toegepast bij de slideitems, omdat de afnemer niet direct toegang hoeft te hebben tot de slideitems.
+
+\item[Strategy] De SlideItem heeft een item en een stijl. De slideitem geeft de stijl aan de item om deze zich te laten tekenen. De implementatie van het tekenen met een gegeven stijl kan anders zijn voor de verschillende type items.
+\begin{itemize}
+\item Strategy: Item
+\item ConcreteStrategies: TextItem, BitmapItem
+\item Context: SlideItem
 \end{itemize}
- 
-\item[SlideItem] Strategy?
-\item[Slide verzameling] PoolFactory?
-\item[Stijl] Decorator?
-\item[PresentationSlide] Adapter?
+
+\item[Stijl] \todo{Decorator?}
 \end{description}
+\subsection{Toekomstige veranderingen}
+\begin{description}
+\item[Bepaalde delen laten zien] Het laten zien van bepaalde delen van een slide is gegeven als een mogelijke verandering. Dit is te implementeren door een nieuwe concrete klasse te definiëren die de Slide interface implementeerd. Doordat deze klasse een associatie heeft naar de SlideDeckSlide kan de klasse de SlideItems benaderen en in de implementatie van de draw() methode hoeven dan alleen deze specifieke SlideItems opgehaald te worden.
+\item[Meerdere views] Zoals al aangegeven bij de observer pattern, is het mogelijk om bijvoorbeeld een aparte presentator view te maken waar opmerkingen op te zien zijn.
+\item[Andere type items] Het is mogelijk om andere type items te tonen op een slide, door een nieuwe concrete klasse te maken die de Item interface implementeerd.
+\end{description}
+
 
 \section{Sourcecode}
 

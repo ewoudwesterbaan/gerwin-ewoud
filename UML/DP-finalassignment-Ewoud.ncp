@@ -152,24 +152,19 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Comment">
-        <Text>select other thread</Text>
-        <Location left="424" top="894" />
-        <Size width="114" height="50" />
-      </Entity>
-      <Entity type="Comment">
         <Text>view namespace</Text>
-        <Location left="100" top="172" />
+        <Location left="100" top="209" />
         <Size width="101" height="50" />
       </Entity>
       <Entity type="Comment">
         <Text>controller
 namespace</Text>
-        <Location left="100" top="311" />
+        <Location left="100" top="345" />
         <Size width="101" height="50" />
       </Entity>
       <Entity type="Comment">
         <Text>Observer pattern</Text>
-        <Location left="1128" top="228" />
+        <Location left="1120" top="230" />
         <Size width="112" height="50" />
       </Entity>
       <Entity type="Comment">
@@ -223,7 +218,7 @@ namespace</Text>
       </Entity>
       <Entity type="Comment">
         <Text>Backwards compatibility.
-Implementatie van interface alleen wanneer bestaande functionaliteit moet blijven werken (het laten zien van een slidedeck zonder presentaties, 'threads'). Benoemen als aanname.</Text>
+Implementatie van interface alleen wanneer bestaande functionaliteit moet blijven werken (het laten zien van een slidedeck zonder sequences). Benoemen als aanname.</Text>
         <Location left="1299" top="635" />
         <Size width="206" height="117" />
       </Entity>
@@ -269,9 +264,10 @@ Implementatie van interface alleen wanneer bestaande functionaliteit moet blijve
         <Member type="Method">Rectangle getBoudingBox()</Member>
       </Entity>
       <Entity type="Comment">
-        <Text>Misschien een interface erboven?</Text>
+        <Text>Misschien een interface erboven? SlideItem heeft nu een directe associatie met een concrete klasse.
+Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoordelijkheid. Dit lijkt me niet helemaal juist.</Text>
         <Location left="2829" top="445" />
-        <Size width="160" height="75" />
+        <Size width="231" height="146" />
       </Entity>
       <Entity type="Comment">
         <Text>Commonalities</Text>
@@ -289,7 +285,6 @@ Implementatie van interface alleen wanneer bestaande functionaliteit moet blijve
         <Location left="960" top="444" />
         <Size width="324" height="230" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">private List&lt;PresentationObserver&gt; observers</Member>
         <Member type="Method">public bool hasNext()</Member>
         <Member type="Method">public bool hasPrevious()</Member>
         <Member type="Method">public Slide next()</Member>
@@ -309,9 +304,9 @@ Implementatie van interface alleen wanneer bestaande functionaliteit moet blijve
         <Member type="Method">void update(Slide slide)</Member>
       </Entity>
       <Entity type="Comment">
-        <Text>singleton
-er mag maar één presentationSelector zijn</Text>
-        <Location left="329" top="1046" />
+        <Text>Singleton
+er mag maar één Presenter zijn</Text>
+        <Location left="263" top="1021" />
         <Size width="158" height="70" />
       </Entity>
       <Entity type="Interface">
@@ -321,6 +316,11 @@ er mag maar één presentationSelector zijn</Text>
         <Size width="214" height="94" />
         <Collapsed>False</Collapsed>
         <Member type="Method">void update(Presentation presentation)</Member>
+      </Entity>
+      <Entity type="Comment">
+        <Text>Start van de applicatie</Text>
+        <Location left="732" top="90" />
+        <Size width="103" height="50" />
       </Entity>
     </Entities>
     <Relationships>
@@ -378,7 +378,7 @@ er mag maar één presentationSelector zijn</Text>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="19" second="0">
+      <Relationship type="Association" first="18" second="0">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
@@ -404,7 +404,7 @@ er mag maar één presentationSelector zijn</Text>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="2" second="20">
+      <Relationship type="Association" first="2" second="19">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
@@ -416,7 +416,7 @@ er mag maar één presentationSelector zijn</Text>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="21" second="1">
+      <Relationship type="Association" first="20" second="1">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -428,7 +428,7 @@ er mag maar één presentationSelector zijn</Text>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Dependency" first="20" second="5">
+      <Relationship type="Dependency" first="19" second="5">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -440,15 +440,15 @@ er mag maar één presentationSelector zijn</Text>
           <Y>451</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Realization" first="1" second="22">
+      <Relationship type="Realization" first="1" second="21">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Realization" first="21" second="22">
+      <Relationship type="Realization" first="20" second="21">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Association" first="22" second="2">
+      <Relationship type="Association" first="21" second="2">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
@@ -466,7 +466,7 @@ er mag maar één presentationSelector zijn</Text>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Comment" first="24" second="21">
+      <Relationship type="Comment" first="23" second="20">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -474,11 +474,11 @@ er mag maar één presentationSelector zijn</Text>
           <Y>824</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Dependency" first="25" second="6">
+      <Relationship type="Dependency" first="24" second="6">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
-      <Relationship type="Dependency" first="12" second="19">
+      <Relationship type="Dependency" first="12" second="18">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -498,7 +498,7 @@ er mag maar één presentationSelector zijn</Text>
           <Y>1033</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Dependency" first="12" second="21">
+      <Relationship type="Dependency" first="12" second="20">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -518,7 +518,7 @@ er mag maar één presentationSelector zijn</Text>
           <Y>1099</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Association" first="8" second="26">
+      <Relationship type="Association" first="8" second="25">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
@@ -536,11 +536,11 @@ er mag maar één presentationSelector zijn</Text>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Realization" first="13" second="26">
+      <Relationship type="Realization" first="13" second="25">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Dependency" first="27" second="13">
+      <Relationship type="Dependency" first="26" second="13">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -552,7 +552,7 @@ er mag maar één presentationSelector zijn</Text>
           <Y>951</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Association" first="2" second="28">
+      <Relationship type="Association" first="2" second="27">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -562,7 +562,7 @@ er mag maar één presentationSelector zijn</Text>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Realization" first="4" second="28">
+      <Relationship type="Realization" first="4" second="27">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -570,7 +570,7 @@ er mag maar één presentationSelector zijn</Text>
           <Y>802</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Realization" first="3" second="28">
+      <Relationship type="Realization" first="3" second="27">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -606,15 +606,15 @@ er mag maar één presentationSelector zijn</Text>
           <Y>1104</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Comment" first="29" second="5">
+      <Relationship type="Comment" first="28" second="5">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>2899</X>
-          <Y>545</Y>
+          <Y>616</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Association" first="32" second="22">
+      <Relationship type="Association" first="31" second="21">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
@@ -624,7 +624,7 @@ er mag maar één presentationSelector zijn</Text>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Association" first="26" second="32">
+      <Relationship type="Association" first="25" second="31">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
@@ -634,15 +634,15 @@ er mag maar één presentationSelector zijn</Text>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Generalization" first="19" second="32">
+      <Relationship type="Generalization" first="18" second="31">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Generalization" first="0" second="32">
+      <Relationship type="Generalization" first="0" second="31">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Realization" first="10" second="33">
+      <Relationship type="Realization" first="10" second="32">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -654,7 +654,7 @@ er mag maar één presentationSelector zijn</Text>
           <Y>162</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Association" first="32" second="33">
+      <Relationship type="Association" first="31" second="32">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -666,7 +666,7 @@ er mag maar één presentationSelector zijn</Text>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Association" first="9" second="26">
+      <Relationship type="Association" first="9" second="25">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -702,7 +702,7 @@ er mag maar één presentationSelector zijn</Text>
           <Y>328</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Association" first="26" second="35">
+      <Relationship type="Association" first="25" second="34">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -714,13 +714,21 @@ er mag maar één presentationSelector zijn</Text>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Realization" first="11" second="35">
+      <Relationship type="Realization" first="11" second="34">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>613</X>
           <Y>184</Y>
         </BendPoint>
+      </Relationship>
+      <Relationship type="Comment" first="33" second="26">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Comment" first="35" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
       </Relationship>
     </Relationships>
   </ProjectItem>
