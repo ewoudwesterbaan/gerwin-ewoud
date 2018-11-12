@@ -7,7 +7,7 @@
       <Entity type="Class">
         <Name>SlideDeck</Name>
         <Access>Public</Access>
-        <Location left="1168" top="778" />
+        <Location left="1168" top="903" />
         <Size width="218" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String title</Member>
@@ -24,7 +24,7 @@
       <Entity type="Class">
         <Name>SlideDeckSlide</Name>
         <Access>Public</Access>
-        <Location left="1804" top="778" />
+        <Location left="1804" top="903" />
         <Size width="212" height="247" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String title</Member>
@@ -40,7 +40,7 @@
       <Entity type="Class">
         <Name>SlideItem</Name>
         <Access>Public</Access>
-        <Location left="2108" top="487" />
+        <Location left="2108" top="612" />
         <Size width="174" height="128" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int level</Member>
@@ -51,7 +51,7 @@
       <Entity type="Class">
         <Name>TextItem</Name>
         <Access>Public</Access>
-        <Location left="2158" top="887" />
+        <Location left="2158" top="1012" />
         <Size width="174" height="111" />
         <Collapsed>False</Collapsed>
         <Member type="Method">void draw(Style style)</Member>
@@ -61,7 +61,7 @@
       <Entity type="Class">
         <Name>BitmapItem</Name>
         <Access>Public</Access>
-        <Location left="2364" top="887" />
+        <Location left="2364" top="1012" />
         <Size width="174" height="111" />
         <Collapsed>False</Collapsed>
         <Member type="Method">void draw(Style style)</Member>
@@ -71,7 +71,7 @@
       <Entity type="Class">
         <Name>Style</Name>
         <Access>Public</Access>
-        <Location left="2619" top="487" />
+        <Location left="2619" top="612" />
         <Size width="163" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int indent</Member>
@@ -83,7 +83,7 @@
       <Entity type="Class">
         <Name>XMLPresentationLoader</Name>
         <Access>Public</Access>
-        <Location left="1100" top="1267" />
+        <Location left="1100" top="1392" />
         <Size width="174" height="94" />
         <Collapsed>False</Collapsed>
         <Member type="Method">Presentation load(String fn)</Member>
@@ -92,7 +92,7 @@
       <Entity type="Interface">
         <Name>Loader</Name>
         <Access>Public</Access>
-        <Location left="848" top="1124" />
+        <Location left="848" top="1249" />
         <Size width="174" height="94" />
         <Collapsed>False</Collapsed>
         <Member type="Method">Presentation load(String fn)</Member>
@@ -100,7 +100,7 @@
       <Entity type="Class">
         <Name>MenuController</Name>
         <Access>Public</Access>
-        <Location left="548" top="345" />
+        <Location left="548" top="470" />
         <Size width="163" height="77" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -108,7 +108,7 @@
       <Entity type="Class">
         <Name>KeyController</Name>
         <Access>Public</Access>
-        <Location left="732" top="345" />
+        <Location left="732" top="470" />
         <Size width="163" height="77" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -116,25 +116,25 @@
       <Entity type="Class">
         <Name>SlideViewerComponent</Name>
         <Access>Public</Access>
-        <Location left="903" top="209" />
-        <Size width="163" height="94" />
+        <Location left="1028" top="334" />
+        <Size width="292" height="94" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">void update(Slide slide)</Member>
+        <Member type="Method">void update(Presentation presentation, Slide slide)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>SlideViewerFrame</Name>
         <Access>Public</Access>
-        <Location left="592" top="209" />
-        <Size width="229" height="94" />
+        <Location left="592" top="334" />
+        <Size width="303" height="94" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">void update(Presentation presentation)</Member>
+        <Member type="Method">void update(Presentation presentation, Slide slide)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>PresentationFactory</Name>
         <Access>Public</Access>
-        <Location left="1415" top="1124" />
+        <Location left="1415" top="1249" />
         <Size width="163" height="77" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -142,7 +142,7 @@
       <Entity type="Class">
         <Name>PresentationManager</Name>
         <Access>Public</Access>
-        <Location left="548" top="778" />
+        <Location left="548" top="903" />
         <Size width="303" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int numberOfPresentations</Member>
@@ -153,29 +153,29 @@
       </Entity>
       <Entity type="Comment">
         <Text>view namespace</Text>
-        <Location left="100" top="209" />
+        <Location left="100" top="334" />
         <Size width="101" height="50" />
       </Entity>
       <Entity type="Comment">
         <Text>controller
 namespace</Text>
-        <Location left="100" top="345" />
+        <Location left="100" top="470" />
         <Size width="101" height="50" />
       </Entity>
       <Entity type="Comment">
         <Text>Observer pattern</Text>
-        <Location left="1120" top="230" />
+        <Location left="373" top="363" />
         <Size width="112" height="50" />
       </Entity>
       <Entity type="Comment">
         <Text>model namespace</Text>
-        <Location left="100" top="487" />
+        <Location left="100" top="612" />
         <Size width="101" height="50" />
       </Entity>
       <Entity type="Class">
         <Name>SlideSequence</Name>
         <Access>Public</Access>
-        <Location left="917" top="778" />
+        <Location left="917" top="903" />
         <Size width="178" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private List&lt;int&gt; slideIndices</Member>
@@ -192,7 +192,7 @@ namespace</Text>
       <Entity type="Class">
         <Name>StyleFactory</Name>
         <Access>Public</Access>
-        <Location left="2394" top="382" />
+        <Location left="2394" top="507" />
         <Size width="163" height="94" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public Style getStyle(int level)</Member>
@@ -201,7 +201,7 @@ namespace</Text>
       <Entity type="Class">
         <Name>PresentationSlide</Name>
         <Access>Public</Access>
-        <Location left="1575" top="778" />
+        <Location left="1575" top="903" />
         <Size width="163" height="111" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private List&lt;int&gt; slideItemIndices</Member>
@@ -211,7 +211,7 @@ namespace</Text>
       <Entity type="Interface">
         <Name>Slide</Name>
         <Access>Public</Access>
-        <Location left="1668" top="487" />
+        <Location left="1668" top="612" />
         <Size width="162" height="128" />
         <Collapsed>False</Collapsed>
         <Member type="Method">void draw()</Member>
@@ -219,18 +219,18 @@ namespace</Text>
       <Entity type="Comment">
         <Text>Backwards compatibility.
 Implementatie van interface alleen wanneer bestaande functionaliteit moet blijven werken (het laten zien van een slidedeck zonder sequences). Benoemen als aanname.</Text>
-        <Location left="1299" top="635" />
+        <Location left="1299" top="760" />
         <Size width="206" height="117" />
       </Entity>
       <Entity type="Comment">
         <Text>Hoeft niet geïmplementeerd te worden, maar is de mogelijke toekomstige uitbreiding.</Text>
-        <Location left="1429" top="905" />
+        <Location left="1429" top="1030" />
         <Size width="160" height="75" />
       </Entity>
       <Entity type="Class">
         <Name>LoaderFactory</Name>
         <Access>Public</Access>
-        <Location left="1377" top="1267" />
+        <Location left="1377" top="1392" />
         <Size width="263" height="110" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public PresentationLoader getPresentationLoader()</Member>
@@ -239,16 +239,19 @@ Implementatie van interface alleen wanneer bestaande functionaliteit moet blijve
       <Entity type="Interface">
         <Name>Presenter</Name>
         <Access>Public</Access>
-        <Location left="456" top="487" />
-        <Size width="276" height="128" />
+        <Location left="456" top="613" />
+        <Size width="317" height="186" />
         <Collapsed>False</Collapsed>
         <Member type="Method">Presentation selectPresentation(int number)</Member>
-        <Member type="Method">Presentation getCurrentPresentation()</Member>
+        <Member type="Method">void next()</Member>
+        <Member type="Method">void previous()</Member>
+        <Member type="Method">void attach(PresenterObserver presenterObserver)</Member>
+        <Member type="Method">void detach(PresenterObserver presenterObserver)</Member>
       </Entity>
       <Entity type="Class">
         <Name>PresenterFactory</Name>
         <Access>Public</Access>
-        <Location left="494" top="1021" />
+        <Location left="494" top="1146" />
         <Size width="209" height="110" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public static Presenter getPresenter()</Member>
@@ -257,7 +260,7 @@ Implementatie van interface alleen wanneer bestaande functionaliteit moet blijve
       <Entity type="Interface">
         <Name>Item</Name>
         <Access>Public</Access>
-        <Location left="2346" top="661" />
+        <Location left="2346" top="786" />
         <Size width="162" height="111" />
         <Collapsed>False</Collapsed>
         <Member type="Method">void draw(Style style)</Member>
@@ -266,24 +269,24 @@ Implementatie van interface alleen wanneer bestaande functionaliteit moet blijve
       <Entity type="Comment">
         <Text>Misschien een interface erboven? SlideItem heeft nu een directe associatie met een concrete klasse.
 Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoordelijkheid. Dit lijkt me niet helemaal juist.</Text>
-        <Location left="2829" top="445" />
+        <Location left="2829" top="570" />
         <Size width="231" height="146" />
       </Entity>
       <Entity type="Comment">
         <Text>Commonalities</Text>
-        <Location left="222" top="488" />
+        <Location left="222" top="613" />
         <Size width="160" height="75" />
       </Entity>
       <Entity type="Comment">
         <Text>Variablities</Text>
-        <Location left="210" top="796" />
+        <Location left="210" top="921" />
         <Size width="160" height="75" />
       </Entity>
       <Entity type="Class">
         <Name>Presentation</Name>
         <Access>Public</Access>
-        <Location left="960" top="444" />
-        <Size width="324" height="230" />
+        <Location left="937" top="612" />
+        <Size width="324" height="198" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public bool hasNext()</Member>
         <Member type="Method">public bool hasPrevious()</Member>
@@ -291,35 +294,25 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
         <Member type="Method">public Slide previous()</Member>
         <Member type="Method">public Slide selectSlide(int number)</Member>
         <Member type="Method">public void append(Slide slide)</Member>
-        <Member type="Method">public void attach(PresentationObserver presentationObserver)</Member>
-        <Member type="Method">public void detachAll()</Member>
         <Modifier>Abstract</Modifier>
-      </Entity>
-      <Entity type="Interface">
-        <Name>PresentationObserver</Name>
-        <Access>Public</Access>
-        <Location left="1022" top="43" />
-        <Size width="162" height="94" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">void update(Slide slide)</Member>
       </Entity>
       <Entity type="Comment">
         <Text>Singleton
 er mag maar één Presenter zijn</Text>
-        <Location left="263" top="1021" />
+        <Location left="263" top="1146" />
         <Size width="158" height="70" />
       </Entity>
       <Entity type="Interface">
         <Name>PresenterObserver</Name>
         <Access>Public</Access>
-        <Location left="456" top="43" />
-        <Size width="214" height="94" />
+        <Location left="456" top="66" />
+        <Size width="299" height="94" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">void update(Presentation presentation)</Member>
+        <Member type="Method">void update(Presentation presentation, Slide slide)</Member>
       </Entity>
       <Entity type="Comment">
         <Text>Start van de applicatie</Text>
-        <Location left="732" top="90" />
+        <Location left="749" top="234" />
         <Size width="103" height="50" />
       </Entity>
     </Entities>
@@ -329,7 +322,7 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>1075</X>
-          <Y>1321</Y>
+          <Y>1446</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="10" second="11">
@@ -338,12 +331,12 @@ er mag maar één Presenter zijn</Text>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>878</X>
-          <Y>230</Y>
+          <X>1003</X>
+          <Y>355</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>847</X>
-          <Y>230</Y>
+          <X>921</X>
+          <Y>355</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -354,12 +347,12 @@ er mag maar één Presenter zijn</Text>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>847</X>
-          <Y>274</Y>
+          <X>921</X>
+          <Y>399</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>878</X>
-          <Y>274</Y>
+          <X>1003</X>
+          <Y>399</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="13" second="7">
@@ -367,7 +360,7 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>778</X>
-          <Y>948</Y>
+          <Y>1073</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -385,11 +378,11 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>1120</X>
-          <Y>807</Y>
+          <Y>932</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>1143</X>
-          <Y>807</Y>
+          <Y>932</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -411,7 +404,7 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>2307</X>
-          <Y>508</Y>
+          <Y>633</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -421,7 +414,7 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
           <X>1779</X>
-          <Y>807</Y>
+          <Y>932</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -433,11 +426,11 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>2582</X>
-          <Y>429</Y>
+          <Y>554</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>2685</X>
-          <Y>451</Y>
+          <Y>576</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Realization" first="1" second="21">
@@ -455,11 +448,11 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>1855</X>
-          <Y>535</Y>
+          <Y>660</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>2083</X>
-          <Y>535</Y>
+          <Y>660</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -471,7 +464,7 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
           <X>1550</X>
-          <Y>824</Y>
+          <Y>949</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="24" second="6">
@@ -483,7 +476,7 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
           <X>1048</X>
-          <Y>1080</Y>
+          <Y>1205</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="12" second="0">
@@ -491,11 +484,11 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>1509</X>
-          <Y>1078</Y>
+          <Y>1203</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>1282</X>
-          <Y>1033</Y>
+          <Y>1158</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="12" second="20">
@@ -503,11 +496,11 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>1527</X>
-          <Y>1097</Y>
+          <Y>1222</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>1659</X>
-          <Y>1028</Y>
+          <Y>1153</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="12" second="1">
@@ -515,7 +508,7 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>1541</X>
-          <Y>1099</Y>
+          <Y>1224</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="8" second="25">
@@ -525,11 +518,11 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>611</X>
-          <Y>455</Y>
+          <Y>580</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>611</X>
-          <Y>455</Y>
+          <Y>581</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -545,11 +538,11 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>611</X>
-          <Y>986</Y>
+          <Y>1111</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>611</X>
-          <Y>951</Y>
+          <Y>1076</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="2" second="27">
@@ -557,7 +550,7 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>2307</X>
-          <Y>597</Y>
+          <Y>722</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -567,7 +560,7 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
           <X>2424</X>
-          <Y>802</Y>
+          <Y>927</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Realization" first="3" second="27">
@@ -575,11 +568,11 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>2245</X>
-          <Y>862</Y>
+          <Y>987</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>2423</X>
-          <Y>797</Y>
+          <Y>922</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="12" second="3">
@@ -587,11 +580,11 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>1603</X>
-          <Y>1158</Y>
+          <Y>1283</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>2251</X>
-          <Y>1079</Y>
+          <Y>1204</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="12" second="4">
@@ -599,11 +592,11 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>1610</X>
-          <Y>1180</Y>
+          <Y>1305</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>2448</X>
-          <Y>1104</Y>
+          <Y>1229</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Comment" first="28" second="5">
@@ -611,7 +604,7 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>2899</X>
-          <Y>616</Y>
+          <Y>741</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="31" second="21">
@@ -642,36 +635,12 @@ er mag maar één Presenter zijn</Text>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Realization" first="10" second="32">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1047</X>
-          <Y>184</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>1047</X>
-          <Y>162</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Association" first="31" second="32">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1115</X>
-          <Y>409</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <StartMultiplicity>1</StartMultiplicity>
-        <EndMultiplicity>0..*</EndMultiplicity>
-      </Relationship>
       <Relationship type="Association" first="9" second="25">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
           <X>715</X>
-          <Y>448</Y>
+          <Y>574</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -685,11 +654,11 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>669</X>
-          <Y>330</Y>
+          <Y>455</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>669</X>
-          <Y>320</Y>
+          <Y>445</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="11" second="9">
@@ -699,36 +668,48 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>781</X>
-          <Y>328</Y>
+          <Y>453</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Association" first="25" second="34">
+      <Relationship type="Association" first="25" second="33">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
           <X>504</X>
-          <Y>162</Y>
+          <Y>185</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Realization" first="11" second="34">
+      <Relationship type="Realization" first="11" second="33">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>613</X>
-          <Y>184</Y>
+          <Y>309</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Comment" first="33" second="26">
+      <Relationship type="Comment" first="32" second="26">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
-      <Relationship type="Comment" first="35" second="11">
+      <Relationship type="Comment" first="34" second="11">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="10" second="33">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1106</X>
+          <Y>221</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>657</X>
+          <Y>185</Y>
+        </BendPoint>
       </Relationship>
     </Relationships>
   </ProjectItem>

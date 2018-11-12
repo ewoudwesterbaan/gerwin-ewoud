@@ -75,12 +75,12 @@ Bestaande presentaties moeten ook ingelezen kunnen worden. Indien er geen presen
 \section{Keuzen}
 \begin{description}
 \item[Model-View-Controller] als architectuur ontwerp. Het model is verantwoordelijk voor het kenbaar maken van wijzigingen. Dit wordt gedaan door het Observer patroon twee keer toe te passen.
-\item[Observer] Voor het kenbaar maken dat een andere slide getoond moet worden, hebben we gekozen voor het observer pattern. De reden is dat in de toekomst mogelijk andere observers ook acties moeten uitvoeren op het moment dat een andere slide getoond wordt. Te denken is aan een presentatorscherm waar opmerkingen op getoond worden. Tevens hebben we gekozen voor dit patroon bij het kenbaar maken dat de presentation gewijzigd is. In dit geval is het de Presenter die PresenterObservers inlichten.
+\item[Observer] Voor het kenbaar maken dat een andere slide getoond moet worden, hebben we gekozen voor het observer pattern. De reden is dat in de toekomst mogelijk andere observers ook acties moeten uitvoeren op het moment dat een andere slide getoond wordt. Te denken is aan een presentatorscherm waar opmerkingen op getoond worden. Aan de Observers worden de Presentation en de Slide gegeven.
 \begin{itemize}
-\item Subject: Presentation / Presenter
-\item Observer: PresentationObserver / PresenterObserver
+\item Subject: Presenter
+\item Observer: PresenterObserver
 \end{itemize}
-\item[Iterator] Voor het aanbieden van slides aan de afnemer hebben we gekozen voor een iterator patroon. De afnemers, alle PresentationObservers moet beschikking hebben over de objecten (Slides).
+\item[Iterator] Voor het aanbieden van slides aan de afnemer hebben we gekozen voor een iterator patroon. De afnemers, alle PresenterObservers moet beschikking hebben over de objecten (Slides).
 \begin{itemize}
 \item Aggregator: Presenter
 \item Iterator: Presentation
