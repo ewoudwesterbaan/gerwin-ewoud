@@ -300,22 +300,6 @@ er mag maar één Presenter zijn</Text>
           <Y>1446</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Association" first="9" second="10">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1003</X>
-          <Y>355</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>921</X>
-          <Y>355</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <StartMultiplicity>1</StartMultiplicity>
-        <EndMultiplicity>1</EndMultiplicity>
-      </Relationship>
       <Relationship type="Dependency" first="10" second="9">
         <Label>
         </Label>
@@ -448,8 +432,8 @@ er mag maar één Presenter zijn</Text>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1527</X>
-          <Y>1222</Y>
+          <X>1532</X>
+          <Y>1174</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>1659</X>
