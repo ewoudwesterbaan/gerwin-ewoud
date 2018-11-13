@@ -8,7 +8,7 @@ import java.awt.Color;
 import model.Style;
 
 /**
- * @author EwoudWesterbaan
+ * @author 
  *
  */
 public class StyleFactory {

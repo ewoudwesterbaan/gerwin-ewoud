@@ -57,20 +57,14 @@ public class Slide {
 		return items;
 	}
 
-	// geef de afmeting van de Slide
-	public int getSize() {
-		return items.size();
-	}
-
 	public void draw(Graphics g, Rectangle area, ImageObserver view) {
 		float scale = getScale(area);
 	    int y = area.y;
-		/* De titel hoeft niet meer apart behandeld te worden */
 	    SlideItem slideItem = this.title;
 	    slideItem.draw(area.x, y, scale, g, view);
 	    y += slideItem.getBoundingBox(g, view, scale).height;
-	    for (int number=0; number<getSize(); number++) {
-	      slideItem = (SlideItem)getSlideItems().elementAt(number);
+	    for (int number=0; number<items.size(); number++) {
+	      slideItem = getSlideItems().elementAt(number);
 	      slideItem.draw(area.x, y, scale, g, view);
 	      y += slideItem.getBoundingBox(g, view, scale).height;
 	    }

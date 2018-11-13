@@ -90,7 +90,7 @@ public class TextItem extends SlideItem {
 			pen.y += layout.getAscent();
 			layout.draw(g2d, pen.x, pen.y);
 			pen.y += layout.getDescent();
-		}
+		} 
 	  }
 
 	private List<TextLayout> getLayouts(Graphics g, float scale) {
