@@ -67,14 +67,12 @@ public class Slide {
 	    int y = area.y;
 		/* De titel hoeft niet meer apart behandeld te worden */
 	    SlideItem slideItem = this.title;
-	    Style style = Style.getStyle(slideItem.getLevel());
-	    slideItem.draw(area.x, y, scale, g, style, view);
-	    y += slideItem.getBoundingBox(g, view, scale, style).height;
+	    slideItem.draw(area.x, y, scale, g, view);
+	    y += slideItem.getBoundingBox(g, view, scale).height;
 	    for (int number=0; number<getSize(); number++) {
 	      slideItem = (SlideItem)getSlideItems().elementAt(number);
-	      style = Style.getStyle(slideItem.getLevel());
-	      slideItem.draw(area.x, y, scale, g, style, view);
-	      y += slideItem.getBoundingBox(g, view, scale, style).height;
+	      slideItem.draw(area.x, y, scale, g, view);
+	      y += slideItem.getBoundingBox(g, view, scale).height;
 	    }
 	  }
 

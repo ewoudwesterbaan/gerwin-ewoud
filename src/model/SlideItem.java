@@ -3,6 +3,8 @@ import java.awt.Rectangle;
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;
 
+import factory.StyleFactory;
+
 /** <p>De abstracte klasse voor een item op een Slide<p>
  * <p>Alle SlideItems hebben tekenfunctionaliteit.</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
@@ -16,9 +18,11 @@ import java.awt.image.ImageObserver;
 
 public abstract class SlideItem {
 	private int level = 0; // het level van het slideitem
+	protected Style style; // Style van de item
 
 	public SlideItem(int lev) {
 		level = lev;
+		style = StyleFactory.getInstance().getStyle(level);
 	}
 
 	public SlideItem() {
@@ -32,9 +36,9 @@ public abstract class SlideItem {
 
 // Geef de bounding box
 	public abstract Rectangle getBoundingBox(Graphics g, 
-			ImageObserver observer, float scale, Style style);
+			ImageObserver observer, float scale);
 
 // teken het item
 	public abstract void draw(int x, int y, float scale, 
-			Graphics g, Style style, ImageObserver observer);
+			Graphics g, ImageObserver observer);
 }
