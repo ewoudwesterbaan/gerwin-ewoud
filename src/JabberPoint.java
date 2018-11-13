@@ -1,5 +1,11 @@
 import javax.swing.JOptionPane;
 
+import model.Accessor;
+import model.Presentation;
+import model.Style;
+import model.XMLAccessor;
+import view.SlideViewerFrame;
+
 import java.io.IOException;
 
 /** JabberPoint Main Programma
