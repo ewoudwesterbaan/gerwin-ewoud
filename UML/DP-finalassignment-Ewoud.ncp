@@ -124,13 +124,18 @@
       <Entity type="Class">
         <Name>PresentationManager</Name>
         <Access>Public</Access>
-        <Location left="548" top="903" />
-        <Size width="303" height="145" />
+        <Location left="548" top="887" />
+        <Size width="303" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int numberOfPresentations</Member>
         <Member type="Field">private Presentation currentPresentation</Member>
-        <Member type="Method">Presentation selectPresentation(int number)</Member>
-        <Member type="Method">Presentation getCurrentPresentation()</Member>
+        <Member type="Method">void selectPresentation(int number)</Member>
+        <Member type="Method">void next()</Member>
+        <Member type="Method">void previous()</Member>
+        <Member type="Method">void attach(PresenterObserver presenterObserver)</Member>
+        <Member type="Method">void detach(PresenterObserver presenterObserver)</Member>
+        <Member type="Method">void loadFile(String fileName)</Member>
+        <Member type="Method">void saveFile(String fileName)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Comment">
@@ -214,19 +219,21 @@ namespace</Text>
       <Entity type="Interface">
         <Name>Presenter</Name>
         <Access>Public</Access>
-        <Location left="456" top="613" />
-        <Size width="317" height="186" />
+        <Location left="456" top="612" />
+        <Size width="317" height="210" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">Presentation selectPresentation(int number)</Member>
+        <Member type="Method">void selectPresentation(int number)</Member>
         <Member type="Method">void next()</Member>
         <Member type="Method">void previous()</Member>
         <Member type="Method">void attach(PresenterObserver presenterObserver)</Member>
         <Member type="Method">void detach(PresenterObserver presenterObserver)</Member>
+        <Member type="Method">void loadFile(String fileName)</Member>
+        <Member type="Method">void saveFile(String fileName)</Member>
       </Entity>
       <Entity type="Class">
         <Name>PresenterFactory</Name>
         <Access>Public</Access>
-        <Location left="494" top="1146" />
+        <Location left="494" top="1170" />
         <Size width="209" height="110" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public static Presenter getPresenter()</Member>
@@ -274,7 +281,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
       <Entity type="Comment">
         <Text>Singleton
 er mag maar één Presenter zijn</Text>
-        <Location left="263" top="1146" />
+        <Location left="269" top="1170" />
         <Size width="158" height="70" />
       </Entity>
       <Entity type="Interface">
@@ -317,7 +324,7 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>778</X>
-          <Y>1073</Y>
+          <Y>1142</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -449,7 +456,7 @@ er mag maar één Presenter zijn</Text>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>611</X>
-          <Y>581</Y>
+          <Y>580</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -465,11 +472,11 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>611</X>
-          <Y>1111</Y>
+          <Y>1135</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>611</X>
-          <Y>1076</Y>
+          <Y>1145</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="1" second="25">
@@ -563,7 +570,7 @@ er mag maar één Presenter zijn</Text>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
           <X>715</X>
-          <Y>574</Y>
+          <Y>573</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
