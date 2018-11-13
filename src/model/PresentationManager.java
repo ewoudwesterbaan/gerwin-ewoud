@@ -1,6 +1,13 @@
 package model;
 
+import java.util.List;
+
+import factory.ReaderFactory;
+import reader.Reader;
+
 public class PresentationManager implements Presenter {
+	
+	private List<Presentation> presentations;
 
 	@Override
 	public void selectPresentation(int number) {
@@ -34,8 +41,8 @@ public class PresentationManager implements Presenter {
 
 	@Override
 	public void loadFile(String fileName) {
-		// TODO Auto-generated method stub
-		
+		Reader reader = ReaderFactory.getInstance().getReader(fileName);
+		presentations = reader.load();
 	}
 
 	@Override

@@ -63,12 +63,12 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>XMLPresentationReader</Name>
+        <Name>XMLReader</Name>
         <Access>Public</Access>
-        <Location left="1100" top="1392" />
+        <Location left="976" top="1444" />
         <Size width="222" height="94" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">List&lt;Presentation&gt; load(String fn)</Member>
+        <Member type="Method">List&lt;Presentation&gt; load()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Interface">
@@ -77,7 +77,7 @@
         <Location left="816" top="1249" />
         <Size width="222" height="94" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">List&lt;Presentation&gt; load(String fn)</Member>
+        <Member type="Method">List&lt;Presentation&gt; load()</Member>
       </Entity>
       <Entity type="Class">
         <Name>MenuController</Name>
@@ -210,10 +210,10 @@ namespace</Text>
       <Entity type="Class">
         <Name>ReaderFactory</Name>
         <Access>Public</Access>
-        <Location left="1429" top="1392" />
-        <Size width="162" height="110" />
+        <Location left="833" top="1606" />
+        <Size width="230" height="110" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">public Reader getReader()</Member>
+        <Member type="Method">public Reader getReader(String fn)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Interface">
@@ -297,14 +297,23 @@ er mag maar één Presenter zijn</Text>
         <Location left="749" top="234" />
         <Size width="103" height="50" />
       </Entity>
+      <Entity type="Class">
+        <Name>DemoReader</Name>
+        <Access>Public</Access>
+        <Location left="698" top="1444" />
+        <Size width="210" height="100" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">List&lt;Presentation&gt; load()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Realization" first="5" second="6">
-        <StartOrientation>Horizontal</StartOrientation>
+        <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1075</X>
-          <Y>1446</Y>
+          <X>1096</X>
+          <Y>1419</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="10" second="9">
@@ -415,7 +424,11 @@ er mag maar één Presenter zijn</Text>
       </Relationship>
       <Relationship type="Dependency" first="22" second="5">
         <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1096</X>
+          <Y>1587</Y>
+        </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="11" second="17">
         <StartOrientation>Vertical</StartOrientation>
@@ -640,6 +653,20 @@ er mag maar één Presenter zijn</Text>
           <X>657</X>
           <Y>185</Y>
         </BendPoint>
+      </Relationship>
+      <Relationship type="Dependency" first="22" second="33">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>798</X>
+          <Y>1601</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="33" second="6">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
       </Relationship>
     </Relationships>
   </ProjectItem>
