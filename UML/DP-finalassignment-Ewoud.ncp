@@ -63,21 +63,21 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>XMLPresentationLoader</Name>
+        <Name>XMLPresentationReader</Name>
         <Access>Public</Access>
         <Location left="1100" top="1392" />
-        <Size width="174" height="94" />
+        <Size width="222" height="94" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">Presentation load(String fn)</Member>
+        <Member type="Method">List&lt;Presentation&gt; load(String fn)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Interface">
-        <Name>Loader</Name>
+        <Name>Reader</Name>
         <Access>Public</Access>
-        <Location left="848" top="1249" />
-        <Size width="174" height="94" />
+        <Location left="816" top="1249" />
+        <Size width="222" height="94" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">Presentation load(String fn)</Member>
+        <Member type="Method">List&lt;Presentation&gt; load(String fn)</Member>
       </Entity>
       <Entity type="Class">
         <Name>MenuController</Name>
@@ -208,12 +208,12 @@ namespace</Text>
         <Size width="160" height="75" />
       </Entity>
       <Entity type="Class">
-        <Name>LoaderFactory</Name>
+        <Name>ReaderFactory</Name>
         <Access>Public</Access>
-        <Location left="1377" top="1392" />
-        <Size width="263" height="110" />
+        <Location left="1429" top="1392" />
+        <Size width="162" height="110" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">public PresentationLoader getPresentationLoader()</Member>
+        <Member type="Method">public Reader getReader()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Interface">
