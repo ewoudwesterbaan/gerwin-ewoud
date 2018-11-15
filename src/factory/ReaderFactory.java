@@ -5,19 +5,19 @@ import reader.Reader;
 import reader.XMLReader;
 
 public class ReaderFactory {
-	
-	private static ReaderFactory instance;
-	
+
+	private static ReaderFactory instance = null;
+
 	public static ReaderFactory getInstance() {
 		if (instance == null) {
 			instance = new ReaderFactory();
 		}
 		return instance;
 	}
-	
+
 	private ReaderFactory() {
 	}
-	
+
 	public Reader getReader(String fn) {
 		Reader reader = null;
 		if (fn.endsWith(".xml")) {
@@ -27,5 +27,4 @@ public class ReaderFactory {
 		}
 		return reader;
 	}
-
 }
