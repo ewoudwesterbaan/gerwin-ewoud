@@ -13,7 +13,7 @@ import model.Style;
  */
 public class StyleFactory {
 	
-	private static StyleFactory instance;
+	private static StyleFactory instance = null;
 	
 	private Style[] styles;
 	
