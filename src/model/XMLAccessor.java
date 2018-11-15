@@ -50,7 +50,6 @@ public class XMLAccessor extends Accessor {
     private String getTitle(Element element, String tagName) {
     	NodeList titles = element.getElementsByTagName(tagName);
     	return titles.item(0).getTextContent();
-    	
     }
 
 	public void loadFile(Presentation presentation, String filename) throws IOException {
@@ -114,7 +113,11 @@ public class XMLAccessor extends Accessor {
 			}
 		}
 	}
-
+	
+	public void saveFile(Presentation presentation, String filename) {
+		// ...
+	}
+/*
 	public void saveFile(Presentation presentation, String filename) throws IOException {
 		PrintWriter out = new PrintWriter(new FileWriter(filename));
 		out.println("<?xml version=\"1.0\"?>");
@@ -150,5 +153,5 @@ public class XMLAccessor extends Accessor {
 		}
 		out.println("</presentation>");
 		out.close();
-	}
+	}*/
 }
