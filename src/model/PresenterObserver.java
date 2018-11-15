@@ -1,7 +1,5 @@
 package model;
 
 public interface PresenterObserver {
-	
-	void update(Presentation presentation, Slide slide);
-
+	void update(Presentation presentation);
 }
