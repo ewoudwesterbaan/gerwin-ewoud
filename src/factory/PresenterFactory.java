@@ -5,7 +5,7 @@ import model.Presenter;
 
 public class PresenterFactory {
 	
-	private static PresenterFactory instance;
+	private static PresenterFactory instance = null;
 	private Presenter presenter;
 	
 	public static PresenterFactory getInstance() {
