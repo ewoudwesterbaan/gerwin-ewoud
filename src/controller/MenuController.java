@@ -136,7 +136,7 @@ public class MenuController extends MenuBar {
 				int nrOfPresentations = presenter.getSize();
 				String[] choices = new String[nrOfPresentations];
 				for (int i = 1; i <= nrOfPresentations; i++) {
-					choices[i] = "presentation " + i;
+					choices[i - 1] = "presentation " + i;
 				}
 				String input = (String) JOptionPane.showInputDialog(null, "Choose presentation...",
 						"Presentation selector", JOptionPane.QUESTION_MESSAGE, null, choices, // Array of choices
