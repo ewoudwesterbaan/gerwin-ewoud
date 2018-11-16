@@ -25,15 +25,12 @@ import view.SlideViewerFrame;
  * @version 2.0 2018/11/18 Gerwin van Dijken en Ewoud Westerbaan
  */
 public class JabberPoint {
-	protected static final String IOERR = "IO Error: ";
-	protected static final String JABERR = "Jabberpoint Error ";
-	protected static final String JABVERSION = "Jabberpoint 1.6 - OU version";
+	protected static final String JABVERSION = "Jabberpoint 2.0 - OU version";
 
 	/** Het Main Programma */
 	public static void main(String argv[]) {
 
 		Presenter presenter = PresenterFactory.getInstance().getPresenter();
-		// presenter.loadFile("test_slidesequences.xml");
 
 		new SlideViewerFrame(JABVERSION, presenter);
 
@@ -43,6 +40,7 @@ public class JabberPoint {
 			presenter.loadFile(argv[0]);
 		}
 
+		// by default start with first presentation
 		presenter.selectPresentation(0);
 	}
 }
