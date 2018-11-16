@@ -27,7 +27,12 @@ import view.SlideViewerFrame;
 public class JabberPoint {
 	protected static final String JABVERSION = "Jabberpoint 2.0 - OU version";
 
-	/** Het Main Programma */
+	/**
+	 * Start van de applicatie.
+	 * @param argv Argumenten van de commandline. 
+	 * Het eerste argument is optioneel en bevat de locatie van het XML bestand met de slidedeck en presentaties.
+	 * Indien het eerste argument leeg is, wordt een demo slidedeck met presentaties geladen.
+	 */
 	public static void main(String argv[]) {
 
 		Presenter presenter = PresenterFactory.getInstance().getPresenter();
