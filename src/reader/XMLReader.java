@@ -19,12 +19,9 @@ import org.xml.sax.SAXException;
 import factory.PresentationFactory;
 import factory.SlideFactory;
 import factory.SlideItemFactory;
-import model.BitmapItem;
 import model.Presentation;
 import model.Slide;
 import model.SlideItem;
-import model.SlideSequence;
-import model.TextItem;
 
 public class XMLReader implements Reader {
 
@@ -112,7 +109,6 @@ public class XMLReader implements Reader {
 			Slide slide = SlideFactory.getInstance().getSlide(title);
 
 			// process all slide items
-			List<SlideItem> slideItems = new ArrayList<SlideItem>();
 			NodeList slideItemNodes = slideElement.getElementsByTagName(ITEM);
 			int itemCount = slideItemNodes.getLength();
 			for (int itemNumber = 0; itemNumber < itemCount; itemNumber++) {
