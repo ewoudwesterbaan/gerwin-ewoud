@@ -5,10 +5,11 @@ package factory;
 
 import java.awt.Color;
 
+import model.Item;
 import model.Style;
 
 /**
- * 
+ * Verantwoordelijk voor het teruggeven van {@link Style} objecten.
  * @author Gerwin van Dijken
  * @author Ewoud Westerbaan
  * @since 2.0
@@ -35,8 +36,8 @@ public class StyleFactory {
 	}
 	
 	/**
-	 * 
-	 * @return Factory to create Style objects.
+	 * Geeft een object van {@link StyleFactory} terug. Maakt het object aan indien deze nog niet is geïnitialiseerd.
+	 * @return De {@link StyleFactory} om {@link Style} objecten mee op te vragen.
 	 */
 	public static StyleFactory getInstance() {
 		if (instance == null) {
@@ -46,9 +47,9 @@ public class StyleFactory {
 	}
 	
 	/**
-	 * 
-	 * @param level The level of the SlideItem to create a Style for.
-	 * @return A style
+	 * Geeft een stijl terug afhankelijk van het level.
+	 * @param level Level waar de stijl voor opgevraagd wordt.
+	 * @return Een stijl om toe te passen op een {@link Item}.
 	 */
 	public Style getStyle(int level) {
 		if (level >= styles.length) {

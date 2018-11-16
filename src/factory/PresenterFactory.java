@@ -4,7 +4,12 @@ import model.PresentationManager;
 import model.Presenter;
 
 /**
- * Verantwoordelijk voor het initialiseren en imlementeren van de Presenter.
+ * Verantwoordelijk voor het aanmaken van {@link Presenter} objecten.
+ * @author Gerwin van Dijken
+ * @author Ewoud Westerbaan
+ * @since 2.0
+ * @version 2.0 2018/11/18 Gerwin van Dijken en Ewoud Westerbaan
+ *
  */
 public class PresenterFactory {
 	
@@ -12,8 +17,8 @@ public class PresenterFactory {
 	private Presenter presenter;
 	
 	/**
-	 * Maakt een instantie van de klasse aan indien dit nodig is.
-	 * @return Een PresenterFactory object.
+	 * Geeft een object van {@link PresenterFactory} terug. Maakt het object aan indien deze nog niet is geïnitialiseerd.
+	 * @return De {@link PresenterFactory} om {@link Presenter} objecten mee te maken.
 	 */
 	public static PresenterFactory getInstance() {
 		if (instance == null) {
@@ -23,10 +28,8 @@ public class PresenterFactory {
 	}
 	
 	/**
-	 * Constructor. De Presenter geïmplementeerd
-	 * door de PresentationManager (nu is er maar één concrecte klasse
-	 * die de Presenter implementeerd).<br>
-	 * Er mag maar één Presenter zijn, daarom initialiseert de constructor de Presenter.
+	 * Constructor is {@code private} omdat alleen deze klasse een object van zichzelf mag maken.<br>
+	 * Er mag maar één {@link Presenter} zijn, daarom initialiseert de constructor de Presenter.
 	 */
 	private PresenterFactory() {
 		presenter = new PresentationManager();
@@ -34,7 +37,7 @@ public class PresenterFactory {
 	
 	/**
 	 * 
-	 * @return De Presenter.
+	 * @return Een implementatie van de {@link Presenter}.
 	 */
 	public Presenter getPresenter() {
 		return presenter;

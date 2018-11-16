@@ -16,7 +16,7 @@ public class PresentationFactory {
 	private static PresentationFactory instance;
 	
 	/**
-	 * 
+	 * Geeft een object van {@link PresentationFactory} terug. Maakt het object aan indien deze nog niet is geïnitialiseerd.
 	 * @return De {@link PresentationFactory} om {@link Presentation} objecten mee te maken.
 	 */
 	public static PresentationFactory getInstance() {
@@ -30,7 +30,7 @@ public class PresentationFactory {
 	 * Constructor is {@code private} omdat alleen deze klasse een object van zichzelf mag maken.
 	 */
 	private PresentationFactory() {
-		
+		// no code
 	}
 	
 	/**
