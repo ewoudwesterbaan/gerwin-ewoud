@@ -45,8 +45,8 @@ public class SlideViewerFrame extends JFrame implements PresenterObserver {
 		presenter.attach(this);
 
 		Presentation presentation = presenter.getCurrentPresentation();
-		SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presentation);
-		presenter.attach(slideViewerComponent);
+		SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presenter);
+//		presenter.attach(slideViewerComponent);
 		setupWindow(slideViewerComponent, presentation);
 	}
 
@@ -60,10 +60,10 @@ public class SlideViewerFrame extends JFrame implements PresenterObserver {
 		});
 		getContentPane().add(slideViewerComponent);
 		
-		keyController = new KeyController(presentation);
+		keyController = new KeyController(presenter);
 		addKeyListener(keyController); // een controller toevoegen
 
-		menuController = new MenuController(this, presenter, presentation);
+		menuController = new MenuController(this, presenter);
 		setMenuBar(menuController); // nog een controller toevoegen
 		
 		setSize(new Dimension(WIDTH, HEIGHT)); // Dezelfde maten als Slide hanteert.
@@ -75,8 +75,5 @@ public class SlideViewerFrame extends JFrame implements PresenterObserver {
 	{
 		// moet presentation nog als (private) member bewaard worden, of is dit genoeg?
 		this.setTitle(presentation.getTitle());
-		
-		keyController.switchPresentation(presentation);
-		menuController.switchPresentation(presentation);
 	}
 }

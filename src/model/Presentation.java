@@ -25,15 +25,13 @@ import view.SlideViewerComponent;
 public interface Presentation {
 	 String getTitle();
 	 void setTitle(String title);
-	 int getSize();
+	 int getNumberOfSlides();
+	 Slide getCurrentSlide();
+	 int getSlideNumber();
+	 boolean hasNext();
+	 boolean hasPrevious();
+	 void next();
+	 void previous();
+	 void selectSlide(int number);
 	 void append(Slide slide);
-	 public Slide getCurrentSlide();
-	 public int getSlideNumber();
-	 public boolean hasNext();
-	 public boolean hasPrevious();
-	 public void selectSlide(int number);
-	 public void next();
-	 public void previous();
-	 public void attach(PresentationObserver presentationObserver);
-	 public void detach(PresentationObserver presentationObserver);
 }

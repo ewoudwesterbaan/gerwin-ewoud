@@ -35,7 +35,6 @@ public class MenuController extends MenuBar {
 
 	private Frame parent; // het frame, alleen gebruikt als ouder voor de Dialogs
 	private Presenter presenter; // via presenter kan er een andere presentation geselecteerd worden
-	private Presentation presentation; // Er worden commando's gegeven aan de presentatie
 
 	private static final long serialVersionUID = 227L;
 
@@ -51,8 +50,6 @@ public class MenuController extends MenuBar {
 	protected static final String PREVSLIDE = "Previous slide";
 	protected static final String SAVE = "Save";
 	protected static final String VIEW = "View";
-	protected static final String NEXT_PRESENTATION = "Next presentation";
-	protected static final String PREV_PRESENTATION = "Previous presentation";
 	protected static final String GOTO_PRESENTATION = "Go to presentation";
 	protected static final String PRESENTATIONNR = "Presentation number?";
 
@@ -65,26 +62,23 @@ public class MenuController extends MenuBar {
 	protected static final String LOADERR = "Load Error";
 	protected static final String SAVEERR = "Save Error";
 
-	public MenuController(Frame frame, Presenter presenter, Presentation presentation) {
+	public MenuController(Frame frame, Presenter presenter) {
 		parent = frame;
 		this.presenter = presenter;
-		this.presentation = presentation;
 
 		MenuItem menuItem;
 		Menu fileMenu = new Menu(FILE);
 		fileMenu.add(menuItem = mkMenuItem(OPEN));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				// gezien deze clear-functionaliteit, moeten we niet 1 presentation hebben, die
-				// een lijst van ItemSequence-objecten bevat?
 				// presentation.clear();
-				Accessor xmlAccessor = new XMLAccessor();
-				try {
-					xmlAccessor.loadFile(presentation, TESTFILE);
-					presentation.selectSlide(0); // .setSlideNumber(0);
-				} catch (IOException exc) {
-					JOptionPane.showMessageDialog(parent, IOEX + exc, LOADERR, JOptionPane.ERROR_MESSAGE);
-				}
+				//Accessor xmlAccessor = new XMLAccessor();
+				//try {
+					//xmlAccessor.loadFile(presentation, TESTFILE);
+					//presentation.selectSlide(0); // .setSlideNumber(0);
+				//} catch (IOException exc) {
+			//		JOptionPane.showMessageDialog(parent, IOEX + exc, LOADERR, JOptionPane.ERROR_MESSAGE);
+				//}
 				// parent.repaint(); => gaat nu via observer!
 			}
 		});
@@ -98,12 +92,12 @@ public class MenuController extends MenuBar {
 		fileMenu.add(menuItem = mkMenuItem(SAVE));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Accessor xmlAccessor = new XMLAccessor();
-				try {
-					xmlAccessor.saveFile(presentation, SAVEFILE);
-				} catch (IOException exc) {
-					JOptionPane.showMessageDialog(parent, IOEX + exc, SAVEERR, JOptionPane.ERROR_MESSAGE);
-				}
+				//Accessor xmlAccessor = new XMLAccessor();
+				//try {
+					//xmlAccessor.saveFile(presentation, SAVEFILE);
+				//} catch (IOException exc) {
+				//	JOptionPane.showMessageDialog(parent, IOEX + exc, SAVEERR, JOptionPane.ERROR_MESSAGE);
+				//}
 			}
 		});
 		fileMenu.addSeparator();
@@ -119,13 +113,13 @@ public class MenuController extends MenuBar {
 		viewMenu.add(menuItem = mkMenuItem(NEXTSLIDE));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				presentation.next(); // .nextSlide();
+				presenter.nextSlide();
 			}
 		});
 		viewMenu.add(menuItem = mkMenuItem(PREVSLIDE));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				presentation.previous(); // .prevSlide();
+				presenter.previousSlide();
 			}
 		});
 		viewMenu.add(menuItem = mkMenuItem(GOTO));
@@ -133,22 +127,10 @@ public class MenuController extends MenuBar {
 			public void actionPerformed(ActionEvent actionEvent) {
 				String pageNumberStr = JOptionPane.showInputDialog((Object) PAGENR);
 				int pageNumber = Integer.parseInt(pageNumberStr);
-				presentation.selectSlide(pageNumber - 1);
+				presenter.selectSlide(pageNumber - 1);
 			}
 		});
 		viewMenu.addSeparator();
-		viewMenu.add(menuItem = mkMenuItem(NEXT_PRESENTATION));
-		menuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				presenter.next();
-			}
-		});
-		viewMenu.add(menuItem = mkMenuItem(PREV_PRESENTATION));
-		menuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				presenter.previous();
-			}
-		});
 		viewMenu.add(menuItem = mkMenuItem(GOTO_PRESENTATION));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
@@ -181,9 +163,5 @@ public class MenuController extends MenuBar {
 	// een menu-item aanmaken
 	private MenuItem mkMenuItem(String name) {
 		return new MenuItem(name, new MenuShortcut(name.charAt(0)));
-	}
-
-	public void switchPresentation(Presentation presentation) {
-		this.presentation = presentation;
 	}
 }

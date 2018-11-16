@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 
 import model.Presentation;
 import model.PresentationObserver;
+import model.Presenter;
 import model.PresenterObserver;
 import model.Slide;
 
@@ -27,11 +28,11 @@ import model.Slide;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class SlideViewerComponent extends JComponent implements PresenterObserver, PresentationObserver {
+public class SlideViewerComponent extends JComponent implements PresentationObserver {
 
 	private Slide slide; // de huidige slide
 	private Font labelFont = null; // het font voor labels
-	private Presentation presentation = null; // de presentatie
+	private Presenter presenter = null;
 
 	private static final long serialVersionUID = 227L;
 
@@ -43,10 +44,10 @@ public class SlideViewerComponent extends JComponent implements PresenterObserve
 	private static final int XPOS = 1100;
 	private static final int YPOS = 20;
 
-	public SlideViewerComponent(Presentation presentation) {
+	public SlideViewerComponent(Presenter presenter) {
 		setBackground(BGCOLOR);
-		this.presentation = presentation;
-		this.presentation.attach(this);
+		this.presenter = presenter;
+		this.presenter.attach((PresentationObserver)this);	// attach as presentation observer
 		labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
 	}
 
@@ -58,26 +59,14 @@ public class SlideViewerComponent extends JComponent implements PresenterObserve
 	public void paintComponent(Graphics g) {
 		g.setColor(BGCOLOR);
 		g.fillRect(0, 0, getSize().width, getSize().height);
-		if (presentation.getSlideNumber() < 0 || slide == null) {
+		if (presenter.getCurrentSlide() == null) {
 			return;
 		}
 		g.setFont(labelFont);
 		g.setColor(COLOR);
-		g.drawString("Slide " + (1 + presentation.getSlideNumber()) + " of " + presentation.getSize(), XPOS, YPOS);
+		g.drawString("Slide " + (1 + presenter.getSlideNumber()) + " of " + presenter.getNumberOfSlides(), XPOS, YPOS);
 		Rectangle area = new Rectangle(0, YPOS, getWidth(), (getHeight() - YPOS));
 		slide.draw(g, area, this);
-	}
-
-	@Override
-	public void update(Presentation presentation) {
-		if (this.presentation != null) {
-			this.presentation.detach(this);
-		}
-		
-		this.presentation = presentation;
-		this.presentation.attach(this);
-		this.slide = this.presentation.getCurrentSlide();
-		repaint();
 	}
 
 	@Override

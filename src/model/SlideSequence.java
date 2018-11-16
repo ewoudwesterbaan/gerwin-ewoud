@@ -9,11 +9,8 @@ public class SlideSequence implements Presentation {
 	private Slide currentSlide;
 	private int currentSlideIndex; // wel zo handig...
 
-	private List<PresentationObserver> observers;
-
 	public SlideSequence() {
 		slides = new ArrayList<Slide>();
-		observers = new ArrayList<PresentationObserver>();
 
 		// initially, no slide selected
 		currentSlide = null;
@@ -31,7 +28,7 @@ public class SlideSequence implements Presentation {
 	}
 
 	@Override
-	public int getSize() {
+	public int getNumberOfSlides() {
 		return slides.size();
 	}
 
@@ -65,19 +62,6 @@ public class SlideSequence implements Presentation {
 	}
 
 	@Override
-	// assumption: zero-based indexing
-	public void selectSlide(int number) {
-		if ((number < 0) || (number >= slides.size()))
-			return;
-
-		currentSlide = slides.get(number);
-		currentSlideIndex = number;
-
-		// state has changed, notify all observers
-		notifyAllObservers();
-	}
-
-	@Override
 	public void next() {
 		selectSlide(currentSlideIndex + 1);
 	}
@@ -88,23 +72,11 @@ public class SlideSequence implements Presentation {
 	}
 
 	@Override
-	public void attach(PresentationObserver presentationObserver) {
-		// add observer to observer list
-		if (!observers.contains(presentationObserver))
-			observers.add(presentationObserver);
-	}
+	public void selectSlide(int number) {
+		if ((number < 0) || (number >= slides.size()))
+			return;
 
-	@Override
-	public void detach(PresentationObserver presentationObserver) {
-		// remove observer from observer list
-		if (observers.contains(presentationObserver))
-			observers.remove(presentationObserver);
-	}
-
-	private void notifyAllObservers() {
-		// update all presentation observers
-		for (PresentationObserver observer : observers) {
-			observer.update(currentSlide);
-		}
+		currentSlide = slides.get(number);
+		currentSlideIndex = number;
 	}
 }

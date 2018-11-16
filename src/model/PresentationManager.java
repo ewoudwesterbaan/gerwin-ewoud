@@ -14,12 +14,13 @@ public class PresentationManager implements Presenter {
 
 	private List<Presentation> presentations;
 	private List<PresenterObserver> observers;
+	private List<PresentationObserver> presentationObservers;
 	private Presentation currentPresentation;
-	private int currentPresentationIndex; // wel zo handig...
 
 	public PresentationManager() {
 		presentations = new ArrayList<Presentation>();
 		observers = new ArrayList<PresenterObserver>();
+		presentationObservers = new ArrayList<PresentationObserver>();
 
 		// initially, no presentation selected
 		reset();
@@ -27,17 +28,16 @@ public class PresentationManager implements Presenter {
 
 	private void reset() {
 		currentPresentation = null;
-		currentPresentationIndex = -1;
 
 		// state has changed, notify all observers
-		notifyAllObservers();
+		notifyAllPresenterObservers();
 	}
-	
+
 	@Override
 	public int getSize() {
 		return presentations.size();
 	}
-	
+
 	@Override
 	public void append(Presentation presentation) {
 		presentations.add(presentation);
@@ -49,43 +49,81 @@ public class PresentationManager implements Presenter {
 	}
 
 	@Override
-	public boolean hasNext() {
-		if (presentations.size() == 0)
-			return false;
-		return (currentPresentationIndex < (presentations.size() - 1));
-	}
-
-	@Override
-	public boolean hasPrevious() {
-		if (presentations.size() == 0)
-			return false;
-		return (currentPresentationIndex > 0);
-	}
-
-	@Override
 	// assumption: zero-based indexing
 	public void selectPresentation(int number) {
 		if ((number < 0) || (number >= presentations.size()))
 			return;
 
+		// switch (internally) to other presentation
 		currentPresentation = presentations.get(number);
-		currentPresentationIndex = number;
 
-		// restart presentation at first slide
-		currentPresentation.selectSlide(0);
+		// restart presentation, select first slide
+		selectSlide(0);
 
 		// state has changed, notify all observers
-		notifyAllObservers();
+		notifyAllPresenterObservers();
 	}
 
 	@Override
-	public void next() {
-		selectPresentation(currentPresentationIndex + 1);
+	public int getNumberOfSlides() {
+		int numberOfSlides = 0;
+		if (currentPresentation != null) {
+			numberOfSlides = currentPresentation.getNumberOfSlides();
+		}
+		return numberOfSlides;
 	}
 
 	@Override
-	public void previous() {
-		selectPresentation(currentPresentationIndex - 1);
+	public Slide getCurrentSlide() {
+		Slide currentSlide = null;
+		if (currentPresentation != null) {
+			currentSlide = currentPresentation.getCurrentSlide();
+		}
+		return currentSlide;
+	}
+
+	@Override
+	public int getSlideNumber() {
+		int currentSlideNumber = -1;
+		if (currentPresentation != null) {
+			currentSlideNumber = currentPresentation.getSlideNumber();
+		}
+		return currentSlideNumber;
+	}
+
+	@Override
+	public void nextSlide() {
+		if (currentPresentation != null) {
+			if (currentPresentation.hasNext()) {
+				currentPresentation.next();
+
+				// presentation state has changed, notify all observers
+				notifyAllPresentationObservers();
+			}
+		}
+	}
+
+	@Override
+	public void previousSlide() {
+		if (currentPresentation != null) {
+			if (currentPresentation.hasPrevious()) {
+				currentPresentation.previous();
+
+				// presentation state has changed, notify all observers
+				notifyAllPresentationObservers();
+			}
+		}
+	}
+
+	@Override
+	public void selectSlide(int number) {
+		if (currentPresentation != null) {
+			currentPresentation.selectSlide(number);
+
+			// state has changed, notify all observers
+			// todo: we weten niet zeker of er een andere slide actief is nu...
+			notifyAllPresentationObservers();
+		}
 	}
 
 	@Override
@@ -102,10 +140,35 @@ public class PresentationManager implements Presenter {
 			observers.remove(presenterObserver);
 	}
 
-	private void notifyAllObservers() {
+	private void notifyAllPresenterObservers() {
 		// update all presenter observers
 		for (PresenterObserver observer : observers) {
 			observer.update(currentPresentation);
+		}
+	}
+
+	@Override
+	public void attach(PresentationObserver presentationObserver) {
+		// add observer to observer list
+		if (!presentationObservers.contains(presentationObserver))
+			presentationObservers.add(presentationObserver);
+	}
+
+	@Override
+	public void detach(PresentationObserver presentationObserver) {
+		// remove observer from observer list
+		if (presentationObservers.contains(presentationObserver))
+			presentationObservers.remove(presentationObserver);
+	}
+
+	private void notifyAllPresentationObservers() {
+		Slide currentSlide = null;
+		if (this.currentPresentation != null)
+			currentSlide = currentPresentation.getCurrentSlide();
+
+		// update all presentation observers
+		for (PresentationObserver observer : presentationObservers) {
+			observer.update(currentSlide);
 		}
 	}
 

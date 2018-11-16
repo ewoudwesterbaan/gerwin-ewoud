@@ -23,10 +23,10 @@ import java.awt.event.KeyAdapter;
  */
 
 public class KeyController extends KeyAdapter {
-	private Presentation presentation; // Er worden commando's gegeven aan de presentatie
+	private Presenter presenter; // Er worden commando's gegeven aan de presentatie
 
-	public KeyController(Presentation presentation) {
-		this.presentation = presentation;
+	public KeyController(Presenter presenter) {
+		this.presenter = presenter;
 	}
 
 	public void keyPressed(KeyEvent keyEvent) {
@@ -35,14 +35,14 @@ public class KeyController extends KeyAdapter {
 		case KeyEvent.VK_DOWN:
 		case KeyEvent.VK_ENTER:
 		case '+':
-			if (presentation != null)
-				presentation.next(); // nextSlide();
+			if (presenter != null)
+				presenter.nextSlide();
 			break;
 		case KeyEvent.VK_PAGE_UP:
 		case KeyEvent.VK_UP:
 		case '-':
-			if (presentation != null)
-				presentation.previous(); // prevSlide();
+			if (presenter != null)
+				presenter.previousSlide();
 			break;
 		case 'q':
 		case 'Q':
@@ -51,9 +51,5 @@ public class KeyController extends KeyAdapter {
 		default:
 			break;
 		}
-	}
-
-	public void switchPresentation(Presentation presentation) {
-		this.presentation = presentation;
 	}
 }
