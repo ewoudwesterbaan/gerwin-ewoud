@@ -6,11 +6,9 @@ import java.util.List;
 import factory.PresentationFactory;
 import factory.SlideFactory;
 import factory.SlideItemFactory;
-import model.BitmapItem;
 import model.Presentation;
 import model.Slide;
 import model.SlideItem;
-import model.SlideSequence;
 
 public class DemoReader implements Reader {
 
