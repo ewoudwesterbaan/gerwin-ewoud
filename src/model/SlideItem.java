@@ -28,13 +28,13 @@ public class SlideItem {
 
 // Geef de bounding box
 	public Rectangle getBoundingBox(Graphics g, 
-			ImageObserver observer, float scale) {
-		return item.getBoundingBox(g, observer, scale, style);
+			ImageObserver observer, float scale, Slide slide) {
+		return item.getBoundingBox(g, observer, scale, style, slide);
 	}
 
 // teken het item
 	public void draw(int x, int y, float scale, 
-			Graphics g, ImageObserver observer) {
-		item.draw(x, y, scale, g, observer, style);
+			Graphics g, ImageObserver observer, Slide slide) {
+		item.draw(x, y, scale, g, observer, style, slide);
 	}
 }

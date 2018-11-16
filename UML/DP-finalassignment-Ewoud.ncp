@@ -201,9 +201,11 @@ namespace</Text>
         <Name>Slide</Name>
         <Access>Public</Access>
         <Location left="1668" top="612" />
-        <Size width="162" height="128" />
+        <Size width="210" height="128" />
         <Collapsed>False</Collapsed>
         <Member type="Method">void draw()</Member>
+        <Member type="Method">void append(Slideitem slideitem)</Member>
+        <Member type="Method">int getWidth()</Member>
       </Entity>
       <Entity type="Comment">
         <Text>Hoeft niet geïmplementeerd te worden, maar is de mogelijke toekomstige uitbreiding.</Text>
@@ -424,7 +426,7 @@ er mag maar één Presenter zijn</Text>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1855</X>
+          <X>1903</X>
           <Y>660</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">

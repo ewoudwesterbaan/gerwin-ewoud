@@ -17,9 +17,12 @@ import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 import factory.PresentationFactory;
+import factory.SlideFactory;
+import factory.SlideItemFactory;
 import model.BitmapItem;
 import model.Presentation;
 import model.Slide;
+import model.SlideItem;
 import model.SlideSequence;
 import model.TextItem;
 
@@ -105,16 +108,15 @@ public class XMLReader implements Reader {
 				continue;
 
 			// => hier staat een "new" => via factory?!?
-			Slide slide = new Slide();
 			Element slideElement = (Element) slideNode;
-			slide.setTitle(getTitle(slideElement, SLIDETITLE));
+			Slide slide = SlideFactory.getInstance().getSlide(getTitle(slideElement, SLIDETITLE));
 			slides.add(slide);
 
 			NodeList slideItems = slideElement.getElementsByTagName(ITEM);
 			int itemCount = slideItems.getLength();
 			for (int itemNumber = 0; itemNumber < itemCount; itemNumber++) {
 				Element item = (Element) slideItems.item(itemNumber);
-				loadSlideItem(slide, item);
+				slide.append(createSlideItem(item));
 			}
 		}
 		return slides;
@@ -150,9 +152,14 @@ public class XMLReader implements Reader {
 		return presentations;
 	}
 
-	protected void loadSlideItem(Slide slide, Element item) {
+	/**
+	 * 
+	 * @param xmlElement The XML element to interpret.
+	 * @return A SlideItem object.
+	 */
+	protected SlideItem createSlideItem(Element xmlElement) {
 		int level = 1; // default
-		NamedNodeMap attributes = item.getAttributes();
+		NamedNodeMap attributes = xmlElement.getAttributes();
 		String leveltext = attributes.getNamedItem(LEVEL).getTextContent();
 		if (leveltext != null) {
 			try {
@@ -161,17 +168,7 @@ public class XMLReader implements Reader {
 				System.err.println(NFE);
 			}
 		}
-
-		// dit moet anders (geen switch in using-code) => via factory?
-		String type = attributes.getNamedItem(KIND).getTextContent();
-		if (TEXT.equals(type)) {
-			slide.append(new TextItem(level, item.getTextContent()));
-		} else {
-			if (IMAGE.equals(type)) {
-				slide.append(new BitmapItem(level, item.getTextContent()));
-			} else {
-				System.err.println(UNKNOWNTYPE);
-			}
-		}
+		String type = attributes.getNamedItem(KIND).getTextContent();				
+		return SlideItemFactory.getInstance().getSlideItem(level, type, xmlElement.getTextContent());
 	}
 }

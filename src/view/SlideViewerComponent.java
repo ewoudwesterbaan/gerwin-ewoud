@@ -55,7 +55,7 @@ public class SlideViewerComponent extends JComponent implements PresentationObse
 	}
 
 	public Dimension getPreferredSize() {
-		return new Dimension(Slide.WIDTH, Slide.HEIGHT);
+		return new Dimension(1200, 800);
 	}
 
 	// teken de slide
