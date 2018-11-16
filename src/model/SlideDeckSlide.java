@@ -6,7 +6,7 @@ import java.awt.image.ImageObserver;
 import java.util.Vector;
 
 /**
- * 
+ * <p>Verantwoordelijk voor het correct laten tekenen van de {@link SlideItem}s.
  * @author Gerwin van Dijken
  * @author Ewoud Westerbaan
  * @since 2.0
@@ -18,25 +18,40 @@ public class SlideDeckSlide implements Slide {
 	private int height = 800;
 	protected Vector<SlideItem> items; // de slide-items worden in een Vector bewaard
 
+	/**
+	 * Constructor. Initaliseert de items.
+	 */
 	public SlideDeckSlide() {
 		items = new Vector<SlideItem>();
 	}
 
-	// Voeg een SlideItem toe
+	/**
+	 * {@inheritDoc}
+	 */
 	public void append(SlideItem slideItem) {
 		items.addElement(slideItem);
 	}
 
-	// geef het betreffende SlideItem
+	/**
+	 * Geeft een {@link SlideItem} terug van de items.
+	 * @param number Number van de {@link SlideItem} om terug te geven.
+	 * @return {@link SlideItem}
+	 */
 	public SlideItem getSlideItem(int number) {
 		return (SlideItem)items.elementAt(number);
 	}
 
-	// geef alle SlideItems in een Vector
+	/**
+	 * Geeft alle {@link SlideItem}s terug.
+	 * @return {@link Vector} met {@link SlideItem}s.
+	 */
 	public Vector<SlideItem> getSlideItems() {
 		return items;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public void draw(Graphics g, Rectangle area, ImageObserver view) {
 		float scale = getScale(area);
 	    int y = area.y;
@@ -47,12 +62,18 @@ public class SlideDeckSlide implements Slide {
 	    }
 	  }
 
-	// geef de schaal om de slide te kunnen tekenen
+	/**
+	 * Berekent de schaal.
+	 * @param area {@link Rectangle}
+	 * @return De schaal.
+	 */
 	private float getScale(Rectangle area) {
 		return Math.min(((float)area.width) / ((float)width), ((float)area.height) / ((float)height));
 	}
 
-	@Override
+	/**
+	 * {@inheritDoc}
+	 */
 	public int getWidth() {
 		return width;
 	}

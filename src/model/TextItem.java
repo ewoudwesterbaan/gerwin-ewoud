@@ -15,37 +15,55 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 /** <p>Een tekst item.</p>
- * <p>Een TextItem heeft tekenfunctionaliteit.</p>
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
+ * <p>Een TextItem heeft tekenfunctionaliteit en is verantwoordelijk om zichzelf te tekenen.</p>
+ * @author Ian F. Darwin, ian@darwinsys.com
+ * @author Gert Florijn
+ * @author Sylvia Stuurman
+ * @author Gerwin van Dijken
+ * @author Ewoud Westerbaan
  * @version 1.1 2002/12/17 Gert Florijn
  * @version 1.2 2003/11/19 Sylvia Stuurman
  * @version 1.3 2004/08/17 Sylvia Stuurman
  * @version 1.4 2007/07/16 Sylvia Stuurman
  * @version 1.5 2010/03/03 Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
+ * @version 2.0 Gerwin van Dijken en Ewoud Westerbaan
  */
-
 public class TextItem implements Item {
 	private String text;
-
-// een textitem van level level, met als tekst string
+	
+	/**
+	 * Aanmaken van het object.
+	 * @param string Tekst doe weergegeven moet worden.
+	 */
 	public TextItem(String string) {
 		text = string;
 	}
 
-// Geef de tekst
+	/**
+	 * Geeft de tekst terug.
+	 * @return {@link String} De tekst die weergegeven moet worden.
+	 */
 	public String getText() {
 		return text == null ? "" : text;
 	}
 
-// geef de AttributedString voor het item
-	public AttributedString getAttributedString(Style style, float scale) {
+	/**
+	 * 
+	 * @param style {@link Style}
+	 * @param scale Schaalgrootte.
+	 * @return {@link AttributedString}
+	 */
+	private AttributedString getAttributedString(Style style, float scale) {
 		AttributedString attrStr = new AttributedString(getText());
 		attrStr.addAttribute(TextAttribute.FONT, style.getFont(scale), 0, text.length());
 		return attrStr;
 	}
 
-// geef de bounding box van het item
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, 
 			float scale, Style style, Slide slide) {
 		List<TextLayout> layouts = getLayouts(g, scale, style, slide);
@@ -65,7 +83,10 @@ public class TextItem implements Item {
 		return new Rectangle((int) (style.indent*scale), 0, xsize, ysize );
 	}
 
-// teken het item
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public void draw(int x, int y, float scale, Graphics g, 
 			ImageObserver o, Style style, Slide slide) {
 		if (text == null || text.length() == 0) {
@@ -84,11 +105,19 @@ public class TextItem implements Item {
 			pen.y += layout.getDescent();
 		} 
 	  }
-
-	private List<TextLayout> getLayouts(Graphics g, float scale, Style style, Slide slide) {
+	
+	/**
+	 * 
+	 * @param graphics
+	 * @param scale De schaalgrootte.
+	 * @param style {@link Style}
+	 * @param slide {@link Slide}
+	 * @return Een lijst van {@link TextLayout}s
+	 */
+	private List<TextLayout> getLayouts(Graphics graphics, float scale, Style style, Slide slide) {
 		List<TextLayout> layouts = new ArrayList<TextLayout>();
 		AttributedString attrStr = getAttributedString(style, scale);
-    	Graphics2D g2d = (Graphics2D) g;
+    	Graphics2D g2d = (Graphics2D) graphics;
     	FontRenderContext frc = g2d.getFontRenderContext();
     	LineBreakMeasurer measurer = new LineBreakMeasurer(attrStr.getIterator(), frc);
     	float wrappingWidth = (slide.getWidth() - style.indent) * scale;
@@ -99,6 +128,10 @@ public class TextItem implements Item {
     	return layouts;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public String toString() {
 		return "TextItem[" + getText() + "]";
 	}

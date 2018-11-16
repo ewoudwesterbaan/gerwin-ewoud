@@ -3,9 +3,6 @@ import java.awt.Color;
 import java.awt.Font;
 
 /** <p>Style staat voor Indent, Color, Font and Leading.</p>
- * <p>De koppeling tussen style-nummer en item-level is nu direct:
- * in Slide wordt de style opgehaald voor een item
- * met als style-nummer het item-level.</p>
  * @author Ian F. Darwin, ian@darwinsys.com
  * @author Gert Florijn
  * @author Sylvia Stuurman
@@ -28,6 +25,13 @@ public class Style {
 	int fontSize;
 	int leading;
 
+	/**
+	 * Maakt het object aan.
+	 * @param indent 
+	 * @param color {@link Color}
+	 * @param points Tekstgrootte.
+	 * @param leading
+	 */
 	public Style(int indent, Color color, int points, int leading) {
 		this.indent = indent;
 		this.color = color;
@@ -35,10 +39,18 @@ public class Style {
 		this.leading = leading;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public String toString() {
 		return "["+ indent + "," + color + "; " + fontSize + " on " + leading +"]";
 	}
 
+	/**
+	 * Bepaalt de Font gegeven de schaal en fontsize.
+	 * @param scale De schaal.
+	 * @return {@link Font} waarvan de grootte bepaalt is met de gegeven schaal.
+	 */
 	public Font getFont(float scale) {
 		return font.deriveFont(fontSize * scale);
 	}

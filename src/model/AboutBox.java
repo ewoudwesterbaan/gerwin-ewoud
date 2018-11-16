@@ -13,6 +13,10 @@ import javax.swing.JOptionPane;
  */
 
 public class AboutBox {
+	/**
+	 * Laat de AboutBox zien.
+	 * @param parent
+	 */
 	public static void show(Frame parent) {
 		JOptionPane.showMessageDialog(parent,
 				"JabberPoint is a primitive slide-show program in Java(tm). It\n" +

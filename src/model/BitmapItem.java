@@ -12,15 +12,19 @@ import java.io.IOException;
 
 /** <p>De klasse voor een Bitmap item</p>
  * <p>Bitmap items hebben de verantwoordelijkheid om zichzelf te tekenen.</p>
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
+ * @author Ian F. Darwin, ian@darwinsys.com
+ * @author Gert Florijn
+ * @author Sylvia Stuurman
+ * @author Gerwin van Dijken
+ * @author Ewoud Westerbaan
  * @version 1.1 2002/12/17 Gert Florijn
  * @version 1.2 2003/11/19 Sylvia Stuurman
  * @version 1.3 2004/08/17 Sylvia Stuurman
  * @version 1.4 2007/07/16 Sylvia Stuurman
  * @version 1.5 2010/03/03 Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
+ * @version 2.0 2018/11/18 Gerwin van Dijken en Ewoud Westerbaan
 */
-
 public class BitmapItem implements Item {
   private BufferedImage bufferedImage;
   private String imageName;
@@ -28,7 +32,10 @@ public class BitmapItem implements Item {
   protected static final String FILE = "Bestand ";
   protected static final String NOTFOUND = " niet gevonden";
 
-// level staat voor het item-level; name voor de naam van het bestand met de afbeelding
+    /**
+     * 
+     * @param name Bestandsnaam waar de afbeelding staat.
+     */
 	public BitmapItem(String name) {
 		imageName = name;
 		try {
@@ -39,12 +46,9 @@ public class BitmapItem implements Item {
 		}
 	}
 
-// geef de bestandsnaam van de afbeelding
-	public String getName() {
-		return imageName;
-	}
-
-// geef de bounding box van de afbeelding
+	/**
+	 * @see Item#getBoundingBox(Graphics, ImageObserver, float, Style, Slide)
+	 */
 	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, 
 			float scale, Style style, Slide slide) {
 		return new Rectangle((int) (style.indent * scale), 0,
@@ -52,8 +56,10 @@ public class BitmapItem implements Item {
 				((int) (style.leading * scale)) + 
 				(int) (bufferedImage.getHeight(observer) * scale));
 	}
-
-// teken de afbeelding
+	
+	/**
+	 * @see Item#draw(int, int, float, Graphics, ImageObserver, Style, Slide)
+	 */
 	public void draw(int x, int y, float scale, Graphics g, 
 			ImageObserver observer, Style style, Slide slide) {
 		int width = x + (int) (style.indent * scale);
@@ -62,6 +68,9 @@ public class BitmapItem implements Item {
                 (int) (bufferedImage.getHeight(observer)*scale), observer);
 	}
 
+	/**
+	 * Textuele representatie van het object.
+	 */
 	public String toString() {
 		return "BitmapItem[" + imageName + "]";
 	}
