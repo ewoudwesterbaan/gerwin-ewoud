@@ -16,29 +16,26 @@ import factory.StyleFactory;
  * @version 1.6 2014/05/16 Sylvia Stuurman
 */
 
-public abstract class SlideItem {
-	private int level = 0; // het level van het slideitem
-	protected Style style; // Style van de item
+public class SlideItem {
+
+	protected Style style;
 
 	public SlideItem(int lev) {
-		level = lev;
-		style = StyleFactory.getInstance().getStyle(level);
+		style = StyleFactory.getInstance().getStyle(lev);
 	}
 
 	public SlideItem() {
 		this(0);
 	}
 
-// Geef het level
-	public int getLevel() {
-		return level;
+// Geef de bounding box
+	public Rectangle getBoundingBox(Graphics g, 
+			ImageObserver observer, float scale) {
+		return null;
 	}
 
-// Geef de bounding box
-	public abstract Rectangle getBoundingBox(Graphics g, 
-			ImageObserver observer, float scale);
-
 // teken het item
-	public abstract void draw(int x, int y, float scale, 
-			Graphics g, ImageObserver observer);
+	public void draw(int x, int y, float scale, 
+			Graphics g, ImageObserver observer) {
+	}
 }

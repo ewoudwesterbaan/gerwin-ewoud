@@ -18,7 +18,7 @@ private static SlideItemFactory instance;
 	}
 	
 	public SlideItem getSlideItem(int level, String kind, String content) {
-		// TODO
+		SlideItem slideItem = new SlideItem();
 		return null; 
 	}
 
