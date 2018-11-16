@@ -10,7 +10,7 @@ public class SlideFactory {
 	
 private static SlideFactory instance;
 	
-	public SlideFactory getInstance() {
+	public static SlideFactory getInstance() {
 		if (instance == null) {
 			instance = new SlideFactory();
 		}
