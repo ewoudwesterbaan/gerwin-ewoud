@@ -1,12 +1,6 @@
-import javax.swing.JOptionPane;
-
-import model.Presentation;
-import model.PresentationManager;
+import factory.PresenterFactory;
 import model.Presenter;
-import model.Style;
 import view.SlideViewerFrame;
-
-import java.io.IOException;
 
 /**
  * JabberPoint Main Programma
@@ -17,15 +11,19 @@ import java.io.IOException;
  * file.
  * </p>
  * 
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
+ * @author Ian F. Darwin, ian@darwinsys.com
+ * @author Gert Florijn
+ * @author Sylvia Stuurman
+ * @author Gerwin van Dijken
+ * @author Ewoud Westerbaan
  * @version 1.1 2002/12/17 Gert Florijn
  * @version 1.2 2003/11/19 Sylvia Stuurman
  * @version 1.3 2004/08/17 Sylvia Stuurman
  * @version 1.4 2007/07/16 Sylvia Stuurman
  * @version 1.5 2010/03/03 Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
+ * @version 2.0 2018/11/18 Gerwin van Dijken en Ewoud Westerbaan
  */
-
 public class JabberPoint {
 	protected static final String IOERR = "IO Error: ";
 	protected static final String JABERR = "Jabberpoint Error ";
@@ -34,7 +32,7 @@ public class JabberPoint {
 	/** Het Main Programma */
 	public static void main(String argv[]) {
 
-		Presenter presenter = new PresentationManager();
+		Presenter presenter = PresenterFactory.getInstance().getPresenter();
 		// presenter.loadFile("test_slidesequences.xml");
 
 		new SlideViewerFrame(JABVERSION, presenter);

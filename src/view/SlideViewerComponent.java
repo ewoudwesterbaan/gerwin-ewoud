@@ -1,17 +1,15 @@
 package view;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Rectangle;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
 
-import model.Presentation;
+import javax.swing.JComponent;
+
 import model.PresentationObserver;
 import model.Presenter;
-import model.PresenterObserver;
 import model.Slide;
 
 /**

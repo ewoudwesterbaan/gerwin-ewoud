@@ -1,8 +1,9 @@
 package view;
 
 import java.awt.Dimension;
-import java.awt.event.WindowEvent;
 import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.JFrame;
 
 import controller.KeyController;
@@ -10,7 +11,6 @@ import controller.MenuController;
 import model.Presentation;
 import model.Presenter;
 import model.PresenterObserver;
-import model.Slide;
 
 /**
  * <p>

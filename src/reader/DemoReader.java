@@ -8,7 +8,6 @@ import factory.SlideFactory;
 import factory.SlideItemFactory;
 import model.Presentation;
 import model.Slide;
-import model.SlideItem;
 
 public class DemoReader implements Reader {
 
