@@ -68,13 +68,14 @@ public class MenuController extends MenuBar {
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				// presentation.clear();
-				//Accessor xmlAccessor = new XMLAccessor();
-				//try {
-					//xmlAccessor.loadFile(presentation, TESTFILE);
-					//presentation.selectSlide(0); // .setSlideNumber(0);
-				//} catch (IOException exc) {
-			//		JOptionPane.showMessageDialog(parent, IOEX + exc, LOADERR, JOptionPane.ERROR_MESSAGE);
-				//}
+				// Accessor xmlAccessor = new XMLAccessor();
+				// try {
+				// xmlAccessor.loadFile(presentation, TESTFILE);
+				// presentation.selectSlide(0); // .setSlideNumber(0);
+				// } catch (IOException exc) {
+				// JOptionPane.showMessageDialog(parent, IOEX + exc, LOADERR,
+				// JOptionPane.ERROR_MESSAGE);
+				// }
 				// parent.repaint(); => gaat nu via observer!
 			}
 		});
@@ -88,12 +89,13 @@ public class MenuController extends MenuBar {
 		fileMenu.add(menuItem = mkMenuItem(SAVE));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Accessor xmlAccessor = new XMLAccessor();
-				//try {
-					//xmlAccessor.saveFile(presentation, SAVEFILE);
-				//} catch (IOException exc) {
-				//	JOptionPane.showMessageDialog(parent, IOEX + exc, SAVEERR, JOptionPane.ERROR_MESSAGE);
-				//}
+				// Accessor xmlAccessor = new XMLAccessor();
+				// try {
+				// xmlAccessor.saveFile(presentation, SAVEFILE);
+				// } catch (IOException exc) {
+				// JOptionPane.showMessageDialog(parent, IOEX + exc, SAVEERR,
+				// JOptionPane.ERROR_MESSAGE);
+				// }
 			}
 		});
 		fileMenu.addSeparator();
@@ -130,13 +132,12 @@ public class MenuController extends MenuBar {
 		viewMenu.add(menuItem = mkMenuItem(GOTO_PRESENTATION));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				// String presentationNumberStr = JOptionPane.showInputDialog((Object)
-				// PRESENTATIONNR);
-				// int presentationNumber = Integer.parseInt(presentationNumberStr);
-				// presenter.selectPresentation(presentationNumber - 1);
-
-				// TODO: make this dynamic...
-				String[] choices = { "presentatie 1", "presentatie 2", "presentatie 3" };
+				// display list of presentations to choose from
+				int nrOfPresentations = presenter.getSize();
+				String[] choices = new String[nrOfPresentations];
+				for (int i = 1; i <= nrOfPresentations; i++) {
+					choices[i] = "presentation " + i;
+				}
 				String input = (String) JOptionPane.showInputDialog(null, "Choose presentation...",
 						"Presentation selector", JOptionPane.QUESTION_MESSAGE, null, choices, // Array of choices
 						null);

@@ -17,9 +17,12 @@ import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 import factory.PresentationFactory;
+import factory.SlideFactory;
+import factory.SlideItemFactory;
 import model.BitmapItem;
 import model.Presentation;
 import model.Slide;
+import model.SlideItem;
 import model.SlideSequence;
 import model.TextItem;
 
@@ -62,7 +65,6 @@ public class XMLReader implements Reader {
 	private String getTitle(Element element, String tagName) {
 		NodeList titles = element.getElementsByTagName(tagName);
 		return titles.item(0).getTextContent();
-
 	}
 
 	protected List<Presentation> loadPresentations(String filename) {
@@ -104,20 +106,52 @@ public class XMLReader implements Reader {
 			if (slideNode.getNodeType() != Node.ELEMENT_NODE)
 				continue;
 
-			// => hier staat een "new" => via factory?!?
-			Slide slide = new Slide();
+			// get title for slide
 			Element slideElement = (Element) slideNode;
-			slide.setTitle(getTitle(slideElement, SLIDETITLE));
-			slides.add(slide);
+			String title = getTitle(slideElement, SLIDETITLE);
 
-			NodeList slideItems = slideElement.getElementsByTagName(ITEM);
-			int itemCount = slideItems.getLength();
+			// process all slide items
+			List<SlideItem> slideItems = new ArrayList<SlideItem>();
+			NodeList slideItemNodes = slideElement.getElementsByTagName(ITEM);
+			int itemCount = slideItemNodes.getLength();
 			for (int itemNumber = 0; itemNumber < itemCount; itemNumber++) {
-				Element item = (Element) slideItems.item(itemNumber);
-				loadSlideItem(slide, item);
+				Element item = (Element) slideItemNodes.item(itemNumber);
+				SlideItem slideItem = createSlideItem(item);
+				slideItems.add(slideItem);
 			}
+
+			Slide slide = SlideFactory.getInstance().getSlide(title, slideItems);
+			slides.add(slide);
 		}
 		return slides;
+	}
+
+	protected SlideItem createSlideItem(Element item) {
+		int level = 1; // default
+		NamedNodeMap attributes = item.getAttributes();
+		String leveltext = attributes.getNamedItem(LEVEL).getTextContent();
+		if (leveltext != null) {
+			try {
+				level = Integer.parseInt(leveltext);
+			} catch (NumberFormatException x) {
+				System.err.println(NFE);
+			}
+		}
+
+		String type = attributes.getNamedItem(KIND).getTextContent();
+		// deze test skippen hier? komt overeen met de test in SlideItemFactory...
+		SlideItem slideItem = null;
+		if (TEXT.equals(type)) {
+			slideItem = SlideItemFactory.getInstance().getSlideItem(level, "text", item.getTextContent());
+		} else {
+			if (IMAGE.equals(type)) {
+				slideItem = SlideItemFactory.getInstance().getSlideItem(level, "image", item.getTextContent());
+			} else {
+				System.err.println(UNKNOWNTYPE);
+			}
+		}
+
+		return slideItem;
 	}
 
 	private List<Presentation> processSlideSequences(Node sequenceContainer, String title, List<Slide> slides) {
@@ -129,10 +163,10 @@ public class XMLReader implements Reader {
 			Node sequenceNode = sequenceNodes.item(seqNumber);
 			if (sequenceNode.getNodeType() != Node.ELEMENT_NODE)
 				continue;
-			
+
 			Element sequenceElement = (Element) sequenceNode;
 			String sequenceTitle = getTitle(sequenceElement, SEQUENCETITLE);
-			
+
 			Presentation presentation = PresentationFactory.getInstance().getPresentation(title, sequenceTitle);
 			presentations.add(presentation);
 
@@ -148,30 +182,5 @@ public class XMLReader implements Reader {
 			}
 		}
 		return presentations;
-	}
-
-	protected void loadSlideItem(Slide slide, Element item) {
-		int level = 1; // default
-		NamedNodeMap attributes = item.getAttributes();
-		String leveltext = attributes.getNamedItem(LEVEL).getTextContent();
-		if (leveltext != null) {
-			try {
-				level = Integer.parseInt(leveltext);
-			} catch (NumberFormatException x) {
-				System.err.println(NFE);
-			}
-		}
-
-		// dit moet anders (geen switch in using-code) => via factory?
-		String type = attributes.getNamedItem(KIND).getTextContent();
-		if (TEXT.equals(type)) {
-			slide.append(new TextItem(level, item.getTextContent()));
-		} else {
-			if (IMAGE.equals(type)) {
-				slide.append(new BitmapItem(level, item.getTextContent()));
-			} else {
-				System.err.println(UNKNOWNTYPE);
-			}
-		}
 	}
 }
