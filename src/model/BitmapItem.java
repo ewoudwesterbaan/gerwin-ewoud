@@ -21,7 +21,7 @@ import java.io.IOException;
  * @version 1.6 2014/05/16 Sylvia Stuurman
 */
 
-public class BitmapItem extends SlideItem {
+public class BitmapItem implements Item {
   private BufferedImage bufferedImage;
   private String imageName;
   
@@ -29,8 +29,7 @@ public class BitmapItem extends SlideItem {
   protected static final String NOTFOUND = " niet gevonden";
 
 // level staat voor het item-level; name voor de naam van het bestand met de afbeelding
-	public BitmapItem(int level, String name) {
-		super(level);
+	public BitmapItem(String name) {
 		imageName = name;
 		try {
 			bufferedImage = ImageIO.read(new File(imageName));
@@ -40,18 +39,13 @@ public class BitmapItem extends SlideItem {
 		}
 	}
 
-// Een leeg bitmap-item
-	public BitmapItem() {
-		this(0, null);
-	}
-
 // geef de bestandsnaam van de afbeelding
 	public String getName() {
 		return imageName;
 	}
 
 // geef de bounding box van de afbeelding
-	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale) {
+	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style style) {
 		return new Rectangle((int) (style.indent * scale), 0,
 				(int) (bufferedImage.getWidth(observer) * scale),
 				((int) (style.leading * scale)) + 
@@ -59,7 +53,7 @@ public class BitmapItem extends SlideItem {
 	}
 
 // teken de afbeelding
-	public void draw(int x, int y, float scale, Graphics g, ImageObserver observer) {
+	public void draw(int x, int y, float scale, Graphics g, ImageObserver observer, Style style) {
 		int width = x + (int) (style.indent * scale);
 		int height = y + (int) (style.leading * scale);
 		g.drawImage(bufferedImage, width, height,(int) (bufferedImage.getWidth(observer)*scale),
@@ -67,6 +61,6 @@ public class BitmapItem extends SlideItem {
 	}
 
 	public String toString() {
-		return "BitmapItem[" + getLevel() + "," + imageName + "]";
+		return "BitmapItem[" + imageName + "]";
 	}
 }

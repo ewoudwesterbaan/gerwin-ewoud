@@ -18,24 +18,23 @@ import factory.StyleFactory;
 
 public class SlideItem {
 
-	protected Style style;
+	private Style style;
+	private Item item;
 
 	public SlideItem(int lev, Item item) {
 		style = StyleFactory.getInstance().getStyle(lev);
-	}
-
-	public SlideItem() {
-		this(0);
+		this.item = item;
 	}
 
 // Geef de bounding box
 	public Rectangle getBoundingBox(Graphics g, 
 			ImageObserver observer, float scale) {
-		return null;
+		return item.getBoundingBox(g, observer, scale, style);
 	}
 
 // teken het item
 	public void draw(int x, int y, float scale, 
 			Graphics g, ImageObserver observer) {
+		item.draw(x, y, scale, g, observer, style);
 	}
 }

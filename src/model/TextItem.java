@@ -25,20 +25,12 @@ import java.util.ArrayList;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class TextItem extends SlideItem {
+public class TextItem implements Item {
 	private String text;
-	
-	private static final String EMPTYTEXT = "No Text Given";
 
 // een textitem van level level, met als tekst string
-	public TextItem(int level, String string) {
-		super(level);
+	public TextItem(String string) {
 		text = string;
-	}
-
-// een leeg textitem
-	public TextItem() {
-		this(0, EMPTYTEXT);
 	}
 
 // Geef de tekst
@@ -55,8 +47,8 @@ public class TextItem extends SlideItem {
 
 // geef de bounding box van het item
 	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, 
-			float scale) {
-		List<TextLayout> layouts = getLayouts(g, scale);
+			float scale, Style style) {
+		List<TextLayout> layouts = getLayouts(g, scale, style);
 		int xsize = 0, ysize = (int) (style.leading * scale);
 		Iterator<TextLayout> iterator = layouts.iterator();
 		while (iterator.hasNext()) {
@@ -75,11 +67,11 @@ public class TextItem extends SlideItem {
 
 // teken het item
 	public void draw(int x, int y, float scale, Graphics g, 
-			ImageObserver o) {
+			ImageObserver o, Style style) {
 		if (text == null || text.length() == 0) {
 			return;
 		}
-		List<TextLayout> layouts = getLayouts(g, scale);
+		List<TextLayout> layouts = getLayouts(g, scale, style);
 		Point pen = new Point(x + (int)(style.indent * scale), 
 				y + (int) (style.leading * scale));
 		Graphics2D g2d = (Graphics2D)g;
@@ -93,7 +85,7 @@ public class TextItem extends SlideItem {
 		} 
 	  }
 
-	private List<TextLayout> getLayouts(Graphics g, float scale) {
+	private List<TextLayout> getLayouts(Graphics g, float scale, Style style) {
 		List<TextLayout> layouts = new ArrayList<TextLayout>();
 		AttributedString attrStr = getAttributedString(style, scale);
     	Graphics2D g2d = (Graphics2D) g;
@@ -108,6 +100,6 @@ public class TextItem extends SlideItem {
 	}
 
 	public String toString() {
-		return "TextItem[" + getLevel()+","+getText()+"]";
+		return "TextItem[" + getText() + "]";
 	}
 }
