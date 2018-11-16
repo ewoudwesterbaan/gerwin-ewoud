@@ -119,7 +119,7 @@ public class XMLReader implements Reader {
 				SlideItem slideItem = createSlideItem(item);
 				slideItems.add(slideItem);
 			}
-
+ 
 			Slide slide = SlideFactory.getInstance().getSlide(title, slideItems);
 			slides.add(slide);
 		}
