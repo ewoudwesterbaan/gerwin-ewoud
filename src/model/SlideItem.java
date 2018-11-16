@@ -20,7 +20,7 @@ public class SlideItem {
 
 	protected Style style;
 
-	public SlideItem(int lev) {
+	public SlideItem(int lev, Item item) {
 		style = StyleFactory.getInstance().getStyle(lev);
 	}
 
