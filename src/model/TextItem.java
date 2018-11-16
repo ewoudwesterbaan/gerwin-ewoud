@@ -47,8 +47,8 @@ public class TextItem implements Item {
 
 // geef de bounding box van het item
 	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, 
-			float scale, Style style) {
-		List<TextLayout> layouts = getLayouts(g, scale, style);
+			float scale, Style style, Slide slide) {
+		List<TextLayout> layouts = getLayouts(g, scale, style, slide);
 		int xsize = 0, ysize = (int) (style.leading * scale);
 		Iterator<TextLayout> iterator = layouts.iterator();
 		while (iterator.hasNext()) {
@@ -67,11 +67,11 @@ public class TextItem implements Item {
 
 // teken het item
 	public void draw(int x, int y, float scale, Graphics g, 
-			ImageObserver o, Style style) {
+			ImageObserver o, Style style, Slide slide) {
 		if (text == null || text.length() == 0) {
 			return;
 		}
-		List<TextLayout> layouts = getLayouts(g, scale, style);
+		List<TextLayout> layouts = getLayouts(g, scale, style, slide);
 		Point pen = new Point(x + (int)(style.indent * scale), 
 				y + (int) (style.leading * scale));
 		Graphics2D g2d = (Graphics2D)g;
@@ -85,13 +85,13 @@ public class TextItem implements Item {
 		} 
 	  }
 
-	private List<TextLayout> getLayouts(Graphics g, float scale, Style style) {
+	private List<TextLayout> getLayouts(Graphics g, float scale, Style style, Slide slide) {
 		List<TextLayout> layouts = new ArrayList<TextLayout>();
 		AttributedString attrStr = getAttributedString(style, scale);
     	Graphics2D g2d = (Graphics2D) g;
     	FontRenderContext frc = g2d.getFontRenderContext();
     	LineBreakMeasurer measurer = new LineBreakMeasurer(attrStr.getIterator(), frc);
-    	float wrappingWidth = (Slide.WIDTH - style.indent) * scale;
+    	float wrappingWidth = (slide.getWidth() - style.indent) * scale;
     	while (measurer.getPosition() < getText().length()) {
     		TextLayout layout = measurer.nextLayout(wrappingWidth);
     		layouts.add(layout);

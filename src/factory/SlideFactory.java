@@ -21,14 +21,11 @@ private static SlideFactory instance;
 		
 	}
 	
-	public Slide getSlide(String title, List<SlideItem> slideItems) {
+	public Slide getSlide(String title) {
 		Slide slide = new SlideDeckSlide();		
 		SlideItem titleSlideItem = SlideItemFactory.getInstance().getSlideItem(0, "TEXT", title);		
 		slide.append(titleSlideItem);
-		for (SlideItem si : slideItems) {
-			slide.append(si);
-		}	
-		return null;
+		return slide;
 	}
 
 }

@@ -45,7 +45,8 @@ public class BitmapItem implements Item {
 	}
 
 // geef de bounding box van de afbeelding
-	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style style) {
+	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, 
+			float scale, Style style, Slide slide) {
 		return new Rectangle((int) (style.indent * scale), 0,
 				(int) (bufferedImage.getWidth(observer) * scale),
 				((int) (style.leading * scale)) + 
@@ -53,7 +54,8 @@ public class BitmapItem implements Item {
 	}
 
 // teken de afbeelding
-	public void draw(int x, int y, float scale, Graphics g, ImageObserver observer, Style style) {
+	public void draw(int x, int y, float scale, Graphics g, 
+			ImageObserver observer, Style style, Slide slide) {
 		int width = x + (int) (style.indent * scale);
 		int height = y + (int) (style.leading * scale);
 		g.drawImage(bufferedImage, width, height,(int) (bufferedImage.getWidth(observer)*scale),

@@ -2,7 +2,6 @@ package model;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
-import java.util.Vector;
 
 /** <p>Een slide. Deze klasse heeft tekenfunctionaliteit.</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
@@ -14,52 +13,8 @@ import java.util.Vector;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class Slide {
-	public final static int WIDTH = 1200;
-	public final static int HEIGHT = 800;
-	/* Geen String meer maar een TextItem */
-	protected TextItem title; // de titel wordt apart bewaard
-	protected Vector<SlideItem> items; // de slide-items worden in een Vector bewaard
-
-	public Slide() {
-		items = new Vector<SlideItem>();
-	}
-
-	// Voeg een SlideItem toe
-	public void append(SlideItem anItem) {
-		items.addElement(anItem);
-	}
-
-	// Maak een TextItem van String, en voeg het TextItem toe
-	public void append(int level, String message) {
-		append(new TextItem(level, message));
-	}
-
-	// geef het betreffende SlideItem
-	public SlideItem getSlideItem(int number) {
-		return (SlideItem)items.elementAt(number);
-	}
-
-	// geef alle SlideItems in een Vector
-	public Vector<SlideItem> getSlideItems() {
-		return items;
-	}
-
-	public void draw(Graphics g, Rectangle area, ImageObserver view) {
-		float scale = getScale(area);
-	    int y = area.y;
-	    SlideItem slideItem = this.title;
-	    slideItem.draw(area.x, y, scale, g, view);
-	    y += slideItem.getBoundingBox(g, view, scale).height;
-	    for (int number=0; number<items.size(); number++) {
-	      slideItem = getSlideItems().elementAt(number);
-	      slideItem.draw(area.x, y, scale, g, view);
-	      y += slideItem.getBoundingBox(g, view, scale).height;
-	    }
-	  }
-
-	// geef de schaal om de slide te kunnen tekenen
-	private float getScale(Rectangle area) {
-		return Math.min(((float)area.width) / ((float)WIDTH), ((float)area.height) / ((float)HEIGHT));
-	}
+public interface Slide {
+	abstract void draw(Graphics g, Rectangle area, ImageObserver view);
+	abstract void append(SlideItem slideItem);
+	abstract int getWidth();
 }
