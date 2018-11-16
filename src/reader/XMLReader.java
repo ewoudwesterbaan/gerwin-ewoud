@@ -126,7 +126,7 @@ public class XMLReader implements Reader {
 		return slides;
 	}
 
-	protected SlideItem createSlideItem(Element item) {
+	protected SlideItem createSlideItem(Element item) { 
 		int level = 1; // default
 		NamedNodeMap attributes = item.getAttributes();
 		String leveltext = attributes.getNamedItem(LEVEL).getTextContent();
