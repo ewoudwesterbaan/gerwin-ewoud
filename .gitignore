@@ -25,3 +25,5 @@ hs_err_pid*
 # toegevoegd ivm Latex
 *.pdf
 *.synctex.gz
+
+/bin
