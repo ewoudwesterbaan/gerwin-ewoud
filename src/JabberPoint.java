@@ -38,7 +38,7 @@ public class JabberPoint {
 
 		// Presentation presentation = new Presentation();
 		Presenter presenter = new PresentationManager();
-		presenter.loadFile("../test_slidesequences.xml");
+		presenter.loadFile("test_slidesequences.xml");
 
 		new SlideViewerFrame(JABVERSION, presenter);
 		
