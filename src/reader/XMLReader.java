@@ -65,7 +65,6 @@ public class XMLReader implements Reader {
 	private String getTitle(Element element, String tagName) {
 		NodeList titles = element.getElementsByTagName(tagName);
 		return titles.item(0).getTextContent();
-
 	}
 
 	protected List<Presentation> loadPresentations(String filename) {
@@ -107,19 +106,52 @@ public class XMLReader implements Reader {
 			if (slideNode.getNodeType() != Node.ELEMENT_NODE)
 				continue;
 
-			// => hier staat een "new" => via factory?!?
+			// get title for slide
 			Element slideElement = (Element) slideNode;
-			Slide slide = SlideFactory.getInstance().getSlide(getTitle(slideElement, SLIDETITLE));
-			slides.add(slide);
+			String title = getTitle(slideElement, SLIDETITLE);
 
-			NodeList slideItems = slideElement.getElementsByTagName(ITEM);
-			int itemCount = slideItems.getLength();
+			// process all slide items
+			List<SlideItem> slideItems = new ArrayList<SlideItem>();
+			NodeList slideItemNodes = slideElement.getElementsByTagName(ITEM);
+			int itemCount = slideItemNodes.getLength();
 			for (int itemNumber = 0; itemNumber < itemCount; itemNumber++) {
-				Element item = (Element) slideItems.item(itemNumber);
-				slide.append(createSlideItem(item));
+				Element item = (Element) slideItemNodes.item(itemNumber);
+				SlideItem slideItem = createSlideItem(item);
+				slideItems.add(slideItem);
 			}
+ 
+			Slide slide = SlideFactory.getInstance().getSlide(title, slideItems);
+			slides.add(slide);
 		}
 		return slides;
+	}
+
+	protected SlideItem createSlideItem(Element item) { 
+		int level = 1; // default
+		NamedNodeMap attributes = item.getAttributes();
+		String leveltext = attributes.getNamedItem(LEVEL).getTextContent();
+		if (leveltext != null) {
+			try {
+				level = Integer.parseInt(leveltext);
+			} catch (NumberFormatException x) {
+				System.err.println(NFE);
+			}
+		}
+
+		String type = attributes.getNamedItem(KIND).getTextContent();
+		// deze test skippen hier? komt overeen met de test in SlideItemFactory...
+		SlideItem slideItem = null;
+		if (TEXT.equals(type)) {
+			slideItem = SlideItemFactory.getInstance().getSlideItem(level, "text", item.getTextContent());
+		} else {
+			if (IMAGE.equals(type)) {
+				slideItem = SlideItemFactory.getInstance().getSlideItem(level, "image", item.getTextContent());
+			} else {
+				System.err.println(UNKNOWNTYPE);
+			}
+		}
+
+		return slideItem;
 	}
 
 	private List<Presentation> processSlideSequences(Node sequenceContainer, String title, List<Slide> slides) {
@@ -131,10 +163,10 @@ public class XMLReader implements Reader {
 			Node sequenceNode = sequenceNodes.item(seqNumber);
 			if (sequenceNode.getNodeType() != Node.ELEMENT_NODE)
 				continue;
-			
+
 			Element sequenceElement = (Element) sequenceNode;
 			String sequenceTitle = getTitle(sequenceElement, SEQUENCETITLE);
-			
+
 			Presentation presentation = PresentationFactory.getInstance().getPresentation(title, sequenceTitle);
 			presentations.add(presentation);
 
@@ -150,25 +182,5 @@ public class XMLReader implements Reader {
 			}
 		}
 		return presentations;
-	}
-
-	/**
-	 * 
-	 * @param xmlElement The XML element to interpret.
-	 * @return A SlideItem object.
-	 */
-	protected SlideItem createSlideItem(Element xmlElement) {
-		int level = 1; // default
-		NamedNodeMap attributes = xmlElement.getAttributes();
-		String leveltext = attributes.getNamedItem(LEVEL).getTextContent();
-		if (leveltext != null) {
-			try {
-				level = Integer.parseInt(leveltext);
-			} catch (NumberFormatException x) {
-				System.err.println(NFE);
-			}
-		}
-		String type = attributes.getNamedItem(KIND).getTextContent();				
-		return SlideItemFactory.getInstance().getSlideItem(level, type, xmlElement.getTextContent());
 	}
 }
