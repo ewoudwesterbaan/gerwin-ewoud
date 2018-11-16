@@ -7,16 +7,12 @@ import java.awt.MenuItem;
 import java.awt.MenuShortcut;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.io.IOException;
 import java.util.Arrays;
 
 import javax.swing.JOptionPane;
 
 import model.AboutBox;
-import model.Accessor;
-import model.Presentation;
 import model.Presenter;
-import model.XMLAccessor;
 
 /**
  * <p>

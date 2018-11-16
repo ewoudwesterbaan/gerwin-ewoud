@@ -1,11 +1,9 @@
 import javax.swing.JOptionPane;
 
-import model.Accessor;
 import model.Presentation;
 import model.PresentationManager;
 import model.Presenter;
 import model.Style;
-import model.XMLAccessor;
 import view.SlideViewerFrame;
 
 import java.io.IOException;
@@ -36,24 +34,17 @@ public class JabberPoint {
 	/** Het Main Programma */
 	public static void main(String argv[]) {
 
-		// Presentation presentation = new Presentation();
 		Presenter presenter = new PresentationManager();
-		presenter.loadFile("test_slidesequences.xml");
+		// presenter.loadFile("test_slidesequences.xml");
 
 		new SlideViewerFrame(JABVERSION, presenter);
-		
+
+		if (argv.length == 0) { // een demo presentatie
+			presenter.loadFile("");
+		} else {
+			presenter.loadFile(argv[0]);
+		}
+
 		presenter.selectPresentation(0);
-		
-		// stuk hieronder kan weg?
-		/*try {
-			if (argv.length == 0) { // een demo presentatie
-				Accessor.getDemoAccessor().loadFile(presentation, "");
-			} else {
-				new XMLAccessor().loadFile(presentation, argv[0]);
-			}
-			presentation.selectSlide(0);
-		} catch (IOException ex) {
-			JOptionPane.showMessageDialog(null, IOERR + ex, JABERR, JOptionPane.ERROR_MESSAGE);
-		}*/
 	}
 }

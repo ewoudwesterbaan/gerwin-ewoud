@@ -46,8 +46,11 @@ public class SlideViewerComponent extends JComponent implements PresentationObse
 
 	public SlideViewerComponent(Presenter presenter) {
 		setBackground(BGCOLOR);
+		
+		// if another slide is selected, we want to be notified
 		this.presenter = presenter;
-		this.presenter.attach((PresentationObserver)this);	// attach as presentation observer
+		this.presenter.attach(this);
+
 		labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
 	}
 

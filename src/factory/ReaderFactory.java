@@ -22,7 +22,7 @@ public class ReaderFactory {
 		Reader reader = null;
 		if (fn.endsWith(".xml")) {
 			reader = new XMLReader(fn);
-		} else if (fn == null) {
+		} else { //if (fn == null) {
 			reader = new DemoReader();
 		}
 		return reader;

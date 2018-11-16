@@ -46,7 +46,6 @@ public class SlideViewerFrame extends JFrame implements PresenterObserver {
 
 		Presentation presentation = presenter.getCurrentPresentation();
 		SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presenter);
-//		presenter.attach(slideViewerComponent);
 		setupWindow(slideViewerComponent, presentation);
 	}
 
@@ -71,7 +70,7 @@ public class SlideViewerFrame extends JFrame implements PresenterObserver {
 	}
 
 	@Override
-	public void update(Presentation presentation) // , Slide slide)
+	public void update(Presentation presentation)
 	{
 		// moet presentation nog als (private) member bewaard worden, of is dit genoeg?
 		this.setTitle(presentation.getTitle());
