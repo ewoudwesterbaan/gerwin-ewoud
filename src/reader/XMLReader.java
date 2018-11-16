@@ -109,6 +109,7 @@ public class XMLReader implements Reader {
 			// get title for slide
 			Element slideElement = (Element) slideNode;
 			String title = getTitle(slideElement, SLIDETITLE);
+			Slide slide = SlideFactory.getInstance().getSlide(title);
 
 			// process all slide items
 			List<SlideItem> slideItems = new ArrayList<SlideItem>();
@@ -117,10 +118,9 @@ public class XMLReader implements Reader {
 			for (int itemNumber = 0; itemNumber < itemCount; itemNumber++) {
 				Element item = (Element) slideItemNodes.item(itemNumber);
 				SlideItem slideItem = createSlideItem(item);
-				slideItems.add(slideItem);
+				slide.append(slideItem);
 			}
  
-			Slide slide = SlideFactory.getInstance().getSlide(title, slideItems);
 			slides.add(slide);
 		}
 		return slides;
