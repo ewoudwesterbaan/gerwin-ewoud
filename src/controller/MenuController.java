@@ -30,7 +30,6 @@ import model.Presenter;
 public class MenuController extends MenuBar {
 
 	private Frame parent; // het frame, alleen gebruikt als ouder voor de Dialogs
-	private Presenter presenter; // via presenter kan er een andere presentation geselecteerd worden
 
 	private static final long serialVersionUID = 227L;
 
@@ -60,7 +59,6 @@ public class MenuController extends MenuBar {
 
 	public MenuController(Frame frame, final Presenter presenter) {
 		parent = frame;
-		this.presenter = presenter;
 
 		MenuItem menuItem;
 		Menu fileMenu = new Menu(FILE);

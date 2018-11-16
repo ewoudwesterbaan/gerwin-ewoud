@@ -5,6 +5,14 @@ import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
 import java.util.Vector;
 
+/**
+ * 
+ * @author Gerwin van Dijken
+ * @author Ewoud Westerbaan
+ * @since 2.0
+ * @version 2.0 2018/11/18 Gerwin van Dijken en Ewoud Westerbaan
+ *
+ */
 public class SlideDeckSlide implements Slide {
 	private int width = 1200;
 	private int height = 800;

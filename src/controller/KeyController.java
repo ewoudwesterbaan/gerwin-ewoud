@@ -1,12 +1,9 @@
 package controller;
 
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import model.Presentation;
 import model.Presenter;
-import model.PresenterObserver;
-
-import java.awt.event.KeyAdapter;
 
 /**
  * <p>

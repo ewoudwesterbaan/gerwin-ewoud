@@ -5,6 +5,14 @@ import model.Item;
 import model.SlideItem;
 import model.TextItem;
 
+/**
+ * 
+ * @author Gerwin van Dijken
+ * @author Ewoud Westerbaan
+ * @since 2.0
+ * @version 2.0 2018/11/18 Gerwin van Dijken en Ewoud Westerbaan
+ *
+ */
 public class SlideItemFactory {
 	
 private static SlideItemFactory instance;
