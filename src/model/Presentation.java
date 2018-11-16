@@ -1,10 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import view.SlideViewerComponent;
-
 /**
  * <p>
  * Presentation houdt de slides in de presentatie bij.
@@ -24,7 +19,6 @@ import view.SlideViewerComponent;
 
 public interface Presentation {
 	 String getTitle();
-	 void setTitle(String title);
 	 int getNumberOfSlides();
 	 Slide getCurrentSlide();
 	 int getSlideNumber();

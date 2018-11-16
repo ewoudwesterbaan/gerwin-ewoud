@@ -9,7 +9,8 @@ public class SlideSequence implements Presentation {
 	private Slide currentSlide;
 	private int currentSlideIndex; // wel zo handig...
 
-	public SlideSequence() {
+	public SlideSequence(String title) {
+		this.title = title;
 		slides = new ArrayList<Slide>();
 
 		// initially, no slide selected
@@ -20,11 +21,6 @@ public class SlideSequence implements Presentation {
 	@Override
 	public String getTitle() {
 		return title;
-	}
-
-	@Override
-	public void setTitle(String title) {
-		this.title = title;
 	}
 
 	@Override

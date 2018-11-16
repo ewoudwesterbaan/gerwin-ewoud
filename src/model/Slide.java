@@ -30,18 +30,6 @@ public class Slide {
 		items.addElement(anItem);
 	}
 
-	// geef de titel van de slide
-	public String getTitle() {
-		/* Geef nu de tekst van het TextItem terug */
-		return title.getText();
-	}
-
-	// verander de titel van de slide
-	public void setTitle(String newTitle) {
-		/* Creëer nu een TextItem op basis van de nieuwe titel */
-		title = new TextItem(0, newTitle);
-	}
-
 	// Maak een TextItem van String, en voeg het TextItem toe
 	public void append(int level, String message) {
 		append(new TextItem(level, message));

@@ -16,6 +16,7 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
+import factory.PresentationFactory;
 import model.BitmapItem;
 import model.Presentation;
 import model.Slide;
@@ -128,14 +129,11 @@ public class XMLReader implements Reader {
 			Node sequenceNode = sequenceNodes.item(seqNumber);
 			if (sequenceNode.getNodeType() != Node.ELEMENT_NODE)
 				continue;
-
-			// each sequence becomes a SlideSequence
-			// => hier staat een "new" => via factory?!?
-			Presentation presentation = new SlideSequence();
+			
 			Element sequenceElement = (Element) sequenceNode;
 			String sequenceTitle = getTitle(sequenceElement, SEQUENCETITLE);
-			// concatenate sequence title with presentation title
-			presentation.setTitle(title + " - " + sequenceTitle);
+			
+			Presentation presentation = PresentationFactory.getInstance().getPresentation(title, sequenceTitle);
 			presentations.add(presentation);
 
 			NodeList slideNumbers = sequenceElement.getElementsByTagName(SLIDENUMBER);
