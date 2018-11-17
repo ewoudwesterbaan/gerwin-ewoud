@@ -9,6 +9,14 @@ import factory.SlideItemFactory;
 import model.Presentation;
 import model.Slide;
 
+/**
+ * Verantwoordelijk voor het aanmaken van demo {@link Presentation}s.
+ * 
+ * @author Gerwin van Dijken
+ * @author Ewoud Westerbaan
+ * @since 2.0
+ * @version 2.0 2018/11/18 Gerwin van Dijken en Ewoud Westerbaan
+ */
 public class DemoReader implements Reader {
 
 	/**

@@ -23,6 +23,15 @@ import model.Presentation;
 import model.Slide;
 import model.SlideItem;
 
+/**
+ * Verantwoordelijk voor het inlezen van {@link Presentation}s uit een
+ * XML-bestand.
+ * 
+ * @author Gerwin van Dijken
+ * @author Ewoud Westerbaan
+ * @since 2.0
+ * @version 2.0 2018/11/18 Gerwin van Dijken en Ewoud Westerbaan
+ */
 public class XMLReader implements Reader {
 
 	/** Default API to use. */
@@ -50,6 +59,12 @@ public class XMLReader implements Reader {
 
 	private String filename;
 
+	/**
+	 * Constructor. Slaat de meegegeven bestandsnaam op.
+	 * 
+	 * @param filename
+	 *            Naam van het xml-bestand.
+	 */
 	public XMLReader(String filename) {
 		this.filename = filename;
 	}
@@ -62,11 +77,27 @@ public class XMLReader implements Reader {
 		return loadPresentations(this.filename);
 	}
 
+	/**
+	 * Geeft de inhoud terug van het eerste child-element met een bepaalde tagname.
+	 * 
+	 * @param element
+	 *            Parent element waarvan de child-elements wordt opgevraagd.
+	 * @param tagName
+	 *            tagname Naam van het xml-element dat gezocht wordt.
+	 * @return Inhoud van het eerste child-element met een gegeven tagname.
+	 */
 	private String getTitle(Element element, String tagName) {
 		NodeList titles = element.getElementsByTagName(tagName);
 		return titles.item(0).getTextContent();
 	}
 
+	/**
+	 * Leest alle {@link Presentation}s uit een xml-bestand.
+	 * 
+	 * @param filename
+	 *            Naam van het bestand dat ingelezen wordt.
+	 * @return Een lijst van ingelezen {@link Presentation}s.
+	 */
 	protected List<Presentation> loadPresentations(String filename) {
 		try {
 			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -96,6 +127,13 @@ public class XMLReader implements Reader {
 		return null;
 	}
 
+	/**
+	 * Verwerkt de xml-node dat informatie bevat over {@link Slide}s.
+	 * 
+	 * @param slidesContainer
+	 *            De xml root node dat alle slide nodes bevat.
+	 * @return Een lijst van ingelezen {@link Slide}s.
+	 */
 	private List<Slide> processSlides(Node slidesContainer) {
 		List<Slide> slides = new ArrayList<Slide>();
 
@@ -119,13 +157,20 @@ public class XMLReader implements Reader {
 				SlideItem slideItem = createSlideItem(item);
 				slide.append(slideItem);
 			}
- 
+
 			slides.add(slide);
 		}
 		return slides;
 	}
 
-	protected SlideItem createSlideItem(Element item) { 
+	/**
+	 * Maakt een {@link SlideItem} aan op basis van een xml-element.
+	 * 
+	 * @param item
+	 *            Het xml-element met informatie over een slide item.
+	 * @return Een nieuwe {@link SlideItem}.
+	 */
+	protected SlideItem createSlideItem(Element item) {
 		int level = 1; // default
 		NamedNodeMap attributes = item.getAttributes();
 		String leveltext = attributes.getNamedItem(LEVEL).getTextContent();
@@ -143,6 +188,18 @@ public class XMLReader implements Reader {
 		return slideItem;
 	}
 
+	/**
+	 * Verwert alle slide-sequences nodes.
+	 * 
+	 * @param sequenceContainer
+	 *            De xml root node dat alle slide-sequence nodes bevat.
+	 * @param title
+	 *            Hoofdtitel voor de aan te maken {@link Presentation}s.
+	 * @param slides
+	 *            {@link Slide}s die gerefereerd kunnen worden vanuit een
+	 *            {@link Presentation}.
+	 * @return Een lijst met aangemaakte {@link Presentation}s.
+	 */
 	private List<Presentation> processSlideSequences(Node sequenceContainer, String title, List<Slide> slides) {
 		List<Presentation> presentations = new ArrayList<Presentation>();
 
