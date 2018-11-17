@@ -156,7 +156,6 @@ public class PresentationManager implements Presenter {
 			currentPresentation.selectSlide(number);
 
 			// state has changed, notify all observers
-			// todo: we weten niet zeker of er een andere slide actief is nu...
 			notifyAllPresentationObservers();
 		}
 	}
