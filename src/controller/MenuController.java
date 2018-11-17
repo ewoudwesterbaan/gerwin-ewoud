@@ -7,12 +7,16 @@ import java.awt.MenuItem;
 import java.awt.MenuShortcut;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.Arrays;
 
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
+import factory.PresenterFactory;
 import model.AboutBox;
 import model.Presenter;
+import view.SlideViewerFrame;
 
 /**
  * De controller voor het menu. Verantwoordelijk voor het uitvoeren van akties
@@ -38,12 +42,10 @@ public class MenuController extends MenuBar {
 	protected static final String EXIT = "Exit";
 	protected static final String GOTO = "Go to slide";
 	protected static final String HELP = "Help";
-	protected static final String NEW = "New";
 	protected static final String NEXTSLIDE = "Next slide";
 	protected static final String OPEN = "Open";
 	protected static final String PAGENR = "Page number?";
 	protected static final String PREVSLIDE = "Previous slide";
-	protected static final String SAVE = "Save";
 	protected static final String VIEW = "View";
 	protected static final String GOTO_PRESENTATION = "Go to presentation";
 	protected static final String PRESENTATIONNR = "Presentation number?";
@@ -73,35 +75,19 @@ public class MenuController extends MenuBar {
 		fileMenu.add(menuItem = mkMenuItem(OPEN));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				// presentation.clear();
-				// Accessor xmlAccessor = new XMLAccessor();
-				// try {
-				// xmlAccessor.loadFile(presentation, TESTFILE);
-				// presentation.selectSlide(0); // .setSlideNumber(0);
-				// } catch (IOException exc) {
-				// JOptionPane.showMessageDialog(parent, IOEX + exc, LOADERR,
-				// JOptionPane.ERROR_MESSAGE);
-				// }
-				// parent.repaint(); => gaat nu via observer!
-			}
-		});
-		fileMenu.add(menuItem = mkMenuItem(NEW));
-		menuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				// presentation.clear();
-				// parent.repaint(); => gaat nu via observer!
-			}
-		});
-		fileMenu.add(menuItem = mkMenuItem(SAVE));
-		menuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// Accessor xmlAccessor = new XMLAccessor();
-				// try {
-				// xmlAccessor.saveFile(presentation, SAVEFILE);
-				// } catch (IOException exc) {
-				// JOptionPane.showMessageDialog(parent, IOEX + exc, SAVEERR,
-				// JOptionPane.ERROR_MESSAGE);
-				// }
+				JFileChooser fc = new JFileChooser();
+				int returnVal = fc.showOpenDialog(parent);
+
+				if (returnVal == JFileChooser.APPROVE_OPTION) {
+					File file = fc.getSelectedFile();
+					String filename = file.getPath();
+
+					Presenter presenter = PresenterFactory.getInstance().getPresenter();
+					presenter.loadFile(filename);
+
+					// start met eerste presentatie
+					presenter.selectPresentation(0);
+				}
 			}
 		});
 		fileMenu.addSeparator();
@@ -144,8 +130,7 @@ public class MenuController extends MenuBar {
 					choices[i - 1] = "presentation " + i;
 				}
 				String input = (String) JOptionPane.showInputDialog(null, "Choose presentation...",
-						"Presentation selector", JOptionPane.QUESTION_MESSAGE, null, choices, // Array of choices
-						null);
+						"Presentation selector", JOptionPane.QUESTION_MESSAGE, null, choices, null);
 				int index = Arrays.asList(choices).indexOf(input);
 				if (index >= 0)
 					presenter.selectPresentation(index);
