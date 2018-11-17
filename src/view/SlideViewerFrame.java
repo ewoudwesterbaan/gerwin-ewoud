@@ -44,13 +44,12 @@ public class SlideViewerFrame extends JFrame implements PresentationObserver {
 		this.presenter = presenter;
 		presenter.attach(this);
 
-		Presentation presentation = presenter.getCurrentPresentation();
 		SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presenter);
-		setupWindow(slideViewerComponent, presentation);
+		setupWindow(slideViewerComponent);
 	}
 
 	// De GUI opzetten
-	private void setupWindow(SlideViewerComponent slideViewerComponent, Presentation presentation) {
+	private void setupWindow(SlideViewerComponent slideViewerComponent) {
 		setTitle(JABTITLE);
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {

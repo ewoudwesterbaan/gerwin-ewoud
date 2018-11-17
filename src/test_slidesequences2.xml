@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE presentation SYSTEM "jabberpoint_slidesequences.dtd">
+<presentation>
+	<showtitle>XML-Based Presentation for Jabberpoint</showtitle>
+	<slides>
+		<slide>
+			<title>JabberPoint XML-Demo</title>
+			<item kind="text"  level="1">Welkom bij Jabberpoint</item>
+			<item kind="text"  level="1">Navigatie:</item>
+			<item kind="text"  level="2">Volgende slide: PgDn or Enter</item>
+			<item kind="text"  level="2">Vorige slide: PgUp or up-arrow</item>
+			<item kind="text"  level="2">Stoppen: q or Q</item>
+		</slide>
+		<slide>
+			<title>De tweede slide</title>
+			<item kind="text"  level="1">???</item>
+		</slide>
+		<slide>
+			<title>De laatste slide</title>
+			<item kind="text"  level="1">Navigatie kan ook via het menu</item>
+			<item kind="text"  level="2">Presentatie laden: File->Open</item>
+			<item kind="text"  level="1"> </item>
+			<item kind="text"  level="1">Dit is het einde van de presentatie.</item>
+			<item kind="image"  level="1">JabberPoint.jpg</item>
+			<item kind="text"  level="1">Tot ziens.</item>
+		</slide>
+	</slides>
+	<slidesequences>
+		<slidesequence>
+			<title>variant 1a</title>
+			<slidenumber>1</slidenumber>
+			<slidenumber>2</slidenumber>
+		</slidesequence>
+		<slidesequence>
+			<title>variant 1b</title>
+			<slidenumber>1</slidenumber>
+			<slidenumber>2</slidenumber>
+			<slidenumber>3</slidenumber>
+			<slidenumber>2</slidenumber>
+			<slidenumber>1</slidenumber>
+		</slidesequence>
+	</slidesequences>
+</presentation>

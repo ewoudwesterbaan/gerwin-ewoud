@@ -1,0 +1,15 @@
+<!--
+ Document Type Definition voor JabberPoint presentatties
+ $Id$
+ -->
+<!ELEMENT presentation (showtitle,slides,threads)>
+<!ELEMENT showtitle (#PCDATA)>
+<!ELEMENT slides (slide+)>
+<!ELEMENT slide (title, item*)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT item (#PCDATA)>
+<!ATTLIST item kind CDATA #REQUIRED>
+<!ATTLIST item level CDATA #REQUIRED>
+<!ELEMENT threads (thread+)>
+<!ELEMENT thread (slidenumber+)>
+<!ELEMENT slidenumber (#PCDATA)>
