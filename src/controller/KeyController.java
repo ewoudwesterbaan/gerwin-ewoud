@@ -6,8 +6,8 @@ import java.awt.event.KeyEvent;
 import model.Presenter;
 
 /**
- * De KeyController (KeyListener). Verantwoordelijk voor het uitvoeren van
- * diverse keyboard toetsen.
+ * De KeyController (KeyListener). Verantwoordelijk voor het uitvoeren van akties
+ * voor diverse keyboard toetsen.
  * 
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.1 2002/12/17 Gert Florijn
