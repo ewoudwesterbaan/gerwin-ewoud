@@ -42,7 +42,7 @@ public class PresentationFactory {
 	public Presentation getPresentation(String showTitle, String subTitle) {
 		// concatenate sequence title with presentation title
 		String title = showTitle + " - " + subTitle;
-		Presentation presentation = new SlideSequence(title); // De enige veriant die tot nu toe is geïmplementeerd.
+		Presentation presentation = new SlideSequence(title); // De enige variant die tot nu toe is geïmplementeerd.
 		return presentation;
 	}
 

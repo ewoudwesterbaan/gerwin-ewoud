@@ -19,7 +19,7 @@ public class SlideDeckSlide implements Slide {
 	protected Vector<SlideItem> items; // de slide-items worden in een Vector bewaard
 
 	/**
-	 * Constructor. Initaliseert de items.
+	 * Constructor. Initialiseert de items.
 	 */
 	public SlideDeckSlide() {
 		items = new Vector<SlideItem>();

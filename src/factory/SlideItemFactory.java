@@ -36,7 +36,7 @@ public class SlideItemFactory {
 	}
 	
 	/**
-	 * Maakt een object aan dat {@link SlideItem} implementeerd en geeft deze terug.<br>
+	 * Maakt een object aan dat {@link SlideItem} implementeert en geeft deze terug.<br>
 	 * @param level Level van de {@link SlideItem}. Geeft aan welke style gebruikt moet worden.
 	 * @param type Type van de {@link SlideItem}. Wordt gebruikt om de correcte implementatie terug te geven.
 	 * @param content Inhoud van de {@link SlideItem}. Gebruik is afhankelijk van {@code type}.
@@ -54,5 +54,4 @@ public class SlideItemFactory {
 		SlideItem slideItem = new SlideItem(level, item);
 		return slideItem; 
 	}
-
 }

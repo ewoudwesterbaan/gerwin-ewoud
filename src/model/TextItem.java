@@ -34,7 +34,7 @@ public class TextItem implements Item {
 	
 	/**
 	 * Aanmaken van het object.
-	 * @param string Tekst doe weergegeven moet worden.
+	 * @param string De tekst die weergegeven moet worden.
 	 */
 	public TextItem(String string) {
 		text = string;
