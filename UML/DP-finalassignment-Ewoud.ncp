@@ -8,19 +8,16 @@
         <Name>SlideDeckSlide</Name>
         <Access>Public</Access>
         <Location left="1814" top="903" />
-        <Size width="212" height="202" />
+        <Size width="212" height="111" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">private String title</Member>
-        <Member type="Field">private int height</Member>
         <Member type="Method">public SlideItem getSlideItem(int number)</Member>
-        <Member type="Constructor">public SlideDeckSlide(int width, int height)</Member>
         <Member type="Method">void draw()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>SlideItem</Name>
         <Access>Public</Access>
-        <Location left="2108" top="612" />
+        <Location left="2017" top="612" />
         <Size width="174" height="128" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int level</Member>
@@ -63,7 +60,7 @@
       <Entity type="Class">
         <Name>XMLReader</Name>
         <Access>Public</Access>
-        <Location left="976" top="1444" />
+        <Location left="842" top="1512" />
         <Size width="222" height="94" />
         <Collapsed>False</Collapsed>
         <Member type="Method">List&lt;Presentation&gt; load()</Member>
@@ -72,7 +69,7 @@
       <Entity type="Interface">
         <Name>Reader</Name>
         <Access>Public</Access>
-        <Location left="816" top="1249" />
+        <Location left="698" top="1329" />
         <Size width="222" height="94" />
         <Collapsed>False</Collapsed>
         <Member type="Method">List&lt;Presentation&gt; load()</Member>
@@ -96,7 +93,7 @@
       <Entity type="Class">
         <Name>SlideViewerComponent</Name>
         <Access>Public</Access>
-        <Location left="899" top="320" />
+        <Location left="899" top="290" />
         <Size width="163" height="94" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public void update(Slide slide)</Member>
@@ -105,7 +102,7 @@
       <Entity type="Class">
         <Name>SlideViewerFrame</Name>
         <Access>Public</Access>
-        <Location left="588" top="320" />
+        <Location left="588" top="290" />
         <Size width="229" height="94" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public void update(Presentation presentation)</Member>
@@ -114,9 +111,10 @@
       <Entity type="Class">
         <Name>PresentationFactory</Name>
         <Access>Public</Access>
-        <Location left="1415" top="1249" />
-        <Size width="163" height="77" />
+        <Location left="1011" top="1263" />
+        <Size width="197" height="94" />
         <Collapsed>False</Collapsed>
+        <Member type="Method">public Presentation getPresentation()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -136,31 +134,10 @@
         <Member type="Method">public void saveFile(String fileName)</Member>
         <Modifier>None</Modifier>
       </Entity>
-      <Entity type="Comment">
-        <Text>view namespace</Text>
-        <Location left="100" top="334" />
-        <Size width="101" height="50" />
-      </Entity>
-      <Entity type="Comment">
-        <Text>controller
-namespace</Text>
-        <Location left="100" top="470" />
-        <Size width="101" height="50" />
-      </Entity>
-      <Entity type="Comment">
-        <Text>Observer pattern</Text>
-        <Location left="301" top="354" />
-        <Size width="112" height="50" />
-      </Entity>
-      <Entity type="Comment">
-        <Text>model namespace</Text>
-        <Location left="100" top="612" />
-        <Size width="101" height="50" />
-      </Entity>
       <Entity type="Class">
         <Name>SlideSequence</Name>
         <Access>Public</Access>
-        <Location left="962" top="888" />
+        <Location left="1022" top="890" />
         <Size width="176" height="298" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private Slide currentSlide</Member>
@@ -181,7 +158,7 @@ namespace</Text>
       <Entity type="Class">
         <Name>StyleFactory</Name>
         <Access>Public</Access>
-        <Location left="2394" top="507" />
+        <Location left="2346" top="510" />
         <Size width="163" height="94" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public Style getStyle(int level)</Member>
@@ -215,7 +192,7 @@ namespace</Text>
       <Entity type="Class">
         <Name>ReaderFactory</Name>
         <Access>Public</Access>
-        <Location left="833" top="1606" />
+        <Location left="698" top="1666" />
         <Size width="230" height="110" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public Reader getReader(String fn)</Member>
@@ -241,7 +218,7 @@ namespace</Text>
       <Entity type="Class">
         <Name>PresenterFactory</Name>
         <Access>Public</Access>
-        <Location left="475" top="1226" />
+        <Location left="279" top="1301" />
         <Size width="209" height="110" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public static Presenter getPresenter()</Member>
@@ -262,22 +239,6 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
         <Location left="2829" top="570" />
         <Size width="231" height="146" />
       </Entity>
-      <Entity type="Comment">
-        <Text>Commonalities</Text>
-        <Location left="222" top="613" />
-        <Size width="160" height="75" />
-      </Entity>
-      <Entity type="Comment">
-        <Text>Variablities</Text>
-        <Location left="210" top="921" />
-        <Size width="160" height="75" />
-      </Entity>
-      <Entity type="Comment">
-        <Text>Singleton
-er mag maar één Presenter zijn</Text>
-        <Location left="259" top="1194" />
-        <Size width="158" height="70" />
-      </Entity>
       <Entity type="Interface">
         <Name>PresenterObserver</Name>
         <Access>Public</Access>
@@ -286,15 +247,10 @@ er mag maar één Presenter zijn</Text>
         <Collapsed>False</Collapsed>
         <Member type="Method">void update(Presentation presentation)</Member>
       </Entity>
-      <Entity type="Comment">
-        <Text>Start van de applicatie</Text>
-        <Location left="747" top="249" />
-        <Size width="103" height="50" />
-      </Entity>
       <Entity type="Class">
         <Name>DemoReader</Name>
         <Access>Public</Access>
-        <Location left="698" top="1444" />
+        <Location left="558" top="1512" />
         <Size width="210" height="100" />
         <Collapsed>False</Collapsed>
         <Member type="Method">List&lt;Presentation&gt; load()</Member>
@@ -303,7 +259,7 @@ er mag maar één Presenter zijn</Text>
       <Entity type="Interface">
         <Name>Presentation</Name>
         <Access>Public</Access>
-        <Location left="962" top="568" />
+        <Location left="1022" top="568" />
         <Size width="176" height="264" />
         <Collapsed>False</Collapsed>
         <Member type="Method">String getTtile()</Member>
@@ -326,69 +282,113 @@ er mag maar één Presenter zijn</Text>
         <Collapsed>False</Collapsed>
         <Member type="Method">void update(Slide slide)</Member>
       </Entity>
+      <Entity type="Class">
+        <Name>SlideItemFactory</Name>
+        <Access>Public</Access>
+        <Location left="2267" top="1283" />
+        <Size width="162" height="104" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public SlideItem getSlideItem()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SlideFactory</Name>
+        <Access>Public</Access>
+        <Location left="1699" top="1205" />
+        <Size width="162" height="134" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public Slide getSlide()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>JabberPoint</Name>
+        <Access>Public</Access>
+        <Location left="188" top="290" />
+        <Size width="162" height="107" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public static void main()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>Start van de applicatie</Text>
+        <Location left="188" top="160" />
+        <Size width="160" height="75" />
+      </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Realization" first="5" second="6">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1096</X>
-          <Y>1419</Y>
+          <X>962</X>
+          <Y>1487</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="10" second="9">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>843</X>
-          <Y>385</Y>
+          <Y>355</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>874</X>
-          <Y>385</Y>
+          <Y>355</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="12" second="6">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
+        <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>724</X>
           <Y>1194</Y>
         </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>724</X>
+          <Y>1298</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="6" second="11">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>946</X>
+          <Y>1345</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>986</X>
+          <Y>1311</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="1" second="4">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Association" first="1" second="18">
+      <Relationship type="Association" first="1" second="14">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>2307</X>
+          <X>2216</X>
           <Y>633</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Association" first="19" second="0">
-        <Label>
-        </Label>
+      <Relationship type="Association" first="15" second="0">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -400,29 +400,29 @@ er mag maar één Presenter zijn</Text>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Dependency" first="18" second="4">
-        <Label>
-        </Label>
+      <Relationship type="Dependency" first="14" second="4">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>2582</X>
-          <Y>554</Y>
+          <X>2534</X>
+          <Y>557</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>2685</X>
           <Y>576</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Realization" first="0" second="20">
+      <Relationship type="Realization" first="0" second="16">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Realization" first="19" second="20">
+      <Relationship type="Realization" first="15" second="16">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Association" first="20" second="1">
+      <Relationship type="Association" first="16" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -430,7 +430,7 @@ er mag maar één Presenter zijn</Text>
           <Y>660</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>2083</X>
+          <X>1992</X>
           <Y>660</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
@@ -438,7 +438,7 @@ er mag maar één Presenter zijn</Text>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Comment" first="21" second="19">
+      <Relationship type="Comment" first="17" second="15">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -446,51 +446,25 @@ er mag maar één Presenter zijn</Text>
           <Y>949</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Dependency" first="22" second="5">
-        <Label>
-        </Label>
+      <Relationship type="Dependency" first="18" second="5">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>1096</X>
-          <Y>1587</Y>
+          <X>962</X>
+          <Y>1655</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Dependency" first="11" second="17">
-        <Label>
-        </Label>
+      <Relationship type="Dependency" first="11" second="13">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>1083</X>
-          <Y>1211</Y>
+          <X>1113</X>
+          <Y>1214</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Dependency" first="11" second="19">
+      <Relationship type="Association" first="7" second="19">
         <Label>
         </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1532</X>
-          <Y>1174</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>1659</X>
-          <Y>1153</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Dependency" first="11" second="0">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1541</X>
-          <Y>1224</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Association" first="7" second="23">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -506,37 +480,35 @@ er mag maar één Presenter zijn</Text>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Realization" first="12" second="23">
+      <Relationship type="Realization" first="12" second="19">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Dependency" first="24" second="12">
-        <Label>
-        </Label>
+      <Relationship type="Dependency" first="20" second="12">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>581</X>
-          <Y>1201</Y>
+          <X>385</X>
+          <Y>1276</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>581</X>
           <Y>1194</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Association" first="1" second="25">
-        <Label>
-        </Label>
+      <Relationship type="Association" first="1" second="21">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>2307</X>
+          <X>2216</X>
           <Y>722</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Realization" first="3" second="25">
+      <Relationship type="Realization" first="3" second="21">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -544,7 +516,7 @@ er mag maar één Presenter zijn</Text>
           <Y>927</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Realization" first="2" second="25">
+      <Relationship type="Realization" first="2" second="21">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -556,35 +528,7 @@ er mag maar één Presenter zijn</Text>
           <Y>922</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Dependency" first="11" second="2">
-        <Label>
-        </Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1603</X>
-          <Y>1283</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>2251</X>
-          <Y>1204</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Dependency" first="11" second="3">
-        <Label>
-        </Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1610</X>
-          <Y>1305</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>2448</X>
-          <Y>1229</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Comment" first="26" second="4">
+      <Relationship type="Comment" first="22" second="4">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -593,11 +537,13 @@ er mag maar één Presenter zijn</Text>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="10" second="7">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>676</X>
-          <Y>441</Y>
+          <Y>411</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>676</X>
@@ -605,16 +551,16 @@ er mag maar één Presenter zijn</Text>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="10" second="8">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>777</X>
-          <Y>439</Y>
+          <Y>409</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Association" first="23" second="30">
-        <Label>
-        </Label>
+      <Relationship type="Association" first="19" second="23">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -630,63 +576,61 @@ er mag maar één Presenter zijn</Text>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Realization" first="10" second="30">
+      <Relationship type="Realization" first="10" second="23">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>609</X>
-          <Y>295</Y>
+          <Y>265</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Comment" first="29" second="24">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-      </Relationship>
-      <Relationship type="Comment" first="31" second="10">
+      <Relationship type="Dependency" first="18" second="24">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>722</X>
-          <Y>277</Y>
+          <X>665</X>
+          <Y>1720</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>710</X>
-          <Y>295</Y>
+          <X>658</X>
+          <Y>1669</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Dependency" first="22" second="32">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>798</X>
-          <Y>1601</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Realization" first="32" second="6">
+      <Relationship type="Realization" first="24" second="6">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Association" first="23" second="33">
+      <Relationship type="Association" first="19" second="25">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>773</X>
+          <Y>808</Y>
+        </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>933</X>
-          <Y>664</Y>
+          <X>965</X>
+          <Y>808</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Realization" first="17" second="33">
+      <Relationship type="Realization" first="13" second="25">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Association" first="33" second="20">
+      <Relationship type="Association" first="25" second="16">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1163</X>
+          <X>1223</X>
           <Y>645</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
@@ -694,17 +638,15 @@ er mag maar één Presenter zijn</Text>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Realization" first="9" second="34">
+      <Relationship type="Realization" first="9" second="26">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>1030</X>
-          <Y>265</Y>
+          <Y>235</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Association" first="8" second="23">
-        <Label>
-        </Label>
+      <Relationship type="Association" first="8" second="19">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -716,23 +658,107 @@ er mag maar één Presenter zijn</Text>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Association" first="23" second="34">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
+      <Relationship type="Association" first="19" second="26">
+        <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>721</X>
-          <Y>600</Y>
+          <X>934</X>
+          <Y>537</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>1095</X>
-          <Y>500</Y>
+          <X>1099</X>
+          <Y>525</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Dependency" first="27" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="27" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="28" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="28" second="15">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1765</X>
+          <Y>1178</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1657</X>
+          <Y>1128</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="6" second="28">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>945</X>
+          <Y>1379</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1773</X>
+          <Y>1364</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="6" second="27">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>961</X>
+          <Y>1411</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>2347</X>
+          <Y>1411</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Dependency" first="29" second="10">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="29" second="19">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>460</X>
+          <Y>747</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Comment" first="30" second="29">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
       </Relationship>
     </Relationships>
   </ProjectItem>
@@ -808,6 +834,8 @@ er mag maar één Presenter zijn</Text>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="0" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -816,6 +844,8 @@ er mag maar één Presenter zijn</Text>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="1" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -828,6 +858,8 @@ er mag maar één Presenter zijn</Text>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="2" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -836,6 +868,8 @@ er mag maar één Presenter zijn</Text>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="4" second="5">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -844,6 +878,8 @@ er mag maar één Presenter zijn</Text>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="4" second="6">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -1067,6 +1103,8 @@ Implementatie van interface alleen wanneer bestaande functionaliteit moet blijve
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="9" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -1075,6 +1113,8 @@ Implementatie van interface alleen wanneer bestaande functionaliteit moet blijve
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="4" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -1083,6 +1123,8 @@ Implementatie van interface alleen wanneer bestaande functionaliteit moet blijve
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="4" second="3">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1095,6 +1137,8 @@ Implementatie van interface alleen wanneer bestaande functionaliteit moet blijve
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="14" second="12">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -1103,6 +1147,8 @@ Implementatie van interface alleen wanneer bestaande functionaliteit moet blijve
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="12" second="9">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -1115,6 +1161,8 @@ Implementatie van interface alleen wanneer bestaande functionaliteit moet blijve
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="11" second="10">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -1123,6 +1171,62 @@ Implementatie van interface alleen wanneer bestaande functionaliteit moet blijve
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="8" second="7">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Mogelijke uitbreiding</Name>
+    <Language>Java</Language>
+    <Entities>
+      <Entity type="Interface">
+        <Name>Slide</Name>
+        <Access>Public</Access>
+        <Location left="171" top="40" />
+        <Size width="210" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void draw()</Member>
+        <Member type="Method">void append(Slideitem slideitem)</Member>
+        <Member type="Method">int getWidth()</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>SlideDeckSlide</Name>
+        <Access>Public</Access>
+        <Location left="317" top="331" />
+        <Size width="212" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public SlideItem getSlideItem(int number)</Member>
+        <Member type="Method">void draw()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PresentationSlide</Name>
+        <Access>Public</Access>
+        <Location left="78" top="331" />
+        <Size width="163" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private List&lt;int&gt; slideItemIndices</Member>
+        <Member type="Method">void draw()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Realization" first="1" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="2" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="2" second="1">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
