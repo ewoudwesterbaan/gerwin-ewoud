@@ -24,11 +24,15 @@
 \end{description}
 
 \section*{Aanpak}
-\todo{<Geef aan hoe jullie de opdracht hebben aangepakt en wie wat heeft gedaan, maximaal 1 A-4. Geef expliciet aandacht aan de volgorde van activiteiten>}
-Uit leereenheid 3 de huidige beschrijving gehaald
-Deze uitgebreid met de concepten uit de scenario beschrijving
-
-
+Om te beginnen hebben we beiden individueel een probleemanalyse gemaakt. Dit zorgde ervoor dat we allebei voldoende inzicht hadden in de huidige applicatie en de gewenste aanpassing. Vervolgens hebben we de terminologie op elkaar afgestemd (Wat is een presentatie? Hoe noemen we een bepaalde volgorde van slides?). De basis voor de probleemanalyse was de huidige beschijving van de applicatie uit leereenheid 3 in combinatie met de source code. Vervolgens is deze uitgebreid met de concepten uit de scenario beschrijving.
+\par
+Vervolgens zijn we begonnen met het schetsen van het model; voornamelijk op conceptueel niveau. Dit gaf ons een praatplaat om te kunnen overleggen wat de relaties zijn. Vanuit de verantwoordelijkheden zijn we methodes gaan toevoegen en hebben we  gebruikers laag `er op' gezet (view en controller). Daarna zijn we meer gaan specifieren wat de implementaties zijn van de concepten, inclusief de mogelijke uitbreiding zoals deze beschreven is in de opdrachtomschrijving. Gedurende het proces kwamen we beide af en toe met heel andere ideeën (het iterator gedeelte `voelde' niet goed), maar dit is achteraf vooral gebruikt om het bestaande model te toetsen (als een soort advocaat van de duivel). Het ontwerp hebben we afgemaakt door het toevoegen van de factories, waarvoor we voor de gehele variablitity laag (dus implementaties van de Presentation, Slide en SlideItem met Item) één factory hadden. 
+\par
+Toen we beiden content waren met het ontwerp, zijn we de bestaande applicatie langzaam gaan omschrijven naar de nieuwe versie. Tijdens de implementatie hebben we kleine aanpassing in het model gemaakt. Als voorbeeld is de factory voor de gehele variability laag geïmplementeerd als een aparte factory per commonality (dus de PresentationFactory, SlideFactory en SlideItemFactory) voor een duidelijkere splitsing van verantwoordelijkheden en om de applicatie in de toekomst eenvoudiger uit te kunnen breiden. De wijziging achteraf zijn niet op conceptueel niveau geweest.
+\par
+We hebben de applicatie afgemaakt door het toevoegen van JavaDoc en het implementeren van de functionaliteit om een presentatie via de gebruikers interface in te laden (wat noemenswaardig eenvoudig bleek met deze opzet).
+\par
+Het merendeel van de opdracht is om-en-om gedaan, omdat onze dagen die beschikbaar zijn voor studie verschillen.
 
 \section{Probleemanalyse}
 \subsection{Dingen}
@@ -60,7 +64,11 @@ Overige verantwoordelijkheden die in de applicatie verwerkt moet worden:
 \end{description}
 
 \subsection{Aannames}
-\todo{Hoe gaan we nu om met bestanden waar geen slidesequence in staat?}.
+\begin{description}
+\item[Niet opslaan] De bestaande applicatie bevat een hele sumiere opslag functionaliteit. De basis van de applicatie is dat het een alleen-lezen applicatie is (functionaliteit als het aanpassen van presentaties zit er niet in). Om deze reden hebben we geen opslag functionaliteit in de nieuwe versie zitten. Openen heeft wel toegevoegde waarde, dus deze zullen we wel implementeren.
+\item[Niet wijzigen] De huidige applicatie bevat geen functionaliteit om wijzigingen door te voeren in presentaties. Wij zullen dit ook niet implementeren.
+\item[Niet nieuw] Om dezelfde als dat we geen opslag functionaliteit aanbieden, laten we ook het aanmaken van een nieuwe presentatie achterwegen.
+\end{description}
 
 \section{Ontwerp}
 \begin{description}
@@ -117,6 +125,7 @@ Om te kunnen reageren op wijzigingen van het model, zijn er twee observers gespe
 \end{figure}
 \item[Meerdere views] Zoals al aangegeven bij de observer pattern, is het mogelijk om bijvoorbeeld een aparte presentator view te maken waar opmerkingen op te zien zijn.
 \item[Andere type items] Het is mogelijk om andere type items te tonen op een slide, door een nieuwe concrete klasse te maken die de Item interface implementeerd.
+\item[Andere type bronnen] Een mogelijkheid voor uitbreiding is om presentaties ook te kunnen laden van andere soorten bronnen. De load() functie in de Reader interface is ook zonder argumenten. De ReaderFactory kan de benodige implementatie van Reader teruggeven en deze implementatie de benodige informatie geven. Een voorbeeld is dat de DemoReader geen input nodig heeft, maar de XMLReader wel. Deze wordt dan ook via de constructor doorgegeven.
 \end{description}
 
 
