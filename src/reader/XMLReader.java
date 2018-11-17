@@ -138,17 +138,7 @@ public class XMLReader implements Reader {
 		}
 
 		String type = attributes.getNamedItem(KIND).getTextContent();
-		// deze test skippen hier? komt overeen met de test in SlideItemFactory...
-		SlideItem slideItem = null;
-		if (TEXT.equals(type)) {
-			slideItem = SlideItemFactory.getInstance().getSlideItem(level, "text", item.getTextContent());
-		} else {
-			if (IMAGE.equals(type)) {
-				slideItem = SlideItemFactory.getInstance().getSlideItem(level, "image", item.getTextContent());
-			} else {
-				System.err.println(UNKNOWNTYPE);
-			}
-		}
+		SlideItem slideItem = SlideItemFactory.getInstance().getSlideItem(level, type, item.getTextContent());
 
 		return slideItem;
 	}
