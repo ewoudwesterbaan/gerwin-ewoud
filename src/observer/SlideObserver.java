@@ -5,7 +5,7 @@ import model.Slide;
 
 /**
  * Observer voor het ontvangen van een notification wanneer een andere
- * {@link Slide} geactiveerd is. PresentationObserver objecten moeten zich
+ * {@link Slide} geactiveerd is. SlideObserver objecten moeten zich
  * aanmelden bij de {@link Presenter}.
  * 
  * @author Gerwin van Dijken

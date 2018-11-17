@@ -5,7 +5,7 @@ import model.Presenter;
 
 /**
  * Observer voor het ontvangen van een notification wanneer een andere
- * {@link Presentation} geactiveerd is. PresenterObserver objecten moeten zich
+ * {@link Presentation} geactiveerd is. PresentationObserver objecten moeten zich
  * aanmelden bij de {@link Presenter}.
  * 
  * @author Gerwin van Dijken

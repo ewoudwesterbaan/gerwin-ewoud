@@ -21,8 +21,8 @@ import reader.Reader;
  */
 public class PresentationManager implements Presenter {
 	private List<Presentation> presentations;
-	private List<PresentationObserver> observers;
-	private List<SlideObserver> presentationObservers;
+	private List<PresentationObserver> presentationObservers;
+	private List<SlideObserver> slideObservers;
 	private Presentation currentPresentation;
 
 	/**
@@ -32,8 +32,8 @@ public class PresentationManager implements Presenter {
 	 */
 	public PresentationManager() {
 		presentations = new ArrayList<Presentation>();
-		observers = new ArrayList<PresentationObserver>();
-		presentationObservers = new ArrayList<SlideObserver>();
+		presentationObservers = new ArrayList<PresentationObserver>();
+		slideObservers = new ArrayList<SlideObserver>();
 
 		// initially, no presentation selected
 		currentPresentation = null;
@@ -167,8 +167,8 @@ public class PresentationManager implements Presenter {
 	@Override
 	public void attach(PresentationObserver presenterObserver) {
 		// add observer to observer list
-		if (!observers.contains(presenterObserver))
-			observers.add(presenterObserver);
+		if (!presentationObservers.contains(presenterObserver))
+			presentationObservers.add(presenterObserver);
 	}
 
 	/**
@@ -177,8 +177,8 @@ public class PresentationManager implements Presenter {
 	@Override
 	public void detach(PresentationObserver presenterObserver) {
 		// remove observer from observer list
-		if (observers.contains(presenterObserver))
-			observers.remove(presenterObserver);
+		if (presentationObservers.contains(presenterObserver))
+			presentationObservers.remove(presenterObserver);
 	}
 
 	/**
@@ -187,7 +187,7 @@ public class PresentationManager implements Presenter {
 	 */
 	private void notifyAllPresenterObservers() {
 		// update all presenter observers
-		for (PresentationObserver observer : observers) {
+		for (PresentationObserver observer : presentationObservers) {
 			observer.update(currentPresentation);
 		}
 	}
@@ -196,20 +196,20 @@ public class PresentationManager implements Presenter {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void attach(SlideObserver presentationObserver) {
+	public void attach(SlideObserver slideObserver) {
 		// add observer to observer list
-		if (!presentationObservers.contains(presentationObserver))
-			presentationObservers.add(presentationObserver);
+		if (!slideObservers.contains(slideObserver))
+			slideObservers.add(slideObserver);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void detach(SlideObserver presentationObserver) {
+	public void detach(SlideObserver slideObserver) {
 		// remove observer from observer list
-		if (presentationObservers.contains(presentationObserver))
-			presentationObservers.remove(presentationObserver);
+		if (slideObservers.contains(slideObserver))
+			slideObservers.remove(slideObserver);
 	}
 
 	/**
@@ -222,7 +222,7 @@ public class PresentationManager implements Presenter {
 			currentSlide = currentPresentation.getCurrentSlide();
 
 		// update all presentation observers
-		for (SlideObserver observer : presentationObservers) {
+		for (SlideObserver observer : slideObservers) {
 			observer.update(currentSlide);
 		}
 	}
