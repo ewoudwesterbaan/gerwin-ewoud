@@ -7,7 +7,7 @@
       <Entity type="Class">
         <Name>SlideDeckSlide</Name>
         <Access>Public</Access>
-        <Location left="1814" top="903" />
+        <Location left="1668" top="905" />
         <Size width="212" height="111" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public SlideItem getSlideItem(int number)</Member>
@@ -164,16 +164,6 @@
         <Member type="Method">public Style getStyle(int level)</Member>
         <Modifier>None</Modifier>
       </Entity>
-      <Entity type="Class">
-        <Name>PresentationSlide</Name>
-        <Access>Public</Access>
-        <Location left="1575" top="903" />
-        <Size width="163" height="111" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private List&lt;int&gt; slideItemIndices</Member>
-        <Member type="Method">void draw()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
       <Entity type="Interface">
         <Name>Slide</Name>
         <Access>Public</Access>
@@ -183,11 +173,6 @@
         <Member type="Method">void draw()</Member>
         <Member type="Method">void append(Slideitem slideitem)</Member>
         <Member type="Method">int getWidth()</Member>
-      </Entity>
-      <Entity type="Comment">
-        <Text>Hoeft niet geïmplementeerd te worden, maar is de mogelijke toekomstige uitbreiding.</Text>
-        <Location left="1429" top="1030" />
-        <Size width="160" height="75" />
       </Entity>
       <Entity type="Class">
         <Name>ReaderFactory</Name>
@@ -294,7 +279,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
       <Entity type="Class">
         <Name>SlideFactory</Name>
         <Access>Public</Access>
-        <Location left="1699" top="1205" />
+        <Location left="1691" top="1205" />
         <Size width="162" height="134" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public Slide getSlide()</Member>
@@ -398,20 +383,6 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Association" first="15" second="0">
-        <Label>
-        </Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>1789</X>
-          <Y>932</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <StartMultiplicity>1</StartMultiplicity>
-        <EndMultiplicity>1</EndMultiplicity>
-      </Relationship>
       <Relationship type="Dependency" first="14" second="4">
         <Label>
         </Label>
@@ -426,15 +397,11 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
           <Y>576</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Realization" first="0" second="16">
+      <Relationship type="Realization" first="0" second="15">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Realization" first="15" second="16">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="16" second="1">
+      <Relationship type="Association" first="15" second="1">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -450,15 +417,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Comment" first="17" second="15">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>1550</X>
-          <Y>949</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Dependency" first="18" second="5">
+      <Relationship type="Dependency" first="16" second="5">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
@@ -478,7 +437,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
           <Y>1214</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Association" first="7" second="19">
+      <Relationship type="Association" first="7" second="17">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -494,11 +453,11 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Realization" first="12" second="19">
+      <Relationship type="Realization" first="12" second="17">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Dependency" first="20" second="12">
+      <Relationship type="Dependency" first="18" second="12">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
@@ -512,7 +471,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
           <Y>1194</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Association" first="1" second="21">
+      <Relationship type="Association" first="1" second="19">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
@@ -526,7 +485,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Realization" first="3" second="21">
+      <Relationship type="Realization" first="3" second="19">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -534,7 +493,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
           <Y>927</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Realization" first="2" second="21">
+      <Relationship type="Realization" first="2" second="19">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -546,7 +505,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
           <Y>922</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Comment" first="22" second="4">
+      <Relationship type="Comment" first="20" second="4">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -574,7 +533,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
           <Y>409</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Association" first="19" second="23">
+      <Relationship type="Association" first="17" second="21">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
@@ -592,7 +551,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Realization" first="10" second="23">
+      <Relationship type="Realization" first="10" second="21">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -600,7 +559,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
           <Y>265</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Dependency" first="18" second="24">
+      <Relationship type="Dependency" first="16" second="22">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -612,11 +571,11 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
           <Y>1669</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Realization" first="24" second="6">
+      <Relationship type="Realization" first="22" second="6">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Association" first="19" second="25">
+      <Relationship type="Association" first="17" second="23">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -632,11 +591,11 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Realization" first="13" second="25">
+      <Relationship type="Realization" first="13" second="23">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Association" first="25" second="16">
+      <Relationship type="Association" first="23" second="15">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -648,7 +607,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Realization" first="9" second="26">
+      <Relationship type="Realization" first="9" second="24">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -656,7 +615,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
           <Y>235</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Association" first="8" second="19">
+      <Relationship type="Association" first="8" second="17">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
@@ -670,7 +629,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Association" first="19" second="26">
+      <Relationship type="Association" first="17" second="24">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
@@ -688,31 +647,19 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Dependency" first="27" second="3">
+      <Relationship type="Dependency" first="25" second="3">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Dependency" first="27" second="2">
+      <Relationship type="Dependency" first="25" second="2">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Dependency" first="28" second="0">
+      <Relationship type="Dependency" first="26" second="0">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Dependency" first="28" second="15">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1765</X>
-          <Y>1178</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>1657</X>
-          <Y>1128</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Association" first="6" second="28">
+      <Relationship type="Association" first="6" second="26">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
@@ -722,7 +669,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
           <Y>1379</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>1773</X>
+          <X>1765</X>
           <Y>1364</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
@@ -730,7 +677,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Association" first="6" second="27">
+      <Relationship type="Association" first="6" second="25">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
@@ -748,11 +695,11 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Dependency" first="29" second="10">
+      <Relationship type="Dependency" first="27" second="10">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
-      <Relationship type="Association" first="29" second="19">
+      <Relationship type="Association" first="27" second="17">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
@@ -766,7 +713,7 @@ Tevens hebben we hier te maken met een klasse zonder een methode, dus verantwoor
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Comment" first="30" second="29">
+      <Relationship type="Comment" first="28" second="27">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
