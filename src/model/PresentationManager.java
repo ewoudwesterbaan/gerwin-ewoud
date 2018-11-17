@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import factory.ReaderFactory;
+import observer.SlideObserver;
 import observer.PresentationObserver;
-import observer.PresenterObserver;
 import reader.Reader;
 
 /**
@@ -21,8 +21,8 @@ import reader.Reader;
  */
 public class PresentationManager implements Presenter {
 	private List<Presentation> presentations;
-	private List<PresenterObserver> observers;
-	private List<PresentationObserver> presentationObservers;
+	private List<PresentationObserver> observers;
+	private List<SlideObserver> presentationObservers;
 	private Presentation currentPresentation;
 
 	/**
@@ -32,8 +32,8 @@ public class PresentationManager implements Presenter {
 	 */
 	public PresentationManager() {
 		presentations = new ArrayList<Presentation>();
-		observers = new ArrayList<PresenterObserver>();
-		presentationObservers = new ArrayList<PresentationObserver>();
+		observers = new ArrayList<PresentationObserver>();
+		presentationObservers = new ArrayList<SlideObserver>();
 
 		// initially, no presentation selected
 		currentPresentation = null;
@@ -165,7 +165,7 @@ public class PresentationManager implements Presenter {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void attach(PresenterObserver presenterObserver) {
+	public void attach(PresentationObserver presenterObserver) {
 		// add observer to observer list
 		if (!observers.contains(presenterObserver))
 			observers.add(presenterObserver);
@@ -175,7 +175,7 @@ public class PresentationManager implements Presenter {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void detach(PresenterObserver presenterObserver) {
+	public void detach(PresentationObserver presenterObserver) {
 		// remove observer from observer list
 		if (observers.contains(presenterObserver))
 			observers.remove(presenterObserver);
@@ -187,7 +187,7 @@ public class PresentationManager implements Presenter {
 	 */
 	private void notifyAllPresenterObservers() {
 		// update all presenter observers
-		for (PresenterObserver observer : observers) {
+		for (PresentationObserver observer : observers) {
 			observer.update(currentPresentation);
 		}
 	}
@@ -196,7 +196,7 @@ public class PresentationManager implements Presenter {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void attach(PresentationObserver presentationObserver) {
+	public void attach(SlideObserver presentationObserver) {
 		// add observer to observer list
 		if (!presentationObservers.contains(presentationObserver))
 			presentationObservers.add(presentationObserver);
@@ -206,7 +206,7 @@ public class PresentationManager implements Presenter {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void detach(PresentationObserver presentationObserver) {
+	public void detach(SlideObserver presentationObserver) {
 		// remove observer from observer list
 		if (presentationObservers.contains(presentationObserver))
 			presentationObservers.remove(presentationObserver);
@@ -222,7 +222,7 @@ public class PresentationManager implements Presenter {
 			currentSlide = currentPresentation.getCurrentSlide();
 
 		// update all presentation observers
-		for (PresentationObserver observer : presentationObservers) {
+		for (SlideObserver observer : presentationObservers) {
 			observer.update(currentSlide);
 		}
 	}

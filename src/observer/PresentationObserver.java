@@ -1,11 +1,11 @@
 package observer;
 
+import model.Presentation;
 import model.Presenter;
-import model.Slide;
 
 /**
  * Observer voor het ontvangen van een notification wanneer een andere
- * {@link Slide} geactiveerd is. PresentationObserver objecten moeten zich
+ * {@link Presentation} geactiveerd is. PresenterObserver objecten moeten zich
  * aanmelden bij de {@link Presenter}.
  * 
  * @author Gerwin van Dijken
@@ -16,8 +16,8 @@ import model.Slide;
  */
 public interface PresentationObserver {
 	/**
-	 * Notification dat wordt aangeroepen zodra een andere {@link Slide}
+	 * Notification dat wordt aangeroepen zodra een andere {@link Presentation}
 	 * actief is.
 	 */
-	void update(Slide slide);
+	void update(Presentation presentation);
 }

@@ -10,7 +10,7 @@ import javax.swing.JComponent;
 
 import model.Presenter;
 import model.Slide;
-import observer.PresentationObserver;
+import observer.SlideObserver;
 
 /**
  * <p>
@@ -26,7 +26,7 @@ import observer.PresentationObserver;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class SlideViewerComponent extends JComponent implements PresentationObserver {
+public class SlideViewerComponent extends JComponent implements SlideObserver {
 
 	private Slide slide; // de huidige slide
 	private Font labelFont = null; // het font voor labels

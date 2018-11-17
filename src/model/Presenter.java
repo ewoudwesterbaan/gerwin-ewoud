@@ -1,7 +1,7 @@
 package model;
 
+import observer.SlideObserver;
 import observer.PresentationObserver;
-import observer.PresenterObserver;
 
 /**
  * Presenter houdt de verschillende presentaties bij. Een presentatie is een
@@ -32,7 +32,7 @@ public interface Presenter {
 
 	/**
 	 * Selecteert een {@link Presentation} die getoond moet worden. Aangemelde
-	 * {@link PresenterObserver}s worden genotified.
+	 * {@link PresentationObserver}s worden genotified.
 	 * 
 	 * @param number
 	 *            Het nummer van de {@link Presentation}.
@@ -71,19 +71,19 @@ public interface Presenter {
 
 	/**
 	 * Selecteert de volgende {@link Slide} van de actieve {@link Presentation}.
-	 * Aangemelde {@link PresentationObserver}s worden genotified.
+	 * Aangemelde {@link SlideObserver}s worden genotified.
 	 */
 	void nextSlide();
 
 	/**
 	 * Selecteert de vorige {@link Slide} van de actieve {@link Presentation}.
-	 * Aangemelde {@link PresentationObserver}s worden genotified.
+	 * Aangemelde {@link SlideObserver}s worden genotified.
 	 */
 	void previousSlide();
 
 	/**
 	 * Selecteert de {@link Slide} van de actieve {@link Presentation}.
-	 * Aangemelde {@link PresentationObserver}s worden genotified.
+	 * Aangemelde {@link SlideObserver}s worden genotified.
 	 * 
 	 * @param number
 	 *            Nummer van de slide die geselecteerd moet worden.
@@ -91,38 +91,38 @@ public interface Presenter {
 	void selectSlide(int number);
 
 	/**
-	 * Voegt een observer toe aan de lijst met {@link PresenterObserver} objecten.
+	 * Voegt een observer toe aan de lijst met {@link PresentationObserver} objecten.
 	 * 
 	 * @param presenterObserver
 	 *            Observer die toegevoegd moet worden.
 	 */
-	void attach(PresenterObserver presenterObserver);
+	void attach(PresentationObserver presenterObserver);
 
 	/**
 	 * 
-	 * Verwijdert een observer uit de lijst met {@link PresenterObserver} objecten.
+	 * Verwijdert een observer uit de lijst met {@link PresentationObserver} objecten.
 	 * 
 	 * @param presenterObserver
 	 *            Observer die verwijderd moet worden.
 	 */
-	void detach(PresenterObserver presenterObserver);
+	void detach(PresentationObserver presenterObserver);
 
 	/**
-	 * Voegt een observer toe aan de lijst met {@link PresentationObserver}
+	 * Voegt een observer toe aan de lijst met {@link SlideObserver}
 	 * objecten.
 	 * 
 	 * @param presentationObserver
 	 */
-	void attach(PresentationObserver presentationObserver);
+	void attach(SlideObserver presentationObserver);
 
 	/**
-	 * Verwijdert een observer uit de lijst met {@link PresentationObserver}
+	 * Verwijdert een observer uit de lijst met {@link SlideObserver}
 	 * objecten.
 	 * 
 	 * @param presentationObserver
 	 *            Observer die verwijderd moet worden.
 	 */
-	void detach(PresentationObserver presentationObserver);
+	void detach(SlideObserver presentationObserver);
 
 	/**
 	 * Laad de {@link Presentation}s uit een bestand en selecteert de eerste

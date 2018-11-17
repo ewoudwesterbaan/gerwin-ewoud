@@ -10,7 +10,7 @@ import controller.KeyController;
 import controller.MenuController;
 import model.Presentation;
 import model.Presenter;
-import observer.PresenterObserver;
+import observer.PresentationObserver;
 
 /**
  * <p>
@@ -26,7 +26,7 @@ import observer.PresenterObserver;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class SlideViewerFrame extends JFrame implements PresenterObserver {
+public class SlideViewerFrame extends JFrame implements PresentationObserver {
 	private static final long serialVersionUID = 3227L;
 
 	private static final String JABTITLE = "Jabberpoint 1.6 - OU";
