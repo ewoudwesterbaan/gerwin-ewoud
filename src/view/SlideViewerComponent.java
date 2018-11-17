@@ -8,9 +8,9 @@ import java.awt.Rectangle;
 
 import javax.swing.JComponent;
 
-import model.PresentationObserver;
 import model.Presenter;
 import model.Slide;
+import observer.PresentationObserver;
 
 /**
  * <p>

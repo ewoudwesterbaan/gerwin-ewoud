@@ -10,7 +10,7 @@ import controller.KeyController;
 import controller.MenuController;
 import model.Presentation;
 import model.Presenter;
-import model.PresenterObserver;
+import observer.PresenterObserver;
 
 /**
  * <p>

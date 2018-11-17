@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import factory.ReaderFactory;
+import observer.PresentationObserver;
+import observer.PresenterObserver;
 import reader.Reader;
 
 /**

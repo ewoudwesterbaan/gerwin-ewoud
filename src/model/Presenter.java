@@ -1,5 +1,8 @@
 package model;
 
+import observer.PresentationObserver;
+import observer.PresenterObserver;
+
 /**
  * Presenter houdt de verschillende presentaties bij. Een presentatie is een
  * variatie op een set van slides.
