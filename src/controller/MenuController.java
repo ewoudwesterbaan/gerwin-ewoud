@@ -13,11 +13,11 @@ import javax.swing.JOptionPane;
 
 import model.AboutBox;
 import model.Presenter;
+import model.Slide;
 
 /**
- * <p>
- * De controller voor het menu
- * </p>
+ * De controller voor het menu. Verantwoordelijk voor het uitvoeren van akties
+ * voor diverse menu items.
  * 
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.1 2002/12/17 Gert Florijn
@@ -26,6 +26,7 @@ import model.Presenter;
  * @version 1.4 2007/07/16 Sylvia Stuurman
  * @version 1.5 2010/03/03 Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
+ * @version 2.0 2018/11/18 Gerwin van Dijken en Ewoud Westerbaan
  */
 public class MenuController extends MenuBar {
 
@@ -48,8 +49,6 @@ public class MenuController extends MenuBar {
 	protected static final String GOTO_PRESENTATION = "Go to presentation";
 	protected static final String PRESENTATIONNR = "Presentation number?";
 
-	// TODO: add
-
 	protected static final String TESTFILE = "test.xml";
 	protected static final String SAVEFILE = "dump.xml";
 
@@ -57,6 +56,16 @@ public class MenuController extends MenuBar {
 	protected static final String LOADERR = "Load Error";
 	protected static final String SAVEERR = "Save Error";
 
+	/**
+	 * 
+	 * Constructor van de MenuController. Maakt een menu aan met diverse menu items
+	 * en koppelt eventhandlers aan de menu item.
+	 * 
+	 * @param frame
+	 *            Parent object dat gebruikt kan worden voor dialogs.
+	 * @param presenter
+	 *            {@link Presenter} object dat aangestuurd wordt.
+	 */
 	public MenuController(Frame frame, final Presenter presenter) {
 		parent = frame;
 
@@ -100,7 +109,6 @@ public class MenuController extends MenuBar {
 		fileMenu.add(menuItem = mkMenuItem(EXIT));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				// presentation.exit(0);
 				System.exit(0);
 			}
 		});
@@ -155,7 +163,13 @@ public class MenuController extends MenuBar {
 		setHelpMenu(helpMenu); // nodig for portability (Motif, etc.).
 	}
 
-	// een menu-item aanmaken
+	/**
+	 * Maakt een nieuw menu item aan.
+	 * 
+	 * @param name
+	 *            Naam van het menu item.
+	 * @return Een {link MenuItem} object.
+	 */
 	private MenuItem mkMenuItem(String name) {
 		return new MenuItem(name, new MenuShortcut(name.charAt(0)));
 	}

@@ -6,9 +6,8 @@ import java.awt.event.KeyEvent;
 import model.Presenter;
 
 /**
- * <p>
- * This is the KeyController (KeyListener)
- * </p>
+ * De KeyController (KeyListener). Verantwoordelijk voor het uitvoeren van
+ * diverse keyboard toetsen.
  * 
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.1 2002/12/17 Gert Florijn
@@ -17,15 +16,28 @@ import model.Presenter;
  * @version 1.4 2007/07/16 Sylvia Stuurman
  * @version 1.5 2010/03/03 Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
+ * @version 2.0 2018/11/18 Gerwin van Dijken en Ewoud Westerbaan
  */
 
 public class KeyController extends KeyAdapter {
 	private Presenter presenter; // Er worden commando's gegeven aan de presentatie
 
+	/**
+	 * 
+	 * Constructor van de KeyController.
+	 * 
+	 * @param presenter
+	 *            {@link Presenter} object dat aangestuurd wordt.
+	 */
 	public KeyController(Presenter presenter) {
 		this.presenter = presenter;
 	}
 
+	/**
+	 * Afhandeling van een toetsaanslag. De {@link Presenter} wordt aangestuurd.
+	 * 
+	 * @param keyEvent De specifieke toetsaanslag.
+	 */
 	public void keyPressed(KeyEvent keyEvent) {
 		switch (keyEvent.getKeyCode()) {
 		case KeyEvent.VK_PAGE_DOWN:
@@ -44,7 +56,7 @@ public class KeyController extends KeyAdapter {
 		case 'q':
 		case 'Q':
 			System.exit(0);
-			break; // wordt nooit bereikt als het goed is
+			break;
 		default:
 			break;
 		}
