@@ -14,10 +14,10 @@ import model.Presenter;
  * @version 2.0 2018/11/18 Gerwin van Dijken en Ewoud Westerbaan
  *
  */
-public interface PresentationObserver {
+public interface PresentationObserver {	
 	/**
-	 * Notification dat wordt aangeroepen zodra een andere {@link Presentation}
-	 * actief is.
+	 * Notification dat wordt aangeroepen zodra een andere {@link Presentation} actief is.
+	 * @param presentation De nieuwe actieve {@link Presentation}.
 	 */
 	void update(Presentation presentation);
 }

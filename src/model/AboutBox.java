@@ -11,11 +11,10 @@ import javax.swing.JOptionPane;
  * @version 1.5 2010/03/03 Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
-
 public class AboutBox {
 	/**
 	 * Laat de AboutBox zien.
-	 * @param parent
+	 * @param parent {@link Frame} waarop de AboutBox getoond moet worden.
 	 */
 	public static void show(Frame parent) {
 		JOptionPane.showMessageDialog(parent,

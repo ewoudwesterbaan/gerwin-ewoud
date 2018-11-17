@@ -54,6 +54,9 @@ public class XMLReader implements Reader {
 		this.filename = filename;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Presentation> load() {
 		return loadPresentations(this.filename);

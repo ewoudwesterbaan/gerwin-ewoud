@@ -5,7 +5,7 @@ import java.awt.image.ImageObserver;
 
 import factory.StyleFactory;
 
-/** <p> Verantwoordelijk voor het zorgen dat een {@link Item} getekend kan worden met een bepaalde {@link Stijl}.
+/** <p> Verantwoordelijk voor het zorgen dat een {@link Item} getekend kan worden met een bepaalde {@link Style}.
  * @author Ian F. Darwin, ian@darwinsys.com
  * @author Gert Florijn
  * @author Sylvia Stuurman

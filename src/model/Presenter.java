@@ -108,10 +108,9 @@ public interface Presenter {
 	void detach(PresentationObserver presenterObserver);
 
 	/**
-	 * Voegt een observer toe aan de lijst met {@link SlideObserver}
-	 * objecten.
+	 * Voegt een observer toe aan de lijst met {@link SlideObserver} objecten.
 	 * 
-	 * @param presentationObserver
+	 * @param presentationObserver De observer die zich abboneert op wijzigingen van de actieve {@link Presentation}.
 	 */
 	void attach(SlideObserver presentationObserver);
 
@@ -128,7 +127,7 @@ public interface Presenter {
 	 * Laad de {@link Presentation}s uit een bestand en selecteert de eerste
 	 * presentatie.
 	 * 
-	 * @param fileName
+	 * @param fileName Het bestand dat geladen moet worden.
 	 */
 	void loadFile(String fileName);
 }

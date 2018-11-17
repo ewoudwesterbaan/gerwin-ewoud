@@ -69,6 +69,9 @@ public class SlideViewerFrame extends JFrame implements PresentationObserver {
 		setVisible(true);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void update(Presentation presentation)
 	{

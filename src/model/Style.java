@@ -27,10 +27,10 @@ public class Style {
 
 	/**
 	 * Maakt het object aan.
-	 * @param indent 
+	 * @param indent Niveau
 	 * @param color {@link Color}
 	 * @param points Tekstgrootte.
-	 * @param leading
+	 * @param leading Leading
 	 */
 	public Style(int indent, Color color, int points, int leading) {
 		this.indent = indent;
@@ -40,7 +40,7 @@ public class Style {
 	}
 
 	/**
-	 * @inheritDoc
+	 * {@inheritDoc}
 	 */
 	public String toString() {
 		return "["+ indent + "," + color + "; " + fontSize + " on " + leading +"]";

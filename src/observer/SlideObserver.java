@@ -16,8 +16,8 @@ import model.Slide;
  */
 public interface SlideObserver {
 	/**
-	 * Notification dat wordt aangeroepen zodra een andere {@link Slide}
-	 * actief is.
+	 * Notification dat wordt aangeroepen zodra een andere {@link Slide} actief is.
+	 * @param slide De nieuwe actieve {@link Slide}.
 	 */
 	void update(Slide slide);
 }

@@ -11,6 +11,9 @@ import model.Slide;
 
 public class DemoReader implements Reader {
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Presentation> load() {
 		List<Presentation> presentations = new ArrayList<Presentation>();
