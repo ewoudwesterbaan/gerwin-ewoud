@@ -16,7 +16,6 @@ import javax.swing.JOptionPane;
 import factory.PresenterFactory;
 import model.AboutBox;
 import model.Presenter;
-import view.SlideViewerFrame;
 
 /**
  * De controller voor het menu. Verantwoordelijk voor het uitvoeren van akties
