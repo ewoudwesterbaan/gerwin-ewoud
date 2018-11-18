@@ -131,7 +131,7 @@ Omdat bij het selecteren van een andere presentatie we niet willen dat alle (sli
 \begin{description}
 \item[Bepaalde delen laten zien] Het laten zien van bepaalde delen van een slide is gegeven als een mogelijke verandering. Dit is te implementeren door een nieuwe concrete klasse te definiëren die de Slide interface implementeert. Door deze klasse een associatie te geven naar de SlideDeckSlide kan de klasse de SlideItems benaderen. De implementatie van de draw() methode hoeft dan alleen deze specifieke SlideItems op te halen. De SlideFactory zal wel aangepast moeten worden om de nieuwe implementatie als Slide terug te kunnen geven. Zo ook de Reader objecten omdat dit ook een wijziging is in hoe de presentaties zijn opgeslagen. Zie Figure \ref{fig:mogelijkeuitbreiding}, de concrete klasse is hier PresentationSlide genoemd.
 \begin{figure}[htbp]
-\caption{Mogelijke uitbreiding}
+\caption{Mogelijke uitbreiding (specificatie)}
 \centering
 \includegraphics[width=0.75\textwidth]{MogelijkeUitbreiding.PNG}
 \label{fig:mogelijkeuitbreiding}
